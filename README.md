@@ -69,7 +69,9 @@
   - Memory Execution Prevention is enabled
   - Hyper threading enabled
   
-  * My BIOS is unlocked which gives me access to the advanced menu so I could set DVMT to 64MB (128 is fine too). I reccomend unlocking yours as well but     it is not a requirement for functionality of this build. It just gives you more control over the systems configuration.
+
+
+* My BIOS is unlocked which gives me access to the advanced menu so I could set DVMT to 64MB (128 is fine too). I reccomend unlocking yours as well but     it is not a requirement for functionality of this build. It just gives you more control over the systems configuration.
       
 
 
