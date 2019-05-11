@@ -4,36 +4,31 @@
 * Lenovo ThinkPad T450 Ultrabook | macOS Mojave | 10.14.x | Hotpatched Configuration | Hackintosh | 100% Functioning
 
 
-
 * This setup should work as both the installer as well as the permanent setup. I've tested it with both. Make sure CSM is enabled
   in BIOS. After installation is complete go into the kext folder and double click the kext install command script and all of the
   required kext files will be automatically installed to /Library/Extensions. This will also enable system sound functionality.
 
 
-
 * Hardware Configuration:
 
-  ⁃ Intel Core i7-5600U | Broadwell (5th Generation) 
-  ⁃ Dual Core @ 2.7 GHz (up to 3.7 GHz with Turbo Boost) 
-  ⁃ Crucial 16GB (2x8) | DDR3 @ 1600 mhz | (Model CT102464BF160B.M16) | Pulled from a 2014 MacBook Pro
-  ⁃ Intel HD 5500 Graphics | 1536 MB VRAM | Full QE/CI & Metal Support  | HDMI Out @ 3840x2160 Max Resolution
-  ⁃ LG 1080P Full High Definition IPS Display LP140WF6(SP)(C2) (Replaced stock 1600x900 TN Display)
-  - 3 Solid State Drives | 500G Samsung 850 Evo (SATA) | 1TB Samsung 840 Evo M.2 NGFF | 500G Samsung 840 Evo M.2 NGFF
-  - Realtek SDHC Port | 3x USB 3.1 | Mini Display | Intel Gigabit LAN | SIM card  | AUX In/Out | Microphone | HD Webcam 
-  - Dual Battery Setup (Hotpatched and fully functioning with accurate percentage reporting)   
-  - Synaptic One Button Trackpad from T440s (Replaced 3 button Trackpad for better functionality with macOS)
-  - AirPort Extreme AC (1300 MB/s)  & Bluetooth 4.0 PCIe Card (Broadcom BCM94360CS 3x3 MIMO) | NGFF A/E Adapter Required  
-
+  * Intel Core i7-5600U | Broadwell (5th Generation) 
+  * Dual Core @ 2.7 GHz (up to 3.7 GHz with Turbo Boost) 
+  * Crucial 16GB (2x8) | DDR3 @ 1600 mhz | (Model CT102464BF160B.M16) | Pulled from a 2014 MacBook Pro
+  * Intel HD 5500 Graphics | 1536 MB VRAM | Full QE/CI & Metal Support  | HDMI Out @ 3840x2160 Max Resolution
+  * LG 1080P Full High Definition IPS Display LP140WF6(SP)(C2) (Replaced stock 1600x900 TN Display)
+  * 3 Solid State Drives | 500G Samsung 850 Evo (SATA) | 1TB Samsung 840 Evo M.2 NGFF | 500G Samsung 840 Evo M.2 NGFF
+  * Realtek SDHC Port | 3x USB 3.1 | Mini Display | Intel Gigabit LAN | SIM card  | AUX In/Out | Microphone | HD Webcam 
+  * Dual Battery Setup (Hotpatched and fully functioning with accurate percentage reporting)   
+  * Synaptic One Button Trackpad from T440s (Replaced 3 button Trackpad for better functionality with macOS)
+  * AirPort Extreme AC (1300 MB/s)  & Bluetooth 4.0 PCIe Card (Broadcom BCM94360CS 3x3 MIMO) | NGFF A/E Adapter Required  
 
 
 * Fully Functional Hackintosh Configuration | All macOS Mojave Native Features Are Working Beautifully!
 
 
-
 * For full functionality, you will need to swap out the stock Intel WiFi & BT card with a natively supported AirPort Card.
 
   - AppStore Purchases, iMessage, FaceTime, Instant Hotspot, Continuity, Handoff, AirDrop, iTunes Purchases, System Update, Siri, Metal, Sleep, Power         Settings, Backlight Control, Touchpad Gestures (3 and 4 Finger Including Swipes) AirPort Extreme Functionality, Bluetooth, Location Services, iCloud      Features are Fully supported with the proper AirPort card (Find My Mac only works with real card, if you lock the device via iCloud with a PC based       card you're gonna find yourself in a situation you don't want to deal with). This is a 100% working macOS Mojave setup. The only things that aren't       functional are the Dock port and VGA port which are Lenovo options. All Mac features are working properly.
-
 
 
 * Required Hardware Changes: 
@@ -124,5 +119,4 @@
 
   5. If your computer is close enough to mine then there's a chance that everything that's in here will pretty much get you up and running
 
-
-* IF YOU GET STUCK ON ANY PART OF THIS THEN YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
+  6. IF YOU GET STUCK ON ANY PART OF THIS THEN YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
