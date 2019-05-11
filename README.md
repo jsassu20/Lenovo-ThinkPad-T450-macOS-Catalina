@@ -1,4 +1,4 @@
-# Lenovo-ThinkPad-T450-Hackintosh
+# Lenovo ThinkPad T450 Hackintosh
 
 
 
@@ -8,7 +8,7 @@
 
 * This setup should work as both the installer as well as the permanent setup. I've tested it with both. Make sure CSM is enabled
   in BIOS. After installation is complete go into the kext folder and double click the kext install command script and all of the
-  required kext files will be automatically installed to /Library/Extensions. This will also enable system sound functionality.
+  required kext files will be automatically installed to /Library/Extensions.
 
 
 
