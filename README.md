@@ -1,7 +1,7 @@
 # Lenovo-ThinkPad-T450-Hackintosh
 
 
-* Lenovo ThinkPad T450 Ultrabook | macOS Mojave | 10.14.x | Hotpatched Configuration | Hackintosh | 100% Functioning
+* Lenovo ThinkPad T450 Ultrabook | macOS Mojave | 10.14.x | Hotpatched | Hackintosh | 100% Functioning
 
 
 * This setup should work as both the installer as well as the permanent setup. I've tested it with both. Make sure CSM is enabled
