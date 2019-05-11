@@ -151,4 +151,4 @@
   5. If your computer is close enough to mine then there's a chance that everything that's in here will pretty much get you up and running
 
 
-  6. IF YOU GET STUCK ON ANY PART OF THIS THEN YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
+  6. IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
