@@ -1,8 +1,8 @@
-# Lenovo ThinkPad T450 Hackintosh
+# Lenovo ThinkPad T450 Clover Hackintosh Configuration 
 
 
 
-* Lenovo ThinkPad T450 Ultrabook | macOS Mojave | 10.14.x | Hotpatched | Hackintosh | 100% Functioning
+* Intel Broadwell (5th Generation) | macOS Mojave | 10.14.x | Hotpatched | Hackintosh | 100% Functioning
 
 
 
