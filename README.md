@@ -19,11 +19,11 @@
   * Crucial 16GB (2x8) | DDR3 @ 1600 mhz | (Model CT102464BF160B.M16) | Pulled from a 2014 MacBook Pro
   * Intel HD 5500 Graphics | 1536 MB VRAM | Full QE/CI & Metal Support  | HDMI Out @ 3840x2160 Max Resolution
   * LG 1080P Full High Definition IPS Display LP140WF6(SP)(C2) (Replaced stock 1600x900 TN Display)
-  * 3 Solid State Drives | 500G Samsung 850 Evo (SATA) | 1TB Samsung 840 Evo M.2 NGFF | 500G Samsung 840 Evo M.2 NGFF
-  * Realtek SDHC Port | 3x USB 3.1 | Mini Display | Intel Gigabit LAN | SIM card  | AUX In/Out | Microphone | HD Webcam 
+  * 3 Solid State Drives | 500G Samsung 850 Evo SATA | 1TB Samsung 840 Evo M.2 | 500G Samsung 840 Evo M.2
+  * Realtek SDHC | 3x USB 3.1 | HDMI | Intel Gigabit LAN | SIM card  | AUX In/Out | Microphone | HD Webcam 
   * Dual Battery Setup (Hotpatched and fully functioning with accurate percentage reporting)   
   * Synaptic One Button Trackpad from T440s (Replaced 3 button Trackpad for better functionality with macOS)
-  * AirPort Extreme AC (1300 MB/s)  & Bluetooth 4.0 PCIe Card (Broadcom BCM94360CS 3x3 MIMO) | NGFF A/E Adapter Required  
+  * AirPort Extreme AC (1300 MB/s) & Bluetooth 4.0 PCIe (Broadcom BCM94360CSAX) NGFF A/E Adapter Required  
 
 
 
