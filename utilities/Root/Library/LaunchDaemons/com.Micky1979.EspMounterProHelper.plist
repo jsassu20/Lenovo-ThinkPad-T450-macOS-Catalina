@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.Micky1979.EspMounterProHelper</string>
+	<key>MachServices</key>
+	<dict>
+		<key>com.Micky1979.EspMounterProHelper.mach</key>
+		<true/>
+	</dict>
+	<key>Program</key>
+	<string>/Library/PrivilegedHelperTools/com.Micky1979.EspMounterProHelper</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/Library/PrivilegedHelperTools/com.Micky1979.EspMounterProHelper</string>
+	</array>
+</dict>
+</plist>

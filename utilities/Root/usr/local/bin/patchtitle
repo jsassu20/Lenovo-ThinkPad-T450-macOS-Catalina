@@ -1,0 +1,44 @@
+#!/bin/bash
+if [ "$#" != "3" ]; then
+    echo "patchtitle: apply patchmatic patches with their maciasl title"
+    echo "returns non-zero if no patches apply or there are rejects"
+    echo "usage: $0 file-to-patch.dsl main-patch-directory patch-path"
+    echo ""
+    echo "    example: $0 DSDT.dsl ./laptop-dsdt-git syntax/fix_ADBG.txt"
+    exit 1
+fi
+dsl="$1"
+repository="$2"
+patch="$3"
+
+patch_repository_iasl="$repository/.maciasl"
+
+
+printf '\e[1m'
+
+if [ -f "$patch_repository_iasl" ]; then
+  awk -v name="$patch" -v fullname="$repository/$patch" '
+    BEGIN {FS="\t"; found=0; }
+    $2==name { print $1; found=1; exit; }
+    END { if (!found) { print "{unknown} unknown in .maciasl: " fullname ; } }
+' "$patch_repository_iasl"
+else
+    echo "{local} $patch"
+fi
+printf '\e[0m'
+
+res=$(patchmatic "$dsl" "$repository/$patch")
+
+if echo "$res" | fgrep -q " 0 changes"; then
+    echo "WARNING 0 changes"
+    echo "$res"
+    exit 1
+fi
+
+if echo "$res" | fgrep -q " 0 rejects"; then
+    exit 0
+else
+    echo "ERROR non-zero rejects"
+    echo "$res"
+    exit 1
+fi
