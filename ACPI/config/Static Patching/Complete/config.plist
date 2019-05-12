@@ -628,8 +628,6 @@
 	<dict>
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
-		<key>DefaultVolume</key>
-		<string>macOS Mojave</string>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverHibernate</key>
@@ -637,7 +635,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>10</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>

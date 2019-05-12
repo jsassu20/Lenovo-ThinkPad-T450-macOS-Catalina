@@ -574,14 +574,12 @@
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
 		<string>dart=0 nv_disable=1 kext-dev-mode=1</string>
-		<key>DefaultVolume</key>
-		<string>macOS Mojave</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>10</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
