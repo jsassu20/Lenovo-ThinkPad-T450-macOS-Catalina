@@ -1,113 +1,51 @@
-// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave) | Build By: Jsassu20 (James Sassu) | May 2nd 2019...
-//
-// Clover UEFI Hotpatch | Keyboard Function Keys & TrackPad & TrackPoint Configuration...
-//
-// This Configuration Fixes Device KBD_ For The Proper FN Button Mapping | Also Defines The TrackPad Controller And Enables Apple Trackpad Options In Settings...
-//
-// If This Does Not Work You Can Download Keyboard Maestro And Create The Proper Function Keys Configuration From There...
-//
-DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-INPUT", 0)
+DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-INPUT", 0x00000000)
 {
-    External (_SB.PCI0.LPC.EC, DeviceObj)
-    External (_SB.PCI0.LPC.KBD, DeviceObj)
+    External (_SB_.PCI0.LPCB.EC__, DeviceObj)
+    External (_SB_.PCI0.LPCB.PS2K, DeviceObj)
 
-    Scope (_SB.PCI0.LPC.EC)
+    Scope (_SB.PCI0.LPCB.EC)
     {
-        Method (_Q14, 0, NotSerialized)  // F6 Brightness Up
+        Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {
-            
-            Notify (\_SB.PCI0.LPC.KBD, 0x10)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0286)
-
+            Notify (\_SB.PCI0.LPCB.PS2K, 0x10) // Reserved
         }
 
-        Method (_Q15, 0, NotSerialized)  // F5 Brightness Down
+        Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
         {
-            
-            Notify (\_SB.PCI0.LPC.KBD, 0x20)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0285)
-
+            Notify (\_SB.PCI0.LPCB.PS2K, 0x20) // Reserved
         }
-
-//        Method (_Q6A, 0, NotSerialized)  // F4 Microphone Mute - Siri (SysPrefs>Siri>Keyboard Shortcut)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0168)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E8)
-//
-//        }
-
-//        Method (_Q16, 0, NotSerialized)  // F7 Projector / Mirror Mode
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x026E)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x02EE)
-//
-//        }
-
-//        Method (_Q64, 0, NotSerialized)  // F8 Wireless ON/OFF - Notification Center (SysPrefs>Keyboard>Shortcuts)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0169)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E9)
-//
-//        }
-
-//        Method (_Q66, 0, NotSerialized)  // F9 Settings - System Preferences (SysPrefs>Keyboard>Shortcuts)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0164)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E4)
-//
-//        }
-
-//        Method (_Q67, 0, NotSerialized)  //F10 Windows Search (Cortana) - Spotlight Search (SysPrefs>Keyboard>Shortcuts)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0165)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E5)
-//
-//        }
-
-//        Method (_Q68, 0, NotSerialized)  //F18 ALT+TAB Menu - Mission Control (SysPrefs>Keyboard>Shortcuts)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0166)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E6)
-//
-//        }
-
-//        Method (_Q69, 0, NotSerialized)  // Win Key Start Menu - Launchpad (SysPrefs>Keyboard>Shortcuts)
-//        {
-//            
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x0167)
-//            Notify (\_SB_.PCI0.LPC_.KBD_, 0x01E7)
-//
-//        }
     }
-    
-    Scope(_SB.PCI0.LPC.KBD)
+
+    Scope (_SB.PCI0.LPCB.PS2K)
     {
-        // Select specific configuration in VoodooPS2Trackpad.kext
-        Method(_DSM, 4)
+        Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
         {
-            If (!Arg2) { Return (Buffer() { 0x03 } ) }
-            Return (Package()
+            If (!Arg2)
             {
-                "RM,oem-id", "Lenovo",
-                "RM,oem-table-id", "Thinkpad_TrackPad",
+                Return (Buffer (One)
+                {
+                     0x03                                             // .
+                })
+            }
+
+            Return (Package (0x04)
+            {
+                "RM,oem-id", 
+                "Lenovo", 
+                "RM,oem-table-id", 
+                "Thinkpad_TrackPad"
             })
         }
-        // Overrides (the example data here is default in the Info.plist)
-        Name(RMCF, Package()
+
+        Name (RMCF, Package (0x06)
         {
             "Mouse", 
             Package (0x02)
             {
                 "ActLikeTrackpad", 
                 ">y"
-            },
-            
+            }, 
+
             "Keyboard", 
             Package (0x08)
             {
@@ -119,36 +57,61 @@ DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-INPUT", 0)
                 "1500", 
                 "Swap command and option", 
                 ">y"
-            },  
-            
-            "Synaptics TouchPad", Package()
+            }, 
+
+            "Synaptics TouchPad", 
+            Package (0x30)
             {
-                "BogusDeltaThreshX", 800,
-                "BogusDeltaThreshY", 800,
-                "Clicking", ">y",
-                "DragLockTempMask", 0x40004,
-                "DynamicEWMode", ">n",
-                "FakeMiddleButton", ">y",
-                "HWResetOnStart", ">y",
-                "ForcePassThrough", ">y",
-                "SkipPassThrough", ">y",
-                "PalmNoAction When Typing", ">y",
-                "ScrollResolution", 800,
-                "SmoothInput", ">y",
-                "UnsmootInput", ">y",
-                "Thinkpad", ">y",
-                "EdgeBottom", 0,
-                "FingerZ", 30,
-                "MaxTapTime", 100000000,
-                "MomentumScrollThreshY", 32,
-                "MouseMultiplierX", 8,
-                "MouseMultiplierY", 8,
-                "MouseScrollMultiplierX", 8,
-                "MouseScrollMultiplierY", 8,
-                "TrackpointScrollYMultiplier", 2, //Change this value to 0xFFFF in order to inverse the vertical scroll direction of the Trackpoint when holding the middle mouse button.
-                "TrackpointScrollXMultiplier", 2, //Change this value to 0xFFFF in order to inverse the horizontal scroll direction of the Trackpoint when holding the middle mouse button.
+                "BogusDeltaThreshX", 
+                0x0320, 
+                "BogusDeltaThreshY", 
+                0x0320, 
+                "Clicking", 
+                ">y", 
+                "DragLockTempMask", 
+                0x00040004, 
+                "DynamicEWMode", 
+                ">n", 
+                "FakeMiddleButton", 
+                ">y", 
+                "HWResetOnStart", 
+                ">y", 
+                "ForcePassThrough", 
+                ">y", 
+                "SkipPassThrough", 
+                ">y", 
+                "PalmNoAction When Typing", 
+                ">y", 
+                "ScrollResolution", 
+                0x0320, 
+                "SmoothInput", 
+                ">y", 
+                "UnsmootInput", 
+                ">y", 
+                "Thinkpad", 
+                ">y", 
+                "EdgeBottom", 
+                Zero, 
+                "FingerZ", 
+                0x1E, 
+                "MaxTapTime", 
+                0x05F5E100, 
+                "MomentumScrollThreshY", 
+                0x20, 
+                "MouseMultiplierX", 
+                0x08, 
+                "MouseMultiplierY", 
+                0x08, 
+                "MouseScrollMultiplierX", 
+                0x08, 
+                "MouseScrollMultiplierY", 
+                0x08, 
+                "TrackpointScrollYMultiplier", 
+                0x02, 
+                "TrackpointScrollXMultiplier", 
+                0x02
             }
         })
     }
 }
-//EOF
+

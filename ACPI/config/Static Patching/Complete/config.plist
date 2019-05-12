@@ -17,7 +17,7 @@
 				<key>AddMCHC</key>
 				<false/>
 				<key>AddPNLF</key>
-				<true/>
+				<false/>
 				<key>DeleteUnused</key>
 				<false/>
 				<key>FixACST</key>
@@ -29,7 +29,7 @@
 				<key>FixDarwin7</key>
 				<false/>
 				<key>FixDisplay</key>
-				<true/>
+				<false/>
 				<key>FixHDA</key>
 				<false/>
 				<key>FixHPET</key>
@@ -37,7 +37,7 @@
 				<key>FixIPIC</key>
 				<false/>
 				<key>FixIntelGfx</key>
-				<true/>
+				<false/>
 				<key>FixLAN</key>
 				<false/>
 				<key>FixMutex</key>
@@ -401,7 +401,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q15,0,N) to XQ15</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1ExNQA=
@@ -415,7 +415,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q14,0,N) to XQ14</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1ExNAA=
