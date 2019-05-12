@@ -150,6 +150,11 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 * IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
 
 #
+# My Tools Repo (Has Everything You Need)
+
+- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
+
+#
 # Useful Applications: Get All Of These!
 
 - https://mackie100projects.altervista.org/download-clover-configurator/
@@ -209,7 +214,7 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 - https://github.com/RehabMan/OS-X-Clover-Laptop-Config
 
--https://github.com/RehabMan/Laptop-DSDT-Patch
+- https://github.com/RehabMan/Laptop-DSDT-Patch
 
 #
 # Other Guides:
@@ -233,8 +238,6 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 #
 # Hackintosh Tools:
-
-- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools (My apps and tools that I use. USE THIS! IT HAS EVERYTHING)
 
 - https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
 
