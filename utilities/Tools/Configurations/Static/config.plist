@@ -429,7 +429,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q6A,0,N) to XQ28</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2QQA=
@@ -443,7 +443,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q16,0,N) to XQ19</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1ExNgA=
@@ -457,7 +457,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q64,0,N) to XQ2A</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NAA=
@@ -471,7 +471,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q66,0,N) to XQ66</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NgA=
@@ -485,7 +485,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q67,0,N) to XQ67</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NwA=
@@ -499,7 +499,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q68,0,N) to XQ68</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2OAA=
@@ -513,7 +513,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q69,0,N) to XQ69</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2OQA=
