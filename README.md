@@ -85,10 +85,19 @@ One of the most important aspects of running macOS on PC hardware and getting al
      	   
    - Second, Static Patching has no universal support and thus is required to be done for all configurations individually which utilize this method for        patching the ACPI! This means that in almost all cases, if someone has the same computer as you and they post their build on a forum and you              come across it, you almost always wont be able to just load their configuration into your's by substituting the CLOVER folder's contents with             regards to the ACPI directory even though you have the same device. This means that all users who want to install macOS on their devices will             unfortunately need to know how to patch their DSDT if they want a completely functioning setup. This is unfortunately an advanced process and             requires extensive knowledge of the inner workings of ASL coding and the macOS ACPI configuration in order to accomplish a complete DSDT patch.
   
-2. Hotpatching:        
+
+2. Hotpatching: The second method for patching ACPI code in order to solve issues with functionality is known as Hotpatching. This method is hands down      the prefered option to use in all cases because of its versatility and support across different devices, and most importantly its ability to survive      BIOS changes, updates, and macOS version upgrades. If a Hotpatched build exists for your hardware or even hardware which is similar then your best bet    is to use it and invest your time and effort into making it function with your device. Hotpatching works different than Static patching in that you're    not making any changes to the DSDT directly as you would with static patching, instead all changes are done on the fly by Clover itself and this is       what allows for a single configuration to be supported across mutiple devices. The changes are always initiated during the booting of the OS and          aren't permanently made to a physicaly ACPI table. You need to use Clover Configurator in order to create a Hotpatched build and the process involves     two basic methods for creating the proper modifications to the DSDT on the fly.
+
+   - The first method is searching and replacing. When using this option you are essentially telling clover to find specific code in the DSDT such as the      name of a specific piece of hardware. An example is the video controller. In macOS the video card needs to be named IGPU in order for power               management to work with it. In order to hotpatch this section of the DSDT you would create a patch in Clover Configurator that basicall looks for         all instances of the video card (if not named IGPU) and then it will replace those pieces of code with the proper needed name. So if your video card      is named GFX0 in your systems ACPI then you create a patch using ASCII code that basically says "Find all GFX0 references and Replace them with           IGPU". This will solve your graphics power control issue.
+   
+   - The other method utilized in Hotpatching is called find and disable. It works on the same principle in that it finds specific code present in the         system and instead of replacing it, it will rename the method which voids its function and then a new SSDT will be created which contains the method      you voided so that the changes you need to make are introduced in the custom SSDT.
+   
+  - This is a grossly over simplified explanation of how Hotpatching works because the the actual process is basically harder than Static Patching and        can not be accomplished without a solid understanding of the ACPI and its code functionality.       
           
+
+
 #
-# Static Patching Steps:
+# Static Patching General Steps:
 
 If you want to STATIC patch then check out the ACPI/config directory for my files and the patches you can use. Everything is labeled. I can not give      you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt       to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific           patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats           universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of            applying a patch in maciASL, saving the finished product as an compiled configuration in .aml fornmat, and moving the patched files into the              /EFI/EFI/CLOVER/ACPI/patched folder.
 
@@ -140,10 +149,67 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 * IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
 
+#
+# Useful Applications: Get All Of These!
+
+- https://mackie100projects.altervista.org/download-clover-configurator/
+
+- https://github.com/Micky1979/Clover-Configurator-Pro
+
+- https://www.tonymacx86.com/threads/release-hackintool-v2-4-6.254559/
+
+- https://www.insanelymac.com/forum/files/file/566-esp-mounter-pro/ 
+
+- https://github.com/Piker-Alpha/ssdtPRGen.sh
+
+- https://github.com/acidanthera/MaciASL/releases/download/1.5.4/1.5.4.RELEASE.zip
+
+- https://www.hackintoshzone.com/files/category/21-applications/
+
+- https://github.com/acidanthera/IOJones/releases/download/1.2.2/IOJones_1.2.2.zip
+
+
+#
+# Useful Kexts:
+
+- https://github.com/acidanthera/Lilu/releases/download/1.3.5/1.3.5.RELEASE.zip
+
+- https://github.com/acidanthera/VirtualSMC/releases/download/1.0.3/1.0.3.RELEASE.zip
+
+- https://github.com/acidanthera/WhateverGreen/releases/download/1.2.8/1.2.8.RELEASE.zip
+
+- https://github.com/acidanthera/VoodooPS2/releases/download/2.0.1.1/VoodooPS2Controller.kext.zip
+
+- https://github.com/acidanthera/AppleALC/releases/download/1.3.7/1.3.7.RELEASE.zip
+
+- https://github.com/acidanthera/AptioFixPkg/releases/download/R26/AptioFix-R26-RELEASE.zip
+
+- https://github.com/acidanthera/AirportBrcmFixup/releases/download/2.0.0/2.0.0.RELEASE.zip
+
+- https://github.com/acidanthera/BT4LEContiunityFixup/releases/download/v1.1.2/1.1.2.RELEASE.zip
+
+- https://github.com/acidanthera/CPUFriend/releases/download/1.1.7/1.1.7.RELEASE.zip
+
+- https://github.com/acidanthera/RTCMemoryFixup/releases/download/v1.0.3/1.0.3.RELEASE.zip
+
+- https://github.com/acidanthera/HibernationFixup/releases/download/1.2.5/1.2.5.RELEASE.zip
+
+- https://bitbucket.org/RehabMan/
 
 #
 # Helpful Resources:
 
+- https://www.tonymacx86.com/threads/im-new-to-everything-where-do-i-start.104542/
+
+- https://www.tonymacx86.com/threads/simplest-mac-os-x-installation-guide.60255/
+
+- https://www.tonymacx86.com/forums/the-basics.165/
+
+- https://pikeralpha.wordpress.com/
+
+- https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+
+-https://github.com/RehabMan/Laptop-DSDT-Patch
 
 #
 # Other Guides:
@@ -162,13 +228,25 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 - https://www.insanelymac.com/forum/topic/309493-lenovo-thinkpad-t450s-hd5500-full-hardware-acceleration/
 
+- https://www.tonymacx86.com/threads/guide-sierra-12-6-on-thinkpad-t430-almost-perfect.229103/
+
 
 #
 # Hackintosh Tools:
 
-- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools 
+- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools (My apps and tools that I use. USE THIS! IT HAS EVERYTHING)
 
 - https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
+
+- https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/
+
+- https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/
+
+- https://www.tonymacx86.com/threads/guide-10-11-usb-changes-and-solutions.173616/
+
+- https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/
+
+- https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/
 
 
 #
