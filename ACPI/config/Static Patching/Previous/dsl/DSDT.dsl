@@ -65,7 +65,6 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
     External (PDC6, UnknownObj)
     External (PDC7, UnknownObj)
     External (XOSI, MethodObj)    // 1 Arguments
-    External (DTGP, MethodObj)
 
     Name (VER0, "Clover autopatched")
     Name (WXP1, "Windows 2009")
@@ -3860,7 +3859,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     Offset (0x66)
                 }
 
-                Device (IPIC)
+                Device (PIC)
                 {
                     Name (_HID, EisaId ("PNP0000") /* 8259-compatible Programmable Interrupt Controller */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
@@ -3988,7 +3987,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     })
                 }
 
-                Device (KBD)
+                Device (PS2K)
                 {
                     Method (_HID, 0, NotSerialized)  // _HID: Hardware ID
                     {
@@ -4721,8 +4720,8 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
 
                     Method (_Q64, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x0169)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x01E9)
+                        Notify (PS2K, 0x0169)
+                        Notify (PS2K, 0x01E9)
                     }
 
                     Method (_Q65, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
@@ -4735,8 +4734,8 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
 
                     Method (_Q16, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x026E)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x02EE)
+                        Notify (PS2K, 0x026E)
+                        Notify (PS2K, 0x02EE)
                     }
 
                     Method (_Q17, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
@@ -4829,26 +4828,26 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
 
                     Method (_Q66, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x0164)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x01E4)
+                        Notify (PS2K, 0x0164)
+                        Notify (PS2K, 0x01E4)
                     }
 
                     Method (_Q67, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x0165)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x01E5)
+                        Notify (PS2K, 0x0165)
+                        Notify (PS2K, 0x01E5)
                     }
 
                     Method (_Q68, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x0166)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x01E6)
+                        Notify (PS2K, 0x0166)
+                        Notify (PS2K, 0x01E6)
                     }
 
                     Method (_Q69, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x0167)
-                        Notify (\_SB.PCI0.LPCB.KBD, 0x01E7)
+                        Notify (PS2K, 0x0167)
+                        Notify (PS2K, 0x01E7)
                     }
 
                     Method (_Q26, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
@@ -6560,8 +6559,8 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     {
                         Method (_Q6A, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                         {
-                            Notify (\_SB.PCI0.LPCB.KBD, 0x0168)
-                            Notify (\_SB.PCI0.LPCB.KBD, 0x01E8)
+                            Notify (PS2K, 0x0168)
+                            Notify (PS2K, 0x01E8)
                         }
                     }
 
@@ -8090,7 +8089,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                 Name (_ADR, 0x00030000)  // _ADR: Address
             }
 
-            Device (GLAN)
+            Device (GIGE)
             {
                 Name (_ADR, 0x00190000)  // _ADR: Address
                 Name (_S3D, 0x03)  // _S3D: S3 Device State
@@ -8100,6 +8099,61 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     0x6D, 
                     0x04
                 })
+                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                {
+                    If ((Arg2 == Zero))
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x03                                             // .
+                        })
+                    }
+
+                    Return (Package (0x0E)
+                    {
+                        "AAPL,slot-name", 
+                        Buffer (0x09)
+                        {
+                            "Built in"
+                        }, 
+
+                        "device-id", 
+                        Buffer (0x04)
+                        {
+                             0xA2, 0x15, 0x00, 0x00                           // ....
+                        }, 
+
+                        "vendor-id", 
+                        Buffer (0x04)
+                        {
+                             0x86, 0x80, 0x00, 0x00                           // ....
+                        }, 
+
+                        "model", 
+                        Buffer (0x64)
+                        {
+                            "Apple Computers, Gigabit Ethernet Controller, (Intel Broadwell I218-LM Gigabit Ethernet Controller)"
+                        }, 
+
+                        "name", 
+                        Buffer (0x2D)
+                        {
+                            "Apple Computers, Gigabit Ethernet Controller"
+                        }, 
+
+                        "device_type", 
+                        Buffer (0x14)
+                        {
+                            "Ethernet Controller"
+                        }, 
+
+                        "built-in", 
+                        Buffer (One)
+                        {
+                             0x00                                             // .
+                        }
+                    })
+                }
             }
 
             Name (LTRE, Zero)
@@ -8110,10 +8164,6 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
             {
                 Name (_ADR, 0x001C0000)  // _ADR: Address
                 Name (RID, Zero)
-                Device (SDXC)
-                {
-                    Name (_ADR, 0)
-                } 
                 Method (_INI, 0, NotSerialized)  // _INI: Initialize
                 {
                     LTRE = LTR1 /* \LTR1 */
@@ -8255,6 +8305,96 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Method (XDSM, 4, Serialized)
+                {
+                    Switch (ToInteger (Arg0))
+                    {
+                        Case (ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */){                            Switch (ToInteger (Arg2))
+                            {
+                                Case (Zero)
+                                {
+                                    OPTS = Zero
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        OPTS = One
+                                        If (LTRE)
+                                        {
+                                            OPTS |= 0x40
+                                        }
+
+                                        If (OBFF)
+                                        {
+                                            OPTS |= 0x10
+                                        }
+                                    }
+
+                                    Return (OPTS) /* \_SB_.PCI0.RP01.OPTS */
+                                }
+                                Case (0x04)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (OBFF)
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                        Else
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                    }
+                                }
+                                Case (0x06)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (LTRE)
+                                        {
+                                            If (((LMSL == Zero) || (LNSL == Zero)))
+                                            {
+                                                If ((PCHS == One))
+                                                {
+                                                    LMSL = 0x0846
+                                                    LNSL = 0x0846
+                                                }
+                                                ElseIf ((PCHS == 0x02))
+                                                {
+                                                    LMSL = 0x1003
+                                                    LNSL = 0x1003
+                                                }
+                                            }
+
+                                            LTRV [Zero] = ((LMSL >> 0x0A) & 0x07)
+                                            LTRV [One] = (LMSL & 0x03FF)
+                                            LTRV [0x02] = ((LNSL >> 0x0A) & 0x07)
+                                            LTRV [0x03] = (LNSL & 0x03FF)
+                                            Return (LTRV) /* \_SB_.PCI0.RP01.LTRV */
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
+                    Return (Buffer (One)
+                    {
+                         0x00                                             // .
+                    })
+                }
 
                 Method (HPME, 0, Serialized)
                 {
@@ -8274,18 +8414,13 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                             }
                         }
                     }
-                }       
+                }
             }
 
             Device (RP02)
             {
                 Name (_ADR, 0x001C0001)  // _ADR: Address
                 Name (RID, Zero)
-                Device (ARPT)
-                {
-                    Name (_ADR, 0)
-                }
-                 
                 Method (_INI, 0, NotSerialized)  // _INI: Initialize
                 {
                     LTRE = LTR2 /* \LTR2 */
@@ -8432,6 +8567,97 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Method (XDSM, 4, Serialized)
+                {
+                    Switch (ToInteger (Arg0))
+                    {
+                        Case (ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */){                            Switch (ToInteger (Arg2))
+                            {
+                                Case (Zero)
+                                {
+                                    OPTS = Zero
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        OPTS = One
+                                        If (LTRE)
+                                        {
+                                            OPTS |= 0x40
+                                        }
+
+                                        If (OBFF)
+                                        {
+                                            OPTS |= 0x10
+                                        }
+                                    }
+
+                                    Return (OPTS) /* \_SB_.PCI0.RP02.OPTS */
+                                }
+                                Case (0x04)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (OBFF)
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                        Else
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                    }
+                                }
+                                Case (0x06)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (LTRE)
+                                        {
+                                            If (((LMSL == Zero) || (LNSL == Zero)))
+                                            {
+                                                If ((PCHS == One))
+                                                {
+                                                    LMSL = 0x0846
+                                                    LNSL = 0x0846
+                                                }
+                                                ElseIf ((PCHS == 0x02))
+                                                {
+                                                    LMSL = 0x1003
+                                                    LNSL = 0x1003
+                                                }
+                                            }
+
+                                            LTRV [Zero] = ((LMSL >> 0x0A) & 0x07)
+                                            LTRV [One] = (LMSL & 0x03FF)
+                                            LTRV [0x02] = ((LNSL >> 0x0A) & 0x07)
+                                            LTRV [0x03] = (LNSL & 0x03FF)
+                                            Return (LTRV) /* \_SB_.PCI0.RP02.LTRV */
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
+                    Return (Buffer (One)
+                    {
+                         0x00                                             // .
+                    })
+                }
+
                 Method (HPME, 0, Serialized)
                 {
                     If (PMSX)
@@ -8450,18 +8676,13 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                             }
                         }
                     }
-                }  
+                }
             }
 
             Device (RP03)
             {
                 Name (_ADR, 0x001C0002)  // _ADR: Address
                 Name (RID, Zero)
-                Device (BLTH)
-                {
-                    Name (_ADR, 0)
-                }    
-            
                 Method (_INI, 0, NotSerialized)  // _INI: Initialize
                 {
                     LTRE = LTR3 /* \LTR3 */
@@ -8603,6 +8824,97 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                     Zero
                 })
                 Name (OPTS, Zero)
+                Method (_DSM, 4, Serialized)  // _DSM: Device-Specific Method
+                {
+                    Switch (ToInteger (Arg0))
+                    {
+                        Case (ToUUID ("e5c937d0-3553-4d7a-9117-ea4d19c3434d") /* Device Labeling Interface */){                            Switch (ToInteger (Arg2))
+                            {
+                                Case (Zero)
+                                {
+                                    OPTS = Zero
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        OPTS = One
+                                        If (LTRE)
+                                        {
+                                            OPTS |= 0x40
+                                        }
+
+                                        If (OBFF)
+                                        {
+                                            OPTS |= 0x10
+                                        }
+                                    }
+
+                                    Return (OPTS) /* \_SB_.PCI0.RP03.OPTS */
+                                }
+                                Case (0x04)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (OBFF)
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                        Else
+                                        {
+                                            Return (Buffer (0x10)
+                                            {
+                                                /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,  // ........
+                                                /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00   // ........
+                                            })
+                                        }
+                                    }
+                                }
+                                Case (0x06)
+                                {
+                                    If ((Arg1 >= 0x02))
+                                    {
+                                        If (LTRE)
+                                        {
+                                            If (((LMSL == Zero) || (LNSL == Zero)))
+                                            {
+                                                If ((PCHS == One))
+                                                {
+                                                    LMSL = 0x0846
+                                                    LNSL = 0x0846
+                                                }
+                                                ElseIf ((PCHS == 0x02))
+                                                {
+                                                    LMSL = 0x1003
+                                                    LNSL = 0x1003
+                                                }
+                                            }
+
+                                            LTRV [Zero] = ((LMSL >> 0x0A) & 0x07)
+                                            LTRV [One] = (LMSL & 0x03FF)
+                                            LTRV [0x02] = ((LNSL >> 0x0A) & 0x07)
+                                            LTRV [0x03] = (LNSL & 0x03FF)
+                                            Return (LTRV) /* \_SB_.PCI0.RP03.LTRV */
+                                        }
+                                        Else
+                                        {
+                                            Return (Zero)
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+
+                    Return (Buffer (One)
+                    {
+                         0x00                                             // .
+                    })
+                }
+
                 Method (HPME, 0, Serialized)
                 {
                     If (PMSX)
@@ -8686,7 +8998,7 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                 }
             }
 
-            Device (SAT2)
+            Device (SATB)
             {
                 Name (_ADR, 0x001F0005)  // _ADR: Address
                 Name (_S3D, 0x03)  // _S3D: S3 Device State
@@ -10257,6 +10569,127 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
                 Name (_ADR, 0x001B0000)  // _ADR: Address
                 Name (_S3D, 0x03)  // _S3D: S3 Device State
                 Name (RID, Zero)
+                
+            }        
+
+            Device (MCHC)
+            {
+                Name (_ADR, Zero)  // _ADR: Address
+                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                {
+                    If ((Arg2 == Zero))
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x03                                             // .
+                        })
+                    }
+
+                    Return (Package (0x0E)
+                    {
+                        "AAPL,slot-name", 
+                        Buffer (0x09)
+                        {
+                            "Built In"
+                        }, 
+
+                        "name", 
+                        Buffer (0x23)
+                        {
+                            "Apple Computers Thermal Controller"
+                        }, 
+
+                        "model", 
+                        Buffer (0x58)
+                        {
+                            "Apple Computers, Thermal Controller, (Intel Broadwell Wildcat Point-LP MCHC Controller)"
+                        }, 
+
+                        "device_type", 
+                        Buffer (0x13)
+                        {
+                            "Thermal Controller"
+                        }, 
+
+                        "device-id", 
+                        Buffer (0x04)
+                        {
+                             0xA4, 0x9C, 0x00, 0x00                           // ....
+                        }, 
+
+                        "vendor-id", 
+                        Buffer (0x04)
+                        {
+                             0x86, 0x80, 0x00, 0x00                           // ....
+                        }, 
+
+                        "built-in", 
+                        Buffer (One)
+                        {
+                             0x00                                             // .
+                        }
+                    })
+                }
+            }
+
+            Device (IMEI)
+            {
+                Name (_ADR, 0x00160000)  // _ADR: Address
+                Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                {
+                    If ((Arg2 == Zero))
+                    {
+                        Return (Buffer (One)
+                        {
+                             0x03                                             // .
+                        })
+                    }
+
+                    Return (Package (0x0E)
+                    {
+                        "AAPL,slot-name", 
+                        Buffer (0x09)
+                        {
+                            "Built In"
+                        }, 
+
+                        "name", 
+                        Buffer (0x20)
+                        {
+                            "Apple Computers IMEI Controller"
+                        }, 
+
+                        "model", 
+                        Buffer (0x55)
+                        {
+                            "Apple Computers, IMEI Controller, (Intel Broadwell Wildcat Point-LP IMEI Controller)"
+                        }, 
+
+                        "device_type", 
+                        Buffer (0x10)
+                        {
+                            "IMEI Controller"
+                        }, 
+
+                        "device-id", 
+                        Buffer (0x04)
+                        {
+                             0xBA, 0x9C, 0x00, 0x00                           // ....
+                        }, 
+
+                        "vendor-id", 
+                        Buffer (0x04)
+                        {
+                             0x86, 0x80, 0x00, 0x00                           // ....
+                        }, 
+
+                        "built-in", 
+                        Buffer (One)
+                        {
+                             0x00                                             // .
+                        }
+                    })
+                }
             }
         }
 
@@ -11175,14 +11608,14 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
             })
             Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
             {
-                Notify (\_SB.PCI0.LPCB.KBD, 0x10)
-                //Notify (\_SB.PCI0.LPCB.KBD, 0x0286)
+                Notify (PS2K, 0x0206)
+                Notify (PS2K, 0x0286)
             }
 
             Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
             {
-                Notify (\_SB.PCI0.LPCB.KBD, 0x20)
-                //Notify (\_SB.PCI0.LPCB.KBD, 0x0285)
+                Notify (PS2K, 0x0205)
+                Notify (PS2K, 0x0285)
             }
 
             Method (BRNS, 0, NotSerialized)
@@ -14579,6 +15012,34 @@ DefinitionBlock ("", "DSDT", 2, "LENOVO", "TP-JB   ", 0x00001350)
         Zero, 
         Zero
     })
+    Method (DTGP, 5, NotSerialized)
+    {
+        If ((Arg0 == ToUUID ("a0b5b7c6-1318-441c-b0c9-fe695eaf949b")))
+        {
+            If ((Arg1 == One))
+            {
+                If ((Arg2 == Zero))
+                {
+                    Arg4 = Buffer (One)
+                        {
+                             0x03                                             // .
+                        }
+                    Return (One)
+                }
+
+                If ((Arg2 == One))
+                {
+                    Return (One)
+                }
+            }
+        }
+
+        Arg4 = Buffer (One)
+            {
+                 0x00                                             // .
+            }
+        Return (Zero)
+    }
 
     Method (_WAK, 1, NotSerialized)  // _WAK: Wake
     {

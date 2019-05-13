@@ -14,8 +14,6 @@
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
 				<key>AddDTGP</key>
 				<false/>
-				<key>AddIMEI</key>
-				<false/>
 				<key>AddMCHC</key>
 				<false/>
 				<key>AddPNLF</key>
@@ -26,6 +24,8 @@
 				<false/>
 				<key>FixADP1</key>
 				<false/>
+				<key>FixDarwin</key>
+				<true/>
 				<key>FixDarwin7</key>
 				<false/>
 				<key>FixDisplay</key>
@@ -33,19 +33,19 @@
 				<key>FixHDA</key>
 				<false/>
 				<key>FixHPET</key>
-				<true/>
+				<false/>
 				<key>FixIPIC</key>
-				<true/>
+				<false/>
 				<key>FixIntelGfx</key>
 				<false/>
 				<key>FixLAN</key>
 				<false/>
 				<key>FixMutex</key>
-				<true/>
-				<key>FixRTC</key>
-				<true/>
-				<key>FixRegions</key>
 				<false/>
+				<key>FixRTC</key>
+				<false/>
+				<key>FixRegions</key>
+				<true/>
 				<key>FixS3D</key>
 				<false/>
 				<key>FixSBUS</key>
@@ -53,7 +53,7 @@
 				<key>FixShutdown</key>
 				<false/>
 				<key>FixTMR</key>
-				<true/>
+				<false/>
 				<key>FixUSB</key>
 				<false/>
 				<key>FixWAK</key>
@@ -79,7 +79,7 @@
 					<key>Comment</key>
 					<string>change _DSM to XDSM</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					X0RTTQ==
@@ -115,6 +115,20 @@
 					<key>Replace</key>
 					<data>
 					U0JVUw==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change PEG_ TO PEGP</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					UEVHXw==
+					</data>
+					<key>Replace</key>
+					<data>
+					UEVHUA==
 					</data>
 				</dict>
 				<dict>
@@ -205,7 +219,7 @@
 					<key>Comment</key>
 					<string>Change Method(_PTS,1,N) to ZPTS</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					X1BUUwE=
@@ -217,37 +231,9 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(XSEL,0,S) to XSEZ</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					WFNFTAg=
-					</data>
-					<key>Replace</key>
-					<data>
-					WFNFWgg=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Change Method(ESEL,0,S) to ESEZ</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RVNFTAg=
-					</data>
-					<key>Replace</key>
-					<data>
-					RVNFWgg=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Change Method(_WAK,1,N) to ZWAK</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					X1dBSwE=
@@ -259,9 +245,23 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
+					<string>Change Method(ESEL,0,S) to ESEZ</string>
+					<key>Disabled</key>
+					<true/>
+					<key>Find</key>
+					<data>
+					RVNFTAg=
+					</data>
+					<key>Replace</key>
+					<data>
+					RVNFWgg=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>Instant Wake Fix 1(_PRW 0x6d, 0x03) to (0x6d, 0)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					EhUDCm0KA14=
@@ -275,7 +275,7 @@
 					<key>Comment</key>
 					<string>Instant Wake Fix 2(_PRW 0x6d, 0x04) to (0x6d, 0)</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					EgYCCm0KBA==
@@ -289,7 +289,7 @@
 					<key>Comment</key>
 					<string>Change Method(GBIF,3,N) to XBIF</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					R0JJRgM=
@@ -303,7 +303,7 @@
 					<key>Comment</key>
 					<string>Change Method(GBST,4,N) to XBST</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					R0JTVAQ=
@@ -317,7 +317,7 @@
 					<key>Comment</key>
 					<string>Change Method(L0D,0,N) to XL0D</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					X0wwRA==
@@ -331,7 +331,7 @@
 					<key>Comment</key>
 					<string>Change Notify(BAT0, 0x80) to BATC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					hkJBVDAKgA==
@@ -345,7 +345,7 @@
 					<key>Comment</key>
 					<string>Change Notify(BAT0, 0x81) to BATC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					hkJBVDAKgQ==
@@ -359,7 +359,7 @@
 					<key>Comment</key>
 					<string>Change Notify(BAT1, 0x80) to BATC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					hkJBVDEKgA==
@@ -371,9 +371,9 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Notfiy(_SB.PCI0.LPC.EC.BAT1, 0x01) to BATC</string>
+					<string>Change Notfiy(_SB.PCI0.LPCB.EC.BAT1, 0x01) to BATC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					hlwvBV9TQl9QQ0kwTFBDX0VDX19CQVQxAQ==
@@ -385,9 +385,9 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Notfiy(_SB.PCI0.LPC.EC.BAT1, 0x03) to BATC</string>
+					<string>Change Notfiy(_SB.PCI0.LPCB.EC.BAT1, 0x03) to BATC</string>
 					<key>Disabled</key>
-					<false/>
+					<true/>
 					<key>Find</key>
 					<data>
 					hlwvBV9TQl9QQ0kwTFBDX0VDX19CQVQxCgM=
@@ -429,7 +429,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q6A,0,N) to XQ28</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2QQA=
@@ -443,7 +443,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q16,0,N) to XQ19</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1ExNgA=
@@ -457,7 +457,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q64,0,N) to XQ2A</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NAA=
@@ -471,7 +471,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q66,0,N) to XQ66</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NgA=
@@ -485,7 +485,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q67,0,N) to XQ67</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2NwA=
@@ -499,7 +499,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q68,0,N) to XQ68</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2OAA=
@@ -513,7 +513,7 @@
 					<key>Comment</key>
 					<string>Change Method(_Q69,0,N) to XQ69</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X1E2OQA=
@@ -521,6 +521,62 @@
 					<key>Replace</key>
 					<data>
 					WFE2OQA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Notify(BAT0 to Notify(BATC</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					hkJBVDA=
+					</data>
+					<key>Replace</key>
+					<data>
+					hkJBVEM=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Notify(BAT1 to Notify(BATC</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					hkJBVDE=
+					</data>
+					<key>Replace</key>
+					<data>
+					hkJBVEM=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change LPC to LPCB</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					TFBDXw==
+					</data>
+					<key>Replace</key>
+					<data>
+					TFBDQg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change SAT2 to AHCI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					U0FUMg==
+					</data>
+					<key>Replace</key>
+					<data>
+					QUhDSQ==
 					</data>
 				</dict>
 			</array>
@@ -539,9 +595,9 @@
 		<key>FixHeaders</key>
 		<true/>
 		<key>FixMCFG</key>
-		<false/>
+		<true/>
 		<key>HaltEnabler</key>
-		<false/>
+		<true/>
 		<key>RenameDevices</key>
 		<dict>
 			<key>_SB.PCI0.EXP1</key>
@@ -572,8 +628,8 @@
 	<dict>
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
-		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 kext-dev-mode=1</string>
+		<key>Legacy</key>
+		<string>PBR</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -584,65 +640,113 @@
 		<false/>
 	</dict>
 	<key>Comment</key>
-	<string>Lenovo ThinkPad T450 Hackintosh | Broadwell | Author: Jsassu20 (James Sassu)</string>
+	<string>Lenovo ThinkPad T450 Hackintosh | Broadwell | Author: | Jsassu20 (James Sassu)</string>
 	<key>Devices</key>
 	<dict>
+		<key>AddProperties</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>hda-gfx=onboard-1 for HDMI audio</string>
+				<key>Device</key>
+				<string>IntelGFX</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Key</key>
+				<string>hda-gfx</string>
+				<key>Value</key>
+				<data>
+				b25ib2FyZC0xAA==
+				</data>
+			</dict>
+		</array>
 		<key>Audio</key>
 		<dict>
 			<key>AFGLowPowerState</key>
 			<false/>
 			<key>Inject</key>
-			<integer>28</integer>
+			<integer>0</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
-		<key>HDMIInjection</key>
-		<false/>
-		<key>Inject</key>
-		<false/>
-		<key>LpcTune</key>
-		<false/>
-		<key>NoDefaultProperties</key>
-		<false/>
 		<key>Properties</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
+			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
 			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>PCIe Bridge</string>
+				<string>USB XHC</string>
 				<key>model</key>
-				<string>Apple PCI Express MCHC Host Bridge (Intel Broadwell-U Wildcat Point-LP Host Bridge OPI)</string>
+				<string>Apple MacBook Pro USB Controller (Intel Wildcat Point-LP XHC USB Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro XHC USB Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>IMEI Device</string>
+				<string>IMEI Bus</string>
 				<key>model</key>
-				<string>Apple PCI Express IMEI DRM Controller (Intel Broadwell Wildcat Point-LP IMEI DRM Controller)</string>
+				<string>MacBook Pro IMEI Controller (Intel Wildcat Point-LP MEI Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro IMEI Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x19,0x0)</key>
 			<dict>
+				<key>#IOName</key>
+				<data>
+				R0lHRQ==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>Ethernet</string>
+				<string>Ethernet Controller</string>
 				<key>model</key>
-				<string>Apple Gigabit Ethernet Network Controller (Intel Corporation I218-LM Gigabt Ethernet Adapter | LAN0 | 1000 MB/s)</string>
+				<string>Apple Gigabit Ethernet Controller (Intel I218-LM Ethernet Controller)</string>
+				<key>name</key>
+				<string>Apple Gigabit LAN</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>PinConfigurations</key>
+				<data>
+				</data>
+				<key>codec-id</key>
+				<data>
+				kgLsEA==
+				</data>
 				<key>device_type</key>
-				<string>Audio</string>
+				<string>Audio Device</string>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>
+				HAAAAA==
+				</data>
 				<key>model</key>
 				<string>Realtek ALC3232 High Definition Audio (Intel Broadwell Wildcat Point-LP HD Audio Controller)</string>
 			</dict>
@@ -650,52 +754,98 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>IOName</key>
+				<data>
+				U0RYQw==
+				</data>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>Card Reader</string>
+				<string>Apple SDXC</string>
 				<key>model</key>
-				<string>Apple Internal Memory Card Reader (Realtek Semiconductor Corporation PCI Express Internal Memory Card Reader)</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x1)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built In</string>
-				<key>device_type</key>
-				<string>AirPort</string>
-				<key>model</key>
-				<string>AirPort Extreme Wireless Network Adapter (Broadcom BCM4360 802.11ac Gigabit WiFi Adapter| MIMO 3x3 | 1300 MB/s)</string>
+				<string>Apple SDHC Internal Memory Card Reader (SDXC Memory Card Controller)</string>
+				<key>name</key>
+				<data>
+				U0RYQw==
+				</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>ISA Bridge</string>
+				<string>AppleLPC</string>
 				<key>model</key>
-				<string>Apple PCI Express LPC ISA Bridge (Intel Broadwell Wildcat Point-LP LPC ISA Controller)</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Built In</string>
-				<key>device_type</key>
-				<string>SATA</string>
-				<key>model</key>
-				<string>Intel 9 Series Chipset Family SATA Host (Intel Broadwell Wildcat Point-LP AHCI Controller)</string>
+				<string>AppleLPC Controller (Intel Wildcat Point-LP LPC Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro LPC Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>System Bus</string>
+				<string>SMBus Controller</string>
 				<key>model</key>
-				<string>Apple PCI Express SMBus Controller (Intel Broadwell Wildcat Point-LP SMBus Controller)</string>
+				<string>Apple MacBook Pro SMBus Controller (Intel Broadwel Wildcat Point-LP SMBus Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro SMBus Controller</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
+				<key>AAPL,slot-name</key>
+				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
+				<key>device_type</key>
+				<string>Retina Graphics</string>
+				<key>model</key>
+				<string>Intel HD Graphics 5500</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
+			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
+				<key>AAPL,slot-name</key>
+				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
+				<key>device_type</key>
+				<string>HDMI Out</string>
+				<key>model</key>
+				<string>Intel HDMI/Mini Display Controller (Intel Wildcat Point-LP HDMI Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro HDMI Controller</string>
 			</dict>
 		</dict>
-		<key>SetIntelBacklight</key>
-		<false/>
-		<key>SetIntelMaxBacklight</key>
-		<false/>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
@@ -703,11 +853,11 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
-			<false/>
+			<true/>
 			<key>Inject</key>
 			<true/>
 			<key>NameEH00</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
 		<false/>
@@ -720,6 +870,44 @@
 	<dict>
 		<key>ConsoleMode</key>
 		<string>Max</string>
+		<key>Custom</key>
+		<dict>
+			<key>Tool</key>
+			<array>
+				<dict>
+					<key>Disabled</key>
+					<true/>
+					<key>Hidden</key>
+					<true/>
+					<key>Hotkey</key>
+					<string>)</string>
+					<key>Ignore</key>
+					<true/>
+					<key>Path</key>
+					<string>/Volumes/Install macOS Mojave/System/Library/CoreServices/boot.efi</string>
+					<key>Title</key>
+					<string>Mojave Installer</string>
+					<key>Volume</key>
+					<string>2C3446EB-4918-3897-905A-6A0964E6255B</string>
+				</dict>
+				<dict>
+					<key>Disabled</key>
+					<true/>
+					<key>Hidden</key>
+					<true/>
+					<key>Hotkey</key>
+					<string>!</string>
+					<key>Ignore</key>
+					<true/>
+					<key>Path</key>
+					<string>/Volumes/macOS Mojave/System/Library/CoreServices/boot.efi</string>
+					<key>Title</key>
+					<string>macOS Mojave (Alternate)</string>
+					<key>Volume</key>
+					<string>2C3446EB-4918-3897-905A-6A0964E6255B</string>
+				</dict>
+			</array>
+		</dict>
 		<key>EmbeddedThemeType</key>
 		<string>Dark</string>
 		<key>Hide</key>
@@ -738,20 +926,31 @@
 			<key>DoubleClick</key>
 			<integer>500</integer>
 			<key>Enabled</key>
-			<true/>
+			<false/>
 			<key>Mirror</key>
-			<true/>
+			<false/>
 			<key>Speed</key>
 			<integer>8</integer>
 		</dict>
 		<key>PlayAsync</key>
 		<false/>
 		<key>Scan</key>
-		<true/>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Legacy</key>
+			<true/>
+			<key>Linux</key>
+			<true/>
+			<key>Tool</key>
+			<true/>
+		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
 		<string>FlatCamp</string>
+		<key>Timezone</key>
+		<integer>5</integer>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -765,17 +964,17 @@
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
-			<false/>
+			<true/>
 			<key>NVidia</key>
-			<false/>
+			<true/>
 		</dict>
-		<key>LoadVBios</key>
-		<false/>
+		<key>ig-platform-id</key>
+		<string>0x16160002</string>
 	</dict>
 	<key>Information</key>
 	<dict>
 		<key>ACPI Patch Method</key>
-		<string>Hotpatched</string>
+		<string>Static Patch</string>
 		<key>Author</key>
 		<string>James Anthony Sassu (Jsassu20)</string>
 		<key>Build</key>
@@ -837,6 +1036,42 @@
 		</array>
 		<key>KextsToPatch</key>
 		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Broadwell | 16160002 - 16260006 | 32MB BIOS, 19MB Framebuffer, 9MB Cursor | For systems with locked DVMT set at 32MB | macOS requires a minimum of 64MB and this solves the issue.</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				AAAgAgAAUAE=
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
+				<key>Replace</key>
+				<data>
+				AAAwAQAAkAA=
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>F%uT%04x to F%uTxxxx | AppleBacklightInjector | Enable this if you're having issues with controlling the backlight while using SSDT-PNLF.</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				RiV1VCUwNHgA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleBacklight</string>
+				<key>Replace</key>
+				<data>
+				RiV1VHh4eHgA
+				</data>
+			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>ALC3232 Zeroing 0883</string>
@@ -907,42 +1142,6 @@
 				<key>Replace</key>
 				<data>
 				kgLsEA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable 128MB DVMT-prealloc, 48MB framebuffer, 48MB cursor bytes, 0x0a260006</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAwMAAAAIAAAAAwAAAAM=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>MiniDP-audio, port 0105(12), 0x0a260006</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAAAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQUSAAAEAACHAAAA
 				</data>
 			</dict>
 		</array>

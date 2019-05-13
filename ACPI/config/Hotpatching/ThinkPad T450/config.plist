@@ -574,12 +574,14 @@
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
 		<string>dart=0 nv_disable=1 kext-dev-mode=1</string>
+		<key>DefaultVolume</key>
+		<string>macOS Mojave</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>10</integer>
+		<integer>0</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -592,7 +594,7 @@
 			<key>AFGLowPowerState</key>
 			<false/>
 			<key>Inject</key>
-			<integer>28</integer>
+			<integer>0</integer>
 			<key>ResetHDA</key>
 			<true/>
 		</dict>
@@ -637,12 +639,21 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>PinConfigurations</key>
+				<data>
+				</data>
+				<key>codec-id</key>
+				<data>
+				kgLsEA==
+				</data>
 				<key>device_type</key>
-				<string>Audio</string>
+				<string>Audio Device</string>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>
+				HAAAAA==
+				</data>
 				<key>model</key>
 				<string>Realtek ALC3232 High Definition Audio (Intel Broadwell Wildcat Point-LP HD Audio Controller)</string>
 			</dict>
@@ -666,12 +677,22 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
+				<key>#IOName</key>
+				<data>
+				SU1FSQ==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>ISA Bridge</string>
+				<string>AppleLPC</string>
 				<key>model</key>
-				<string>Apple PCI Express LPC ISA Bridge (Intel Broadwell Wildcat Point-LP LPC ISA Controller)</string>
+				<string>AppleLPC Controller (Intel Wildcat Point-LP LPC Controller)</string>
+				<key>name</key>
+				<string>Apple MacBook Pro LPC Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 			<dict>
@@ -913,7 +934,7 @@
 				<key>Comment</key>
 				<string>Enable 128MB DVMT-prealloc, 48MB framebuffer, 48MB cursor bytes, 0x0a260006</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				BgAmCgEDAwMAAAACAAAwAQAAYAA=
