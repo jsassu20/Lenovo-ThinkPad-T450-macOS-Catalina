@@ -1,0 +1,12 @@
+#!/bin/sh
+_kext='RtWlanU1827'
+if ioreg -rc $_kext | grep IOMACAddress 1>/dev/null 2>/dev/null; then
+    _mac_adr=`ioreg -rc $_kext | sed -n '/IOMACAddress/ s/.*= <\(.*\)>.*/\1/ p'`
+    rtfile="/Applications/Wireless Network Utility.app"/${_mac_adr}rfoff.rtl
+    if [ ! -f $rtfile ]; then
+        rtfile=`/bin/ls "/Applications/Wireless Network Utility.app"/*rfoff.rtl`
+    fi
+    osascript -e 'quit app "Wireless Network Utility"'
+    echo "1" > "$rtfile"
+    open -a "Wireless Network Utility"
+fi

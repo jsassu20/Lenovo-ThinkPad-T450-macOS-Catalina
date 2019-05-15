@@ -13,7 +13,7 @@ then
 fi
 
 printf "%s\n" "Installing tools in $tool_dir"
-for f in Root${tool_dir}/*; 
+for f in Tools${tool_dir}/*; 
 do
     t=${f##*/}
     printf "%s\n" "Checking for $t"

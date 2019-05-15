@@ -6,7 +6,7 @@ cd "$dir"
 
 echo Installing Sleepwatcher Scripts
 # 
-fixed=Root/etc/rc.sleep
+fixed=Tools/etc/rc.sleep
 patch=/etc/rc.sleep
 if [[ -e $fixed ]];
 then
@@ -14,7 +14,7 @@ then
     sudo cp -a "$fixed" "$patch"
 fi
 
-fixed=Root/etc/rc.wakeup
+fixed=Tools/etc/rc.wakeup
 patch=/etc/rc.wakeup
 if [[ -e $fixed ]];
 then
@@ -23,6 +23,6 @@ then
 fi
 
 echo "Installing LaunchDaemon for Sleepwatcher Scripts"
-sudo cp -a Root/Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist /Library/LaunchDaemons
+sudo cp -a Tools/Library/LaunchDaemons/de.bernhard-baehr.sleepwatcher.plist /Library/LaunchDaemons
 
 

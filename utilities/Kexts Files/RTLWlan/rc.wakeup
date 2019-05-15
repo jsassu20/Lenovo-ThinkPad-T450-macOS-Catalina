@@ -1,0 +1,12 @@
+#!/bin/sh
+_kext='RtWlanU1827'
+if ioreg -rc $_kext | grep IOMACAddress 1>/dev/null 2>/dev/null; then
+    _mac_adr=`ioreg -rc $_kext | sed -n '/IOMACAddress/ s/.*= <\(.*\)>.*/\1/ p'`
+    rtfile="/Applications/Wireless Network Utility.app"/${_mac_adr}rfoff.rtl
+    if [ ! -f $rtfile ]; then
+        rtfile=`/bin/ls "/Applications/Wireless Network Utility.app"/*rfoff.rtl`
+    fi
+    kextunload /Library/Extensions/RtWlanU1827.kext
+    kextload /Library/Extensions/RtWlanU1827.kext
+    echo "0" > "$rtfile"
+fi

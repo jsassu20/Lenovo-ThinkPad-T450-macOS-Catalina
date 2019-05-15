@@ -8,7 +8,7 @@ echo Installing Patching nvram save method via LogoutHook
 
 # 
 patch=/etc/rc.shutdown.d/
-for fixed in Root/etc/rc.shutdown.d/*
+for fixed in Tools/etc/rc.shutdown.d/*
 do
     echo Installing $fixed in "$patch"
     sudo mkdir /etc/rc.shutdown.d 2> /dev/null
@@ -16,7 +16,7 @@ do
 done
 
 patch=/etc/rc.boot.d/
-for fixed in Root/etc/rc.boot.d/*
+for fixed in Tools/etc/rc.boot.d/*
 do
     echo Installing $fixed in "$patch"
     sudo mkdir /etc/rc.boot.d 2> /dev/null
@@ -30,7 +30,7 @@ if [[ -e "$fixed" ]];
 then
     echo Installing CloverDaemon Scripts in "$patchd"
     sudo mkdir "$patchd" 2> /dev/null
-    sudo cp -R "Root/$patchd/" "$patchd"
+    sudo cp -R "Tools/$patchd/" "$patchd"
 
     echo Setting LogoutHook to $patch - runs rc.shutdown.d scripts for Logout or Shutdown
     sudo defaults write com.apple.loginwindow LogoutHook "${patch}"
@@ -44,7 +44,7 @@ then
 fi
 
 echo "Installing LaunchDaemon for Startup Scripts"
-sudo cp Root/etc/rc.clover.lib /etc
-sudo cp Root/Library/LaunchDaemons/com.projectosx.clover.daemon.plist /Library/LaunchDaemons
+sudo cp Tools/etc/rc.clover.lib /etc
+sudo cp Tools/Library/LaunchDaemons/com.projectosx.clover.daemon.plist /Library/LaunchDaemons
 
 
