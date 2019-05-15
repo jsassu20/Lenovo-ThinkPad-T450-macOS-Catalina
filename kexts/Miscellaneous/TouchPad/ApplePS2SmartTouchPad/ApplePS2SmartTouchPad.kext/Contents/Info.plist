@@ -936,7 +936,7 @@
 						<key>Inertial2FingScroll</key>
 						<true/>
 						<key>ScrollSmoothSamples</key>
-						<integer>3</integer>
+						<integer>30</integer>
 						<key>Sling2FingScroll</key>
 						<false/>
 					</dict>
@@ -991,7 +991,7 @@
 					<key>InertialScrollDelay</key>
 					<integer>8</integer>
 					<key>InertialScrollDepth</key>
-					<integer>3</integer>
+					<integer>15</integer>
 					<key>NoInertiaForHScroll</key>
 					<true/>
 					<key>ScrollAccelDelay</key>
@@ -1050,23 +1050,23 @@
 				<key>Swiping</key>
 				<dict>
 					<key>3FingerSwipeDownAction</key>
-					<integer>1</integer>
+					<integer>0</integer>
 					<key>3FingerSwipeLeftAction</key>
 					<integer>11</integer>
 					<key>3FingerSwipeRightAction</key>
 					<integer>12</integer>
 					<key>3FingerSwipeUpAction</key>
-					<integer>3</integer>
+					<integer>0</integer>
 					<key>3FingerSwipes</key>
 					<true/>
 					<key>4FingerSwipeDownAction</key>
 					<integer>9</integer>
 					<key>4FingerSwipeLeftAction</key>
-					<integer>16</integer>
+					<integer>7</integer>
 					<key>4FingerSwipeRightAction</key>
-					<integer>15</integer>
+					<integer>6</integer>
 					<key>4FingerSwipeUpAction</key>
-					<integer>2</integer>
+					<integer>4</integer>
 					<key>4FingerSwipes</key>
 					<true/>
 					<key>EdgeSwipeBottom</key>
@@ -1086,7 +1086,7 @@
 					<key>EdgeSwipeSenseVArea</key>
 					<integer>5</integer>
 					<key>EdgeSwipeTop</key>
-					<integer>10</integer>
+					<integer>0</integer>
 					<key>EdgeSwipes</key>
 					<true/>
 					<key>EdgeSwipes2Ways</key>
@@ -1126,7 +1126,7 @@
 					<key>2FingersTapAction</key>
 					<integer>33</integer>
 					<key>3FingersTapAction</key>
-					<integer>34</integer>
+					<integer>33</integer>
 					<key>4FingersTapAction</key>
 					<integer>4</integer>
 					<key>5FingersTapAction</key>
