@@ -1,0 +1,3 @@
+Replace SSDT-VDPS2.aml with SSDT-ASTP.aml
+
+Replace VoodooPS2controller.kext with ApplePS2SmartTouchPad.kext
