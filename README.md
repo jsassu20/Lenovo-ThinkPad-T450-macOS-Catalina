@@ -138,15 +138,32 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 #
 # Users Who've Installed The T440 TrackPad
 
-Added TouchPad files for those users who have chosen to install the Lenovo T440 TrackPad which is the Synaptic UltraNav One Button ClickPad. Files can be found in "utilities/T440 Trackpad" folder.
+Added TouchPad files for those users who have chosen to install the Lenovo T440 TrackPad which is the Synaptic UltraNav One Button ClickPad. 
+
+Files can be found in 
+* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ Trackpad"
+  or
+* "/Volumes/ESP/EFI/CLOVER/kexts/T440\ Trackpad"
 
 Be sure to do the following:
 
-- Replace the SSDT-VPS2.aml file in the "ACPI/patched" folder with SSDT-ASTP.aml file in T440 folder.
+- RUN THE .command FILE INCLUDED IN THE T440 TrackPad folder and all required changes will be made automatically. (MAKE SURE EFI PARTITION THAT CONTAINS CLOVER IS MOUNTED BEFORE RUNNING .command FILE)
 
-- Replace VoodooPS2controller.kext in with ApplePS2SmartTouchpad.kext in both the "kexts/Other" & "kexts/System" folder. Also found in the T440 folder.
+If the .command script doesn't work then do the following:
 
-- If you've already installed the system kexts with my Install Kexts .command file then navigate to the "/Library/Extensions" folder and delete             VoodooPS2controller.kext and copy and paste ApplePS2SmartTouchPad.kext file and be sure to repair the kext cache using my .command file in "kexts         folder.
+- Replace the SSDT-VPS2.aml file in:
+* "/Volumes/ESP/EFI/CLOVER/ACPI/patched"
+
+  with SSDT-ASTP.aml file in: 
+* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/ACPI"
+
+- Replace VoodooPS2controller.kext in the following 3 folders: 
+* "Library/Extensions" (if you installed VoodooPS2Controller to system or ran my script to install system kexts)
+* "/Volumes/ESP/EFI/CLOVER/kexts/Other"
+* "/Volumes/ESP/EFI/CLOVER/kexts/System" 
+
+  with ApplePS2SmartTouchpad.kext that can be found in: 
+* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/Kext"
 
 #
 # Miscellaneous Information:
