@@ -149,7 +149,9 @@ or
 
 Be sure to do the following:
 
-- RUN THE .command FILE INCLUDED IN THE T440 TrackPad folder and all required changes will be made automatically. (MAKE SURE EFI PARTITION THAT CONTAINS CLOVER IS MOUNTED BEFORE RUNNING .command FILE)
+- Run my ".command" located in "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/" folder and all required changes will be made automatically. 
+
+*** (MAKE SURE EFI PARTITION THAT CONTAINS CLOVER IS MOUNTED BEFORE RUNNING MY ".command" FILE) ***
 
 If the .command script doesn't work then do the following:
 
