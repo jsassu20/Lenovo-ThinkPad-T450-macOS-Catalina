@@ -142,7 +142,9 @@ Added TouchPad files for those users who have chosen to install the Lenovo T440 
 
 Files can be found in 
 * "/Volumes/ESP/EFI/CLOVER/utilities/T440\ Trackpad"
+
 or
+
 * "/Volumes/ESP/EFI/CLOVER/kexts/T440\ Trackpad"
 
 Be sure to do the following:
@@ -152,17 +154,21 @@ Be sure to do the following:
 If the .command script doesn't work then do the following:
 
 - Replace the SSDT-VPS2.aml file in:
+
 * "/Volumes/ESP/EFI/CLOVER/ACPI/patched"
 
 with SSDT-ASTP.aml file in: 
+
 * "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/ACPI"
 
 - Replace VoodooPS2controller.kext in the following 3 folders: 
+
 * "Library/Extensions" (if you installed VoodooPS2Controller to system or ran my script to install system kexts)
 * "/Volumes/ESP/EFI/CLOVER/kexts/Other"
 * "/Volumes/ESP/EFI/CLOVER/kexts/System" 
 
 with ApplePS2SmartTouchpad.kext that can be found in: 
+
 * "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/Kext"
 
 #
