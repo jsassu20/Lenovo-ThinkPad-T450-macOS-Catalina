@@ -136,6 +136,19 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 #
+# Users Who've Installed The T440 TrackPad
+
+Added TouchPad files for those users who have chosen to install the Lenovo T440 TrackPad which is the Synaptic UltraNav One Button ClickPad. Files can be found in "utilities/T440 Trackpad" folder.
+
+Be sure to do the following:
+
+- Replace the SSDT-VPS2.aml file in the "ACPI/patched" folder with SSDT-ASTP.aml file in T440 folder.
+
+- Replace VoodooPS2controller.kext in with ApplePS2SmartTouchpad.kext in both the "kexts/Other" & "kexts/System" folder. Also found in the T440 folder.
+
+- If you've already installed the system kexts with my Install Kexts .command file then navigate to the "/Library/Extensions" folder and delete             VoodooPS2controller.kext and copy and paste ApplePS2SmartTouchPad.kext file and be sure to repair the kext cache using my .command file in "kexts         folder.
+
+#
 # Miscellaneous Information:
 
 1. Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video men as hit as you can, disable            fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning.         Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
