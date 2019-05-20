@@ -81,18 +81,18 @@ One of the most important aspects of running macOS on PC hardware and getting al
   
 1. Static Patching: The original method involves the process of pulling the physical DSDT and SSDT files that are part of   your computers ACPI              configuration and then making direct modifications to the code present in those files (patching) and then placing the modified files into a specific      folder where they will then be injected at boot by Clover in place of the original untouched files in order to fix any issues you were dealing with       prior to patching. This method works well however it has its two major limitations.   
    
-   - First, any changes made to your BIOS configuration (booting  into the BIOS and changing any of the available options) or updates to newer BIOS            versions will require that you re pull the DSDT and SSDT files all over again and patch them because of changes that will occur in the structure          of the DSDT following any BIOS modifications or updates. This can be extremely annoying as it may take a good amount of time perfecting a                 patched configuration (especially in a laptop which because of the need to patch the battery configuration in order to get it working                     correctly). The use of custom SSDT files for making DSDT changes can be a big benefit in this situation as they can achieve the same goal of              changing the code in the DSDT without needing to change the actual DSDT itself however this requires an extensive understanding of the ACPI               configuration in order to create an SSDT that fixes an issue you might have if one does not currently exist elsewhere that you can use.  
+- First, any changes made to your BIOS configuration (booting  into the BIOS and changing any of the available options) or updates to newer BIOS            versions will require that you re pull the DSDT and SSDT files all over again and patch them because of changes that will occur in the structure          of the DSDT following any BIOS modifications or updates. This can be extremely annoying as it may take a good amount of time perfecting a                 patched configuration (especially in a laptop which because of the need to patch the battery configuration in order to get it working                     correctly). The use of custom SSDT files for making DSDT changes can be a big benefit in this situation as they can achieve the same goal of              changing the code in the DSDT without needing to change the actual DSDT itself however this requires an extensive understanding of the ACPI               configuration in order to create an SSDT that fixes an issue you might have if one does not currently exist elsewhere that you can use.  
      	   
-   - Second, Static Patching has no universal support and thus is required to be done for all configurations individually which utilize this method for        patching the ACPI! This means that in almost all cases, if someone has the same computer as you and they post their build on a forum and you              come across it, you almost always wont be able to just load their configuration into your's by substituting the CLOVER folder's contents with             regards to the ACPI directory even though you have the same device. This means that all users who want to install macOS on their devices will             unfortunately need to know how to patch their DSDT if they want a completely functioning setup. This is unfortunately an advanced process and             requires extensive knowledge of the inner workings of ASL coding and the macOS ACPI configuration in order to accomplish a complete DSDT patch.
+- Second, Static Patching has no universal support and thus is required to be done for all configurations individually which utilize this method for        patching the ACPI! This means that in almost all cases, if someone has the same computer as you and they post their build on a forum and you              come across it, you almost always wont be able to just load their configuration into your's by substituting the CLOVER folder's contents with             regards to the ACPI directory even though you have the same device. This means that all users who want to install macOS on their devices will             unfortunately need to know how to patch their DSDT if they want a completely functioning setup. This is unfortunately an advanced process and             requires extensive knowledge of the inner workings of ASL coding and the macOS ACPI configuration in order to accomplish a complete DSDT patch.
   
 
 2. Hotpatching: The second method for patching ACPI code in order to solve issues with functionality is known as Hotpatching. This method is hands down      the prefered option to use in all cases because of its versatility and support across different devices, and most importantly its ability to survive      BIOS changes, updates, and macOS version upgrades. If a Hotpatched build exists for your hardware or even hardware which is similar then your best bet    is to use it and invest your time and effort into making it function with your device. Hotpatching works different than Static patching in that you're    not making any changes to the DSDT directly as you would with static patching, instead all changes are done on the fly by Clover itself and this is       what allows for a single configuration to be supported across mutiple devices. The changes are always initiated during the booting of the OS and          aren't permanently made to a physicaly ACPI table. You need to use Clover Configurator in order to create a Hotpatched build and the process involves     two basic methods for creating the proper modifications to the DSDT on the fly.
 
-   - The first method is searching and replacing. When using this option you are essentially telling clover to find specific code in the DSDT such as the      name of a specific piece of hardware. An example is the video controller. In macOS the video card needs to be named IGPU in order for power               management to work with it. In order to hotpatch this section of the DSDT you would create a patch in Clover Configurator that basicall looks for         all instances of the video card (if not named IGPU) and then it will replace those pieces of code with the proper needed name. So if your video card      is named GFX0 in your systems ACPI then you create a patch using ASCII code that basically says "Find all GFX0 references and Replace them with           IGPU". This will solve your graphics power control issue.
+- The first method is searching and replacing. When using this option you are essentially telling clover to find specific code in the DSDT such as the      name of a specific piece of hardware. An example is the video controller. In macOS the video card needs to be named IGPU in order for power               management to work with it. In order to hotpatch this section of the DSDT you would create a patch in Clover Configurator that basicall looks for         all instances of the video card (if not named IGPU) and then it will replace those pieces of code with the proper needed name. So if your video card      is named GFX0 in your systems ACPI then you create a patch using ASCII code that basically says "Find all GFX0 references and Replace them with           IGPU". This will solve your graphics power control issue.
    
-   - The other method utilized in Hotpatching is called find and disable. It works on the same principle in that it finds specific code present in the         system and instead of replacing it, it will rename the method which voids its function and then a new SSDT will be created which contains the method      you voided so that the changes you need to make are introduced in the custom SSDT.
+- The other method utilized in Hotpatching is called find and disable. It works on the same principle in that it finds specific code present in the         system and instead of replacing it, it will rename the method which voids its function and then a new SSDT will be created which contains the method      you voided so that the changes you need to make are introduced in the custom SSDT.
    
-  - This is a grossly over simplified explanation of how Hotpatching works because the the actual process is basically harder than Static Patching and        can not be accomplished without a solid understanding of the ACPI and its code functionality.       
+- This is a grossly over simplified explanation of how Hotpatching works because the the actual process is basically harder than Static Patching and        can not be accomplished without a solid understanding of the ACPI and its code functionality.       
           
 
 
@@ -105,8 +105,8 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 2. Download MaciASL , iasl, and, patchmatic from RehabMans repo and then unzip all 3 files and move iasl and patchmatic files to your home directory,        and put MaciASL in Applications folder and then open terminal and execute the following commands:
 
-   - sudo cp iasl /usr/bin
-   - sudo cp patchmatic /usr/bin
+- sudo cp iasl /usr/bin
+- sudo cp patchmatic /usr/bin
 
 3. Delete the two files in your home directory and make a folder on your desktop named DSDT
 
@@ -114,7 +114,7 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 5. Open your terminal to the location of your folder on the desktop that contains those files you copied and enter the following command:
 
-   - iasl -da -dl DSDT.aml SSDT*.aml
+- iasl -da -dl DSDT.aml SSDT*.aml
 
 6. It will decompile all files from .aml files into .dsl files.... THE ONLY FILE YOU NEED IS DDST.dsl! Remove it from that folder and put it on the          desktop.
 
@@ -124,16 +124,16 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
          
 9. Whatever patches you want to add are up to you but all you need to do is hit "patch" and then find the corresponding patch in the left hand menu          or enter the contents of a patch you find elsewhere into the right widow on the upper half and then you will see the bar at the bottom indicate           changes that are going to be made from that patch. Hit apply and then you just added a patch. You can continue adding patches to this same file.          There are a few common patches which you should apply from the left hand menu one by one. So you find the patch and then select it from the left          side and then you see the changes on the right side and hit apply then move to the next patch until you've finished. The common patches you should        add are (They will all be in the left side menu and begin with "sys" near the bottom of the list. Apply them one by one)
 
-   - "Fix _WAK Arg0 v2" "HPET Fix"
-   - "SMBUS Fix"
-   - "IRQ Fix"
-   - "RTC Fix"
-   - "OS Check Fix"
-   - "Fix Mutex with non-zero SyncLevel"
+- "Fix _WAK Arg0 v2" "HPET Fix"
+- "SMBUS Fix"
+- "IRQ Fix"
+- "RTC Fix"
+- "OS Check Fix"
+- "Fix Mutex with non-zero SyncLevel"
 
 10. When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /EFI/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
 
-PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
+11. PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 #
 # Users Who've Installed The T440 TrackPad
