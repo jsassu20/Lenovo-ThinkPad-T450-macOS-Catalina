@@ -159,7 +159,7 @@ Replace the SSDT-VPS2.aml file in:
 * "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
 
 with SSDT-ASTP.aml file in: 
-* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/ACPI/"
+* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/"
 
 Replace VoodooPS2controller.kext in the following 3 folders: 
 * "/Library/Extensions/" *** (if you installed it there or ran my script to install system kexts) ***
@@ -167,7 +167,7 @@ Replace VoodooPS2controller.kext in the following 3 folders:
 * "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 with ApplePS2SmartTouchpad.kext that can be found in: 
-* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/Kext/"
+* "/Volumes/ESP/EFI/CLOVER/utilities/T440\ TrackPad/"
 
 #
 # Miscellaneous Information:
