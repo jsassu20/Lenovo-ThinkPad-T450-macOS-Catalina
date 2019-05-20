@@ -41,6 +41,10 @@ My T450 Static patch method. This should only be used with T450s and may not wor
 
 Contains different TrackPad configuration options including VoodooPS2Controller, ApplePS2SmartTouchPad, a Preference Pane for extra trackpad control which works with both Voodoo and ApplePS2 setups. Also includes a way for people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPad to automatically remove VoodooController and associated files and replaces them with ApplePs2SmartTouchPad and it's files.
 
+# Tools
+
+Contains a few different folders for different purposes like installing useful binaries to the /usr/local/bin folder which can be very helpful with Hackintosh computers. It also contains clover startup scripts, a folder with a script that fixes permissions automatically, ssdtPRgen for automatically generating the SSDT.aml file for system power and CPU power configuration, lspci for pulling info on PCI devices, some launch daemons for Clover, a picture which can be used as the System Info photo for the T450, a folder for configuring hardlinked folders, a script for fixing the home and end buttons on the T450 to match macOs. Check out the files. A few .command scripts reside in the utilities folder which this directory lives and and they can automate some of the processes. Make sure you study the scripts before using them if you're unsure of how they work.
+
 # Utilities 
 
 Some binararies and other tools for use with the system. 
