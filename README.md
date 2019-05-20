@@ -138,36 +138,38 @@ PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 #
 # Users Who've Installed The T440 TrackPad
 
-Added TouchPad files for those users who have chosen to install the Lenovo T440 TrackPad which is the Synaptic UltraNav One Button ClickPad. 
+For people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPad...
 
-Files can be found in 
-* "/Volumes/ESP/EFI/CLOVER/utilities/TrackPad/T440_One_Button_ClickPad/"
+- Files can be found in:
+ 
+   * "/Volumes/ESP/EFI/CLOVER/utilities/TrackPad/T440_One_Button_ClickPad/"
+   * "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
 
-or
+- Be sure to do the following:
 
-* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
+   Run my ".command" located in:
+ 
+    * "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad"  
 
-Be sure to do the following:
+- If the .command script doesn't work then do the following:
 
-- Run my ".command" located in "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad" folder and all required changes will be made automatically. 
+   Replace the SSDT-VPS2.aml file in:
 
-*** (MAKE SURE EFI PARTITION THAT CONTAINS CLOVER IS MOUNTED BEFORE RUNNING MY ".command" FILE) ***
+    * "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
 
-If the .command script doesn't work then do the following:
+   with SSDT-ASTP.aml file in:
+ 
+    * "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
 
-Replace the SSDT-VPS2.aml file in:
-* "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
+- Replace VoodooPS2controller.kext in the following 3 folders:
+ 
+    * "/Library/Extensions/" *** (if you installed it there or ran my script to install system kexts) ***
+    * "/Volumes/ESP/EFI/CLOVER/kexts/Other/"
+    * "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
-with SSDT-ASTP.aml file in: 
-* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
-
-Replace VoodooPS2controller.kext in the following 3 folders: 
-* "/Library/Extensions/" *** (if you installed it there or ran my script to install system kexts) ***
-* "/Volumes/ESP/EFI/CLOVER/kexts/Other/"
-* "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
-
-with ApplePS2SmartTouchpad.kext that can be found in: 
-* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
+   with ApplePS2SmartTouchpad.kext that can be found in:
+ 
+    * "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/T440_One_Button_ClickPad/"
 
 #
 # Miscellaneous Information:
