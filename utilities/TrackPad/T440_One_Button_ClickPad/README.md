@@ -3,7 +3,7 @@
 
 For people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPad...
 
-Run my ".command" file to make changes automatically. If the .command script doesn't work:
+Run my ".command" file to make changes automatically. If the ".command" script doesn't work do the following:
 
 Replace the SSDT-VPS2.aml file in:
 * "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
@@ -16,3 +16,5 @@ Replace VoodooPS2controller.kext in the following 3 folders:
 * "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 with ApplePS2SmartTouchpad.kext...
+
+Run the _kextcache.command script (requires admin password)

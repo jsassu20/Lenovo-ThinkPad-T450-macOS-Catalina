@@ -38,12 +38,6 @@ maciASL Patches
 
 #
 
-Reference Guides
-
-- A collection of PDF files which are based on actual Clover configurations for similar hardware to the Lenovo thinkPad T450 and some universal guides.
-
-#
-
 Static Patching
 
 - My T450 Static patch method. This should only be used with T450's and may not work. The SSDTs are universal but you may have to patch your own DSDT to use. You can look over mine for reference. Especially in the battery section.
