@@ -37,31 +37,9 @@ A collection of PDF files which are based on actual Clover configurations for si
 My T450 Static patch method. This should only be used with T450s and may not work. The SSDTs are universal but you may have to patch your own DSDT to use. You can look over mine for reference. Especially in the battery section.
 
 
-# Users Who've Installed The T440 TrackPad
+# TrackPad
 
-For people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPad...
-
-Files can be found in:
-* "TrackPad/T440_One_Button_ClickPad/"
-
-Run my ".command" located in:
-* "TrackPad/T440_One_Button_ClickPad"  
-
-*** If the .command script doesn't work ***
-
-Replace the SSDT-VPS2.aml file in:
-* "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
-
-with SSDT-ASTP.aml file in:
-* "TrackPad/T440_One_Button_ClickPad/"
-
-Replace VoodooPS2controller.kext in the following 3 folders:
-* "/Library/Extensions/" *** (if you installed it there or ran my script to install system kexts) ***
-* "/Volumes/ESP/EFI/CLOVER/kexts/Other/"
-* "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
-
-with ApplePS2SmartTouchpad.kext that can be found in:
-* "TrackPad/T440_One_Button_ClickPad/"
+Contains different TrackPad configuration options including VoodooPS2Controller, ApplePS2SmartTouchPad, a Preference Pane for extra trackpad control which works with both Voodoo and ApplePS2 setups. Also includes a way for people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPad to automatically remove VoodooController and associated files and replaces them with ApplePs2SmartTouchPad and it's files.
 
 # Utilities 
 
