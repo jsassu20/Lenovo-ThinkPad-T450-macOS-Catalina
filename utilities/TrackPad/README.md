@@ -1,5 +1,3 @@
-# TrackPad Tools
-
 # ApplePS2SmartTouchPad
 
 This folder has the corresponding kext file which can be used in place of ReHabMan's VoodooPS2Controller.kext for the trackpad functionality. I don't reccomend using it unless you've installed the Lenovo T440 One Button ClickPad in place of the stock 3 button TrackPad that comes in the T450 stock. It can provide you with a solid configuration which contains a bunch of customization options. It can be used with the stock TrackPad but the physical buttons won't work...

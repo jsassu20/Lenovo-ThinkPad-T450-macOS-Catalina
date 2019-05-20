@@ -1,5 +1,3 @@
-# Different Tools For Lenovo ThinkPad T450
-
 # Audio Configuration
 
 Everything needed to create a patched AppleHDA kext which controls system sound. This is the Codec configuration that the T450 uses. This kext will provide you with a perfectly configured sound setup with Microphone and AUX working.
