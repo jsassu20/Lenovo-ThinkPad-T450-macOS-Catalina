@@ -1,6 +1,6 @@
 # Sytem Sound Configuration Methods
 
-- Configurations for patching the sound setup on this hackintosh build
+Configurations for patching the sound setup on this hackintosh build
 
 #
 
