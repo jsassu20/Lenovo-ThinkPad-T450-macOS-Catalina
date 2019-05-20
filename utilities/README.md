@@ -20,21 +20,9 @@ Hackintosh Tools
 
 #
 
-HD Graphics 5500 
-
-- An old method for configuring DVMT pre allocated memory if your system is stuck at 32MB in the BIOS. I personally have an unlocked BIOS so I can change mine to whatever now. I reccomend unlocking you BIOS which can be done from BIOS-Mods.com along with an SPI programmer and a clip.
-
-#
-
 Hotpatching
 
 - All of my current files used for HotPatching Lenovo ThinkPad T450 and a bunch of other ".dsl" files which can be used as well. 
-
-#
-
-maciASL Patches
-
-- Different patches for maciASL (static patching DSDT).
 
 #
 
@@ -54,5 +42,27 @@ Tools
 
 - Different folders for different purposes like installing useful binaries to the /usr/local/bin folder which can be very helpful with Hackintosh computers. It also contains clover startup scripts, a folder with a script that fixes permissions automatically, ssdtPRgen for automatically generating the SSDT.aml file for system power and CPU power configuration, lspci for pulling info on PCI devices, some launch daemons for Clover, a picture which can be used as the System Info photo for the T450, a folder for configuring hardlinked folders, a script for fixing the home and end buttons on the T450 to match macOs. Check out the files. A few .command scripts reside in the utilities folder which this directory lives and and they can automate some of the processes. Make sure you study the scripts before using them if you're unsure of how they work.
 
+#
 
+Scripts 
+
+_clover_scripts.command
+
+- Installs the clover startup scripts and daemons.
+
+_gatekeeper.command
+
+- Disables macOS gatekeeper and allows opening any app on macOS.
+
+_install_tools.command
+
+- Installs binaries and other tools for hackintosh builds.
+
+_kextcache.command
+
+- Repairs and rebuilds kextcache and system kexts.
+
+_sleepwatcher.command
+
+- Installs sleepwatcher commands.
 
