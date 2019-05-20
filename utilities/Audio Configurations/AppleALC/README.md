@@ -8,7 +8,7 @@ AppleALC.kext (Lilu Plugin for patching AppleHDA.kext for system sound functiona
 
 * layout-id - 28 (1C000000 in HEX format)
 
-Clover Configurator/Devices/Properties/PciRoot(0x0)/Pci(0x1b,0x0)
+Clover Configurator: /Devices/Properties/PciRoot(0x0)/Pci(0x1b,0x0)
    
 * layout-id (DATA) - 1C000000 | or (NUMBER) - 28 |
    
