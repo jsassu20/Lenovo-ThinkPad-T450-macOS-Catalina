@@ -8,7 +8,7 @@ ApplePS2SmartTouchPad
 
 Preference Pane
 
-- Provides a system PrefPane which gives you extra control over the TrackPad and mouse functionality...
+- Provides a system PrefPane which gives you extra control over the TrackPad and mouse functionality.
 
 #
 
@@ -16,7 +16,7 @@ T440_One_Button_ClickPad
 
 - For people who choose to install the T440 trackpad after they've setup their laptop with my configuration. Run the .command file inside this folder and all the proper changes will be made automatically. This script requires elevated access so you'll need the Administrators password for you acount. It also contains the instructions for manual install as well.
 
-*** The .command file requires that the EFI partition where CLOVER folder resides to be mounted ***
+- The .command file requires that the EFI partition where CLOVER folder resides to be mounted.
 
 # 
 
