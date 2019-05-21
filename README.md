@@ -124,14 +124,14 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
          
 - Whatever patches you want to add are up to you but all you need to do is hit "patch" and then find the corresponding patch in the left hand menu          or enter the contents of a patch you find elsewhere into the right widow on the upper half and then you will see the bar at the bottom indicate           changes that are going to be made from that patch. Hit apply and then you just added a patch. You can continue adding patches to this same file.          There are a few common patches which you should apply from the left hand menu one by one. So you find the patch and then select it from the left          side and then you see the changes on the right side and hit apply then move to the next patch until you've finished. The common patches you should        add are (They will all be in the left side menu and begin with "sys" near the bottom of the list. Apply them one by one)
 
-```
-"Fix _WAK Arg0 v2" "HPET Fix"
-"SMBUS Fix"
-"IRQ Fix"
-"RTC Fix"
-"OS Check Fix"
-"Fix Mutex with non-zero SyncLevel"
-```
+   ```
+   "Fix _WAK Arg0 v2" "HPET Fix"
+   "SMBUS Fix"
+   "IRQ Fix"
+   "RTC Fix"
+   "OS Check Fix"
+   "Fix Mutex with non-zero SyncLevel"
+   ```
 
 - When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /ESP/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
 
