@@ -144,7 +144,7 @@ Files can be found in:
 * "/Volumes/ESP/EFI/CLOVER/utilities/TrackPad/Lenovo\ T440\ Clickpad/"
 
 Run my ".command" located in:
-* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/Lenovo\ T440\ Clickpad"  
+* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/Lenovo\ T440\ Clickpad/"  
 
 If the .command script doesn't work
 
