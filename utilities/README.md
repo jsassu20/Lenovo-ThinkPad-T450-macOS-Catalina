@@ -12,18 +12,6 @@ Audio Configuration
 
 #
 
-Clover Configurations 
-
-- A collection of config.plist files and tools for hot patching from RehabMan.
-
-#
-
-Hackintosh Tools
-
-- More files from RehabMan for use with Hackintosh setups.
-
-#
-
 Hotpatching
 
 - All of my current files used for HotPatching Lenovo ThinkPad T450 and a bunch of other ".dsl" files which can be used as well. 
