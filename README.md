@@ -97,8 +97,11 @@ One of the most important aspects of running macOS on PC hardware and getting al
 
 #
 ## Static Patching General Steps:
+#
 
 If you want to STATIC patch then check out the "utilities/ACPI" directory for my files and the patches you can use. Everything is labeled. I can not give you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt  to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific           patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats           universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of            applying a patch in maciASL, saving the finished product as an compiled configuration in .aml format, and moving the patched files into the              /ESP/EFI/CLOVER/ACPI/patched folder.
+
+#
 
 - Clear out the contents of the /ESP/EFI/CLOVER/ACPI/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
 
@@ -138,9 +141,10 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 - When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /ESP/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
 
-```
-PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
-```
+
+### PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
+
+#
 
 ## Users Who've Installed The T440 TrackPad
 
@@ -164,6 +168,9 @@ I've included a folder that contains the files necessary for implementing my pre
    - "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 3. Run the _kextcache.command script (requires admin password).
+
+#
+
 ```
 
 ## Miscellaneous Information:
@@ -177,6 +184,8 @@ I've included a folder that contains the files necessary for implementing my pre
 - If you decide to go with a USB Wifi dongle instead of upgrading the PCIe card then keep in mind that you will not get the full functionality you would    have with an official AirPort module such as AirDrop and Location Services. I suggest using the Asus USB-53 Nano Wireless A/C dongle Because I know       for a fact it works with this build and macOS Mojave in general. You'll need to install the driver and wireless utility that comes with it or dl it       from Asus' website and then reboot the computer and it will work. You can even open up the computer and unscrew the 3rd USB port that's seated next to    the power port on the computer and then you can just plug the USB module in and push the board back from it's seating slightly then close up the case     and then you'll have wifi without that little USB module sticking out of the side of the computer all the time. I did this for a few weeks and it         works great.
 
 - IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
+
+#
 
 # My Tools Repo (Has Everything You Need)
 
