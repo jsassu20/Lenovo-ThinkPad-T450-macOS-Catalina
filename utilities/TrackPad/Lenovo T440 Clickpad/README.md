@@ -4,13 +4,13 @@ This folder contains the files necessary for implementing my preferred trackpad 
 
 #
 
-Instructions:
+### Instructions:
 
 1. Run my ".command" file to make changes automatically.
 
 # 
 
-If the ".command" script doesn't work do the following:
+### If the ".command" script doesn't work do the following:
 
 1. Replace the SSDT-VPS2.aml in the folder listed below with SSDT-ASTP.aml.
    - "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"

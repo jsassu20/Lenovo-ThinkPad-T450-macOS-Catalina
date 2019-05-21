@@ -4,7 +4,7 @@ This folder contains .aml file should be used with the Hot Patched setup. It's n
 
 #
 
-SSDT-ASTP.aml
+### SSDT-ASTP.aml
 
 - ASL based configuration file which is used to modify functionality of specific hardware in the macOS environment. In this case the file will control the fine point functionality of the TrackPad on the T450 (specifically the T440 one button clickpad). This includes aml file only delays with the brightness keys functionality.
 

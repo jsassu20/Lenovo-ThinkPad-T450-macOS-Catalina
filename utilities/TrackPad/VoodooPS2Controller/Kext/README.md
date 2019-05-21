@@ -4,7 +4,7 @@ This folder contains RehabMan's VoodooPS2Controller TrackPad kernel extension (k
 
 #
 
-VoodooPS2Controller.kext
+### VoodooPS2Controller.kext
 
 - The actual VoodooPS2Controller kernel extension resides in this folder (Credit to RehabMan since it's his creation). The kext file is compressed in the archive. Just double click the archive and the kext will appear.
 

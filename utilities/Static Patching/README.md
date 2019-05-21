@@ -4,24 +4,24 @@
 
 #
 
-Dsl Folder
+### Dsl Folder
  
 - Collection of dsl files which can be used to add to the StaticPatch method for specific purposes. Make sure you understand whats going on before using them.
 
 #
 
-Off folder
+### Off folder
 
 - StaticPatch files that aren't in use.
 
 #
 
-config.plist
+### config.plist
 
 - Configuration file to be used with this configuration.
 
 #
 
-.aml files
+### .aml files
 
 - Each of these files has a particular purpose in the Static Patching method. They are the central files which this method revolves around and their purpose is to make changes to the ASL codebase which controls hardware functionality in the macOS kernel base. The most important being the DSDT.aml. All SSDT files are secondary code injection files which add functionality to the DSDT codebase after booting the computer. 
