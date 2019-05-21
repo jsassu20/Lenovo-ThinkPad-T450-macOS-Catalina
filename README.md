@@ -101,39 +101,39 @@ One of the most important aspects of running macOS on PC hardware and getting al
 
 - If you want to STATIC patch then check out the "utilities/ACPI" directory for my files and the patches you can use. Everything is labeled. I can not give you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt  to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific           patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats           universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of            applying a patch in maciASL, saving the finished product as an compiled configuration in .aml format, and moving the patched files into the              /ESP/EFI/CLOVER/ACPI/patched folder.
 
- 1. Clear out the contents of the /ESP/EFI/CLOVER/ACPI/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
+  1. Clear out the contents of the /ESP/EFI/CLOVER/ACPI/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
 
- 2. Download MaciASL , iasl, and, patchmatic from RehabMans repo and then unzip all 3 files and move iasl and patchmatic files to your home directory,        and put MaciASL in Applications folder and then open terminal and execute the following commands:
+  2. Download MaciASL , iasl, and, patchmatic from RehabMans repo and then unzip all 3 files and move iasl and patchmatic files to your home directory,        and put MaciASL in Applications folder and then open terminal and execute the following commands:
 
-  - sudo cp iasl /usr/bin
-  - sudo cp patchmatic /usr/bin
+     - sudo cp iasl /usr/bin
+     - sudo cp patchmatic /usr/bin
 
- 3. Delete the two files in your home directory and make a folder on your desktop named DSDT
+  3. Delete the two files in your home directory and make a folder on your desktop named DSDT
 
- 4. Make a folder on your desktop and copy the files from the /ESP/EFI/CLOVER/ACPI/origin folder (the ones that begin with SSDT or DSDT only) into the        folder on your desktop. You can delete the ones which have "x5_2-" in the middle of their name because they aren't needed.
+  4. Make a folder on your desktop and copy the files from the /ESP/EFI/CLOVER/ACPI/origin folder (the ones that begin with SSDT or DSDT only) into the        folder on your desktop. You can delete the ones which have "x5_2-" in the middle of their name because they aren't needed.
 
- 5. Open your terminal to the location of your folder on the desktop that contains those files you copied and enter the following command:
+  5. Open your terminal to the location of your folder on the desktop that contains those files you copied and enter the following command:
 
-  - iasl -da -dl DSDT.aml SSDT*.aml
+     - iasl -da -dl DSDT.aml SSDT*.aml
 
- 6. It will decompile all files from .aml files into .dsl files.... THE ONLY FILE YOU NEED IS DDST.dsl! Remove it from that folder and put it on the          desktop.
+  6. It will decompile all files from .aml files into .dsl files.... THE ONLY FILE YOU NEED IS DDST.dsl! Remove it from that folder and put it on the          desktop.
 
- 7. Double click on your DDST.dsl file and it will open maciASL (maciASL needs to be in Applications).
+  7. Double click on your DDST.dsl file and it will open maciASL (maciASL needs to be in Applications).
 
- 8. Hit "compile"and if you get any red lines then you need to fix them depending on what your computer is it will be different so you'll have to find        those fixes. Click on each red line from the pop up box and it will show you the line in the DDST.dsl file that needs to be patched in order to           use the file. Yellow warnings are ok to have so don't worry. If you have no errors that's fine and you can still add patches for certain things.
+  8. Hit "compile"and if you get any red lines then you need to fix them depending on what your computer is it will be different so you'll have to find        those fixes. Click on each red line from the pop up box and it will show you the line in the DDST.dsl file that needs to be patched in order to           use the file. Yellow warnings are ok to have so don't worry. If you have no errors that's fine and you can still add patches for certain things.
          
- 9. Whatever patches you want to add are up to you but all you need to do is hit "patch" and then find the corresponding patch in the left hand menu          or enter the contents of a patch you find elsewhere into the right widow on the upper half and then you will see the bar at the bottom indicate           changes that are going to be made from that patch. Hit apply and then you just added a patch. You can continue adding patches to this same file.          There are a few common patches which you should apply from the left hand menu one by one. So you find the patch and then select it from the left          side and then you see the changes on the right side and hit apply then move to the next patch until you've finished. The common patches you should        add are (They will all be in the left side menu and begin with "sys" near the bottom of the list. Apply them one by one)
+  9. Whatever patches you want to add are up to you but all you need to do is hit "patch" and then find the corresponding patch in the left hand menu          or enter the contents of a patch you find elsewhere into the right widow on the upper half and then you will see the bar at the bottom indicate           changes that are going to be made from that patch. Hit apply and then you just added a patch. You can continue adding patches to this same file.          There are a few common patches which you should apply from the left hand menu one by one. So you find the patch and then select it from the left          side and then you see the changes on the right side and hit apply then move to the next patch until you've finished. The common patches you should        add are (They will all be in the left side menu and begin with "sys" near the bottom of the list. Apply them one by one)
 
-  - "Fix _WAK Arg0 v2" "HPET Fix"
-  - "SMBUS Fix"
-  - "IRQ Fix"
-  - "RTC Fix"
-  - "OS Check Fix"
-  - "Fix Mutex with non-zero SyncLevel"
+     - "Fix _WAK Arg0 v2" "HPET Fix"
+     - "SMBUS Fix"
+     - "IRQ Fix"
+     - "RTC Fix"
+     - "OS Check Fix"
+     - "Fix Mutex with non-zero SyncLevel"
 
- 10. When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /ESP/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
+  10. When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /ESP/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
 
- 11. PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
+  11. PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 #
 # Users Who've Installed The T440 TrackPad
