@@ -182,10 +182,9 @@ I've included a folder that contains the files necessary for implementing my pre
    - "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 3. Run the _kextcache.command script (requires admin password).
+```
 
 #
-
-```
 
 ## Miscellaneous Information:
 
