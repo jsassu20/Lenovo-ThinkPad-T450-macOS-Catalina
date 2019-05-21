@@ -13,11 +13,11 @@ Instructions:
 If the ".command" script doesn't work do the following:
 
 1. Replace the SSDT-VPS2.aml in the folder listed below with SSDT-ASTP.aml.
-* "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
+   * "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
 
 2. Replace VoodooPS2controller.kext in the following 3 folders listed below with ApplePS2SmartTouchpad.kext.
-* "/Library/Extensions/"
-* "/Volumes/ESP/EFI/CLOVER/kexts/Other/"
-* "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
+   * "/Library/Extensions/"
+   * "/Volumes/ESP/EFI/CLOVER/kexts/Other/"
+   * "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 3. Run the _kextcache.command script (requires admin password).
