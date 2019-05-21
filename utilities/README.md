@@ -1,4 +1,8 @@
-# Different Tools For Lenovo T450 Hackintosh Setup
+# Tools For Lenovo T450 Hackintosh Setup
+
+This folder contains a number of different useful tools I find helpful with setting up the full macOS system on the Lenovo ThinkPad T450 Ultrabook. You may not find them useful but they're here for anyone to checkout and use if they want.
+
+#
 
 Audio Configuration
 
