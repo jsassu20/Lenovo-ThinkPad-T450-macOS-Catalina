@@ -173,8 +173,7 @@ with ApplePS2SmartTouchpad.kext that can be found in:
 
 4. If you decide to go with a USB Wifi dongle instead of upgrading the PCIe card then keep in mind that you will not get the full functionality you would    have with an official AirPort module such as AirDrop and Location Services. I suggest using the Asus USB-53 Nano Wireless A/C dongle Because I know       for a fact it works with this build and macOS Mojave in general. You'll need to install the driver and wireless utility that comes with it or dl it       from Asus' website and then reboot the computer and it will work. You can even open up the computer and unscrew the 3rd USB port that's seated next to    the power port on the computer and then you can just plug the USB module in and push the board back from it's seating slightly then close up the case     and then you'll have wifi without that little USB module sticking out of the side of the computer all the time. I did this for a few weeks and it         works great.
 
-
-* IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
+5. IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
 
 #
 # My Tools Repo (Has Everything You Need)
