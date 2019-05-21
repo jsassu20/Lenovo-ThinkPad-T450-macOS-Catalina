@@ -79,9 +79,9 @@ This post contain basically everything necessary to install macOS Mojave on a Le
   
 # Installing Clover Bootloader & macOS Mojave:
 
-  
-### Your computer WILL RESTART at least one time while installing. Just boot the installer again and it will finish.
-
+```  
+Your computer WILL RESTART at least one time while installing. THIS IS NORMAL.
+```
   
 Use CLOVER Installer in order to setup the needed EFI partition on your USB macOS Installer as well as the permanent EFI partition that will be on        the same Hard Drive where you plan on installing macOS (if there is not already the proper partition present on the device Clover installer will          create it for you). When the process finishes all you have to do is mount the EFI partition of both drives and swap out the CLOVER and BOOT folders       that exist inside of the EFI folder with the ones from my setup. My configuration is a full Hot Patched instead of Static Patched DSDT patching which is more of a problem in maintaining over time. Hot Patching is much more stable and its also universally supported across the designated hardware it was based on. You won't have to worry about needing to patch your own DSDT because this method doesn't require you to patch your DSDT file. Clover will patch it on the fly with this setup. 
 
