@@ -140,9 +140,9 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 I've included a folder that contains the files necessary for implementing my preferred trackpad configuration after installing the Synaptic One Button Clickpad in my Lenovo ThinkPad T450. I don't recommend using these files unless you have installed the T440 trackpad as well.    
 
-The configuration can be found at "/ESP/EFI/CLOVER/utilities/Trackpad/Lenovo\ T440\ Clickpad"
+### The configuration can be found at "/ESP/EFI/CLOVER/utilities/Trackpad/Lenovo\ T440\ Clickpad"
 
-Instructions:
+## Instructions:
 
 1. Run my ".command" file to make changes automatically.
 
