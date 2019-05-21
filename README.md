@@ -75,17 +75,21 @@ IMPORTANT: Your computer WILL RESTART at least one time while installing. Just b
   
 Use CLOVER Installer in order to setup the needed EFI partition on your USB macOS Installer as well as the permanent EFI partition that will be on        the same Hard Drive where you plan on installing macOS (if there is not already the proper partition present on the device Clover installer will          create it for you). When the process finishes all you have to do is mount the EFI partition of both drives and swap out the CLOVER and BOOT folders       that exist inside of the EFI folder with the ones from my setup. My configuration is a full Hot Patched instead of Static Patched DSDT patching which is more of a problem in maintaining over time. Hot Patching is much more stable and its also universally supported across the designated hardware it was based on. You won't have to worry about needing to patch your own DSDT because this method doesn't require you to patch your DSDT file. Clover will patch it on the fly with this setup. 
   
-## Advanced Configuration and Power Interface (ACPI):
+# Advanced Configuration and Power Interface (ACPI):
 
 One of the most important aspects of running macOS on PC hardware and getting all of the proper functionality out of the setup is a properly              configured DSDT file. For those of you who aren't yet familiar, a DSDT is essentially a configuration file which informs the operating system you         are using about the hardware thats present in your system. As far as I'm aware, all computers with Intel processors have a DSDT, its part of whats        called an ACPI (Advanced Configuration and Power Interface) which is a method created by Intel for allowing its hardware to be identified in a wide       range of devices. Since Apple Computers utilize Intel processors, they too have an ACPI and in turn a DSDT. The only issue is that Apple has              different definitions for their hardware than most other PC manufacturers and as such they require the need to patch the DSDT on PC hardware in          order to achieve full functionality. There are also SSDT files which can be used to add code into the actual DSDT file without needing to modify the      DSDT itself. Think of SSDTs as DSDT extensions. There are two methods for patching the DSDT on PC hardware for use with macOS... 
   
-- Static Patching: The original method involves the process of pulling the physical DSDT and SSDT files that are part of   your computers ACPI              configuration and then making direct modifications to the code present in those files (patching) and then placing the modified files into a specific      folder where they will then be injected at boot by Clover in place of the original untouched files in order to fix any issues you were dealing with       prior to patching. This method works well however it has its two major limitations.   
+### Static Patching:
+
+- The original method involves the process of pulling the physical DSDT and SSDT files that are part of your computers ACPI configuration and then making   direct modifications to the code present in those files (patching) and then placing the modified files into a specific folder where they will then be     injected at boot by Clover in place of the original untouched files in order to fix any issues you were dealing with prior to patching. This method       works well however it has its two major limitations.   
    
   - First, any changes made to your BIOS configuration (booting  into the BIOS and changing any of the available options) or updates to newer BIOS            versions will require that you re pull the DSDT and SSDT files all over again and patch them because of changes that will occur in the structure          of the DSDT following any BIOS modifications or updates. This can be extremely annoying as it may take a good amount of time perfecting a                 patched configuration (especially in a laptop which because of the need to patch the battery configuration in order to get it working                     correctly). The use of custom SSDT files for making DSDT changes can be a big benefit in this situation as they can achieve the same goal of              changing the code in the DSDT without needing to change the actual DSDT itself however this requires an extensive understanding of the ACPI               configuration in order to create an SSDT that fixes an issue you might have if one does not currently exist elsewhere that you can use.  
      	   
   - Second, Static Patching has no universal support and thus is required to be done for all configurations individually which utilize this method for        patching the ACPI! This means that in almost all cases, if someone has the same computer as you and they post their build on a forum and you              come across it, you almost always wont be able to just load their configuration into your's by substituting the CLOVER folder's contents with             regards to the ACPI directory even though you have the same device. This means that all users who want to install macOS on their devices will             unfortunately need to know how to patch their DSDT if they want a completely functioning setup. This is unfortunately an advanced process and             requires extensive knowledge of the inner workings of ASL coding and the macOS ACPI configuration in order to accomplish a complete DSDT patch.
 
-- Hot Patching: The second method for patching ACPI code in order to solve issues with functionality is known as Hot Patching. This method is hands down    the preferred option to use in all cases because of its versatility and support across different devices, and most importantly its ability to survive     BIOS changes, updates, and macOS version upgrades. If a Hot Patched build exists for your hardware or even hardware which is similar then your best bet   is to use it and invest your time and effort into making it function with your device. Hot Patching works different than Static patching in that you're   not making any changes to the DSDT directly as you would with static patching, instead all changes are done on the fly by Clover itself and this is       what allows for a single configuration to be supported across multiple devices. The changes are always initiated during the booting of the OS and         aren't permanently made to a physically ACPI table. You need to use Clover Configurator in order to create a Hot Patched build and the process involves   two basic methods for creating the proper modifications to the DSDT on the fly.
+### Hot Patching:
+
+- The second method for patching ACPI code in order to solve issues with functionality is known as Hot Patching. This method is hands down    the           preferred option to use in all cases because of its versatility and support across different devices, and most importantly its ability to survive         BIOS changes, updates, and macOS version upgrades. If a Hot Patched build exists for your hardware or even hardware which is similar then your best bet   is to use it and invest your time and effort into making it function with your device. Hot Patching works different than Static patching in that you're   not making any changes to the DSDT directly as you would with static patching, instead all changes are done on the fly by Clover itself and this is       what allows for a single configuration to be supported across multiple devices. The changes are always initiated during the booting of the OS and         aren't permanently made to a physically ACPI table. You need to use Clover Configurator in order to create a Hot Patched build and the process involves   two basic methods for creating the proper modifications to the DSDT on the fly.
   
   - The first method is searching and replacing. When using this option you are essentially telling clover to find specific code in the DSDT such as the      name of a specific piece of hardware. An example is the video controller. In macOS the video card needs to be named IGPU in order for power               management to work with it. In order to hot patch this section of the DSDT you would create a patch in Clover Configurator that basically looks for       all instances of the video card (if not named IGPU) and then it will replace those pieces of code with the proper needed name. So if your video card      is named GFX0 in your systems ACPI then you create a patch using ASCII code that basically says "Find all GFX0 references and Replace them with           IGPU". This will solve your graphics power control issue.
    
@@ -93,15 +97,11 @@ One of the most important aspects of running macOS on PC hardware and getting al
   
 - This is a grossly over simplified explanation of how Hot patching works because the the actual process is basically harder than Static Patching and       can not be accomplished without a solid understanding of the ACPI and its code functionality.       
           
-
-
-#
-## Static Patching General Steps:
-#
+# Static Patching General Steps:
 
 If you want to STATIC patch then check out the "utilities/ACPI" directory for my files and the patches you can use. Everything is labeled. I can not give you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt  to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific           patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats           universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of            applying a patch in maciASL, saving the finished product as an compiled configuration in .aml format, and moving the patched files into the              /ESP/EFI/CLOVER/ACPI/patched folder.
 
-#
+## Instructions:
 
 - Clear out the contents of the /ESP/EFI/CLOVER/ACPI/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
 
@@ -146,17 +146,17 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 #
 
-## Users Who've Installed The T440 TrackPad
+# Users Who've Installed The T440 TrackPad
 
 I've included a folder that contains the files necessary for implementing my preferred trackpad configuration after installing the Synaptic One Button Clickpad in my Lenovo ThinkPad T450. I don't recommend using these files unless you have installed the T440 trackpad as well. The configuration can be found at "/ESP/EFI/CLOVER/utilities/Trackpad/Lenovo\ T440\ Clickpad"
 
-### Instructions:
+## Instructions:
 
 ```
 1. Run my ".command" file to make changes automatically. 
 ```
 
-### Manual Install:
+## Manual Install:
 
 ```
 1. Replace the SSDT-VPS2.aml in the folder listed below with SSDT-ASTP.aml.
@@ -173,7 +173,7 @@ I've included a folder that contains the files necessary for implementing my pre
 
 ```
 
-## Miscellaneous Information:
+# Miscellaneous Information:
 
 - Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video men as hit as you can, disable            fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning.         Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
 
@@ -183,7 +183,7 @@ I've included a folder that contains the files necessary for implementing my pre
 
 - If you decide to go with a USB Wifi dongle instead of upgrading the PCIe card then keep in mind that you will not get the full functionality you would    have with an official AirPort module such as AirDrop and Location Services. I suggest using the Asus USB-53 Nano Wireless A/C dongle Because I know       for a fact it works with this build and macOS Mojave in general. You'll need to install the driver and wireless utility that comes with it or dl it       from Asus' website and then reboot the computer and it will work. You can even open up the computer and unscrew the 3rd USB port that's seated next to    the power port on the computer and then you can just plug the USB module in and push the board back from it's seating slightly then close up the case     and then you'll have wifi without that little USB module sticking out of the side of the computer all the time. I did this for a few weeks and it         works great.
 
-- IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
+### IF YOU GET STUCK YOU CAN CONTACT ME VIA IMESSAGE: JSASSU20@GMAIL.COM
 
 #
 
@@ -241,7 +241,7 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://bitbucket.org/RehabMan/
 ```
 
-## Helpful Resources:
+# Helpful Resources:
 
 ```
 - https://www.tonymacx86.com/threads/im-new-to-everything-where-do-i-start.104542/
@@ -257,7 +257,7 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://github.com/RehabMan/Laptop-DSDT-Patch
 ```
 
-## Other Guides:
+# Other Guides:
 
 ```
 - https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
@@ -278,7 +278,7 @@ I've included a folder that contains the files necessary for implementing my pre
 ```
 
 
-## Hackintosh Tools:
+# Hackintosh Tools:
 
 ```
 - https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
@@ -295,7 +295,7 @@ I've included a folder that contains the files necessary for implementing my pre
 ```
 
 
-## Other Builds:
+# Other Builds:
 
 ```
 - https://github.com/shockingpants/ThinkpadX1Y3
