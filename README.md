@@ -1,8 +1,11 @@
+# Lenovo ThinkPad T450 Hackintosh | macOS Mojave
+
 ![Screenshot](misc/logo/screenshot.png)
 
 #
 ## Hackintosh Base Info:
-  
+
+```  
 - Intel 5th Generation Architecture (Broadwell)
 - Intel HD Graphics 5500
 - Intel Series 9 Chipset Family
@@ -10,10 +13,12 @@
 - Hot Patched Clover Configuration
 - AirPort Extreme (Broadcom BCM94360CSAX & NGFF A/E Adapter) * Recommended Upgrade
 - All native macOS Mojave features work as long as you upgrade the WiFi card to a supported configuration
+```
   
 # 
 ## Hardware Configuration:
-  
+
+```  
 - Intel Core i7-5600U | Broadwell (5th Generation) 
 - Dual Core @ 2.7 GHz (up to 3.7 GHz with Turbo Boost) 
 - Crucial 16GB (2x8) | DDR3 @ 1600 MHz | (Model CT102464BF160B.M16) | Pulled from a 2014 MacBook Pro
@@ -24,6 +29,7 @@
 - Dual Battery Setup (Hot Patched and fully functioning with accurate percentage reporting)   
 - Synaptic One Button Trackpad from T440s (Replaced 3 button Trackpad for better functionality with macOS)
 - AirPort Extreme AC (1300 MB/s) & Bluetooth 4.0 PCIe (Broadcom BCM94360CSAX) NGFF A/E Adapter Required  
+```
   
 #  
 ## Build Features:
@@ -43,7 +49,8 @@ The card is a MIMO 3x3 (use one of the WWAN antennas for the third antenna probe
   
 #  
 ## BIOS Configuration Settings:
-  
+
+```  
 - UEFI Bios Version: JBET71WW (1.35) | Latest Version Available (as of April 2019)
 - Intel Management Engine Firmware Version: JBHT17WW (1.04) 
 - ThinkPad Model Number: 20BV0001US
@@ -59,6 +66,7 @@ The card is a MIMO 3x3 (use one of the WWAN antennas for the third antenna probe
 - Memory Execution Prevention is enabled
 - Hyper threading enabled
 - My BIOS is unlocked so I can set DVMT to 64MB. I recommend doing this but it's not required.
+```
       
 #  
 ## Support For Similar Hardware:
@@ -105,8 +113,10 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 - Download MaciASL , iasl, and, patchmatic from RehabMans repo and then unzip all 3 files and move iasl and patchmatic files to your home directory,        and put MaciASL in Applications folder and then open terminal and execute the following commands:
 
-  - sudo cp iasl /usr/bin
-  - sudo cp patchmatic /usr/bin
+  ```
+  sudo cp iasl /usr/bin
+  sudo cp patchmatic /usr/bin
+  ```
 
 - Delete the two files in your home directory and make a folder on your desktop named DSDT
 
@@ -114,7 +124,9 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 - Open your terminal to the location of your folder on the desktop that contains those files you copied and enter the following command:
 
-  - iasl -da -dl DSDT.aml SSDT*.aml
+  ```
+  iasl -da -dl DSDT.aml SSDT*.aml
+  ```
 
 - It will decompile all files from .aml files into .dsl files.... THE ONLY FILE YOU NEED IS DDST.dsl! Remove it from that folder and put it on the          desktop.
 
@@ -124,30 +136,33 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
          
 - Whatever patches you want to add are up to you but all you need to do is hit "patch" and then find the corresponding patch in the left hand menu          or enter the contents of a patch you find elsewhere into the right widow on the upper half and then you will see the bar at the bottom indicate           changes that are going to be made from that patch. Hit apply and then you just added a patch. You can continue adding patches to this same file.          There are a few common patches which you should apply from the left hand menu one by one. So you find the patch and then select it from the left          side and then you see the changes on the right side and hit apply then move to the next patch until you've finished. The common patches you should        add are (They will all be in the left side menu and begin with "sys" near the bottom of the list. Apply them one by one)
 
-   ```
-   "Fix _WAK Arg0 v2" "HPET Fix"
-   "SMBUS Fix"
-   "IRQ Fix"
-   "RTC Fix"
-   "OS Check Fix"
-   "Fix Mutex with non-zero SyncLevel"
-   ```
+  ```
+  "Fix _WAK Arg0 v2" "HPET Fix"
+  "SMBUS Fix"
+  "IRQ Fix"
+  "RTC Fix"
+  "OS Check Fix"
+  "Fix Mutex with non-zero SyncLevel"
+  ```
 
 - When you finish close the patch window but not maciASL yet! Now hit compile again and make sure no red errors show up. Now click "file" and               select "save" now click file again then chose "save as" and name the file DSDT.aml and make sure you chose ACPI Machine Language from the "File           Format" selection box and save it to your desktop. Now take that file and add it into /ESP/EFI/CLOVER/ACPI/patched folder and then you're all             set! You just patched your DSDT and SSDT files. Take the DDST.dsl file on your desktop and put it somewhere safe so that you can easily add more          patches down the road without needing to start all over from the beginning.
 
 - PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
 #
-# Users Who've Installed The T440 TrackPad
+## Users Who've Installed The T440 TrackPad
 
 I've included a folder that contains the files necessary for implementing my preferred trackpad configuration after installing the Synaptic One Button Clickpad in my Lenovo ThinkPad T450. I don't recommend using these files unless you have installed the T440 trackpad as well. The configuration can be found at "/ESP/EFI/CLOVER/utilities/Trackpad/Lenovo\ T440\ Clickpad"
 
-### Auto Install:
+### Instructions:
 
+```
 1. Run my ".command" file to make changes automatically. 
+```
 
 ### Manual Install:
 
+```
 1. Replace the SSDT-VPS2.aml in the folder listed below with SSDT-ASTP.aml.
    - "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
 
@@ -157,9 +172,10 @@ I've included a folder that contains the files necessary for implementing my pre
    - "/Volumes/ESP/EFI/CLOVER/kexts/System/" 
 
 3. Run the _kextcache.command script (requires admin password).
+```
 
 #
-# Miscellaneous Information:
+## Miscellaneous Information:
 
 1. Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video men as hit as you can, disable            fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning.         Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
 
