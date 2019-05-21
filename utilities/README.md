@@ -36,25 +36,23 @@ This folder contains a number of different useful tools I find helpful with sett
 
 #
 
-### Scripts 
-
-_clover_scripts.command
+### _clover_scripts.command
 
 - Installs the clover startup scripts and daemons.
 
-_gatekeeper.command
+### _gatekeeper.command
 
 - Disables macOS gatekeeper and allows opening any app on macOS.
 
-_install_tools.command
+### _install_tools.command
 
 - Installs binaries and other tools for hackintosh builds.
 
-_kextcache.command
+### _kextcache.command
 
 - Repairs and rebuilds kextcache and system kexts.
 
-_sleepwatcher.command
+### _sleepwatcher.command
 
 - Installs sleepwatcher commands.
 
