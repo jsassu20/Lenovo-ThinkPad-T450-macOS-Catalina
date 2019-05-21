@@ -1,4 +1,4 @@
-# Clove ACPI Configuration Folder
+# Clover ACPI Configuration Folder
 
 This folder will contain the stock Advanced Configuration and Power Interface files related to the system. It houses both the stock ACPI files as well as any modified files you might want to add in order to make changes to the ACPI codebase which fixes certain aspects of your systems overall stability and functionality.
 
