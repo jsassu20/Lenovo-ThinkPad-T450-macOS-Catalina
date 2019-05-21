@@ -6,6 +6,6 @@ This folder contains RehabMan's ApplePS2SmartTouchPad TrackPad kernel extension 
 
 ### ApplePS2SmartTouchPad.kext
 
-- The actual VoodooPS2Controller kernel extension resides in this folder (Credit to OSXDaily.com since it's their creation). The kext file is compressed in the archive. Just double click the archive and the kext will appear.
+- The actual ApplePS2SmartTouchPad kernel extension resides in this folder (Credit to OSXDaily.com since it's their creation). The kext file is compressed in the archive. Just double click the archive and the kext will appear.
 
 
