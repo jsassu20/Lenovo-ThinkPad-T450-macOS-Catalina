@@ -4,9 +4,9 @@ This folder will contain all of the themes you want to use with Clover Bootloade
 
 #
 
-Flat Camp
+FlatCamp
 
-- Flat Camp is my personal favorite theme. Its a clean and simple looking setup and contains the macOS stock startup sound which I like. I prefer using this theme over all others I've come across but you're welcom to use any other themes you may like more.
+- FlatCamp is my personal favorite theme. Its a clean and simple looking setup and contains the macOS stock startup sound which I like. I prefer using this theme over all others I've come across but you're welcom to use any other themes you may like more.
 
 
 
