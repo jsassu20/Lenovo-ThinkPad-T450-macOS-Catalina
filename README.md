@@ -101,7 +101,7 @@ One of the most important aspects of running macOS on PC hardware and getting al
 
 If you want to STATIC patch then check out the "utilities/ACPI" directory for my files and the patches you can use. Everything is labeled. I can not give you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt       to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific           patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats           universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of            applying a patch in maciASL, saving the finished product as an compiled configuration in .aml format, and moving the patched files into the              /ESP/EFI/CLOVER/ACPI/patched folder.
 
-1. Clear out the contents of the /ESP/EFI/CLOVER/APIC/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
+1. Clear out the contents of the /ESP/EFI/CLOVER/ACPI/origin folder and empty trash if there were files present. Restart the computer and enter the          Clover Boot Screen. Now press FN+F4 and release and then press F4 and release. This will dump you ACPI configuration into the ACPI/origin directory       and you can access them by booting normally and navigating to the "/ESP/EFI/CLOVER/ACPI/origin/" folder.
 
 2. Download MaciASL , iasl, and, patchmatic from RehabMans repo and then unzip all 3 files and move iasl and patchmatic files to your home directory,        and put MaciASL in Applications folder and then open terminal and execute the following commands:
 
@@ -110,7 +110,7 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 3. Delete the two files in your home directory and make a folder on your desktop named DSDT
 
-4. Make a folder on your desktop and copy the files from the /ESP/EFI/CLOVER/APIC/origin folder (the ones that begin with SSDT or DSDT only) into the        folder on your desktop. You can delete the ones which have "x5_2-" in the middle of their name because they aren't needed.
+4. Make a folder on your desktop and copy the files from the /ESP/EFI/CLOVER/ACPI/origin folder (the ones that begin with SSDT or DSDT only) into the        folder on your desktop. You can delete the ones which have "x5_2-" in the middle of their name because they aren't needed.
 
 5. Open your terminal to the location of your folder on the desktop that contains those files you copied and enter the following command:
 
