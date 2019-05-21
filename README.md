@@ -147,7 +147,7 @@ I've included a folder that contains the files necessary for implementing my pre
 # 
 
 ### If the ".command" script doesn't work do the following:
-#
+
 1. Replace the SSDT-VPS2.aml in the folder listed below with SSDT-ASTP.aml.
    - "/Volumes/ESP/EFI/CLOVER/ACPI/patched/"
 
