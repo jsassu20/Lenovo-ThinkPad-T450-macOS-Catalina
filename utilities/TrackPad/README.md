@@ -8,7 +8,7 @@ This folder contains different trackpad configuration methods which can be used 
 
 #
 
-### Lenovo T440 Clickpad
+### T440-Clickpad
 
 - For people who choose to install the T440 trackpad after they've setup their laptop with my configuration. Run the .command file inside this folder and all the proper changes will be made automatically. This script requires elevated access so you'll need the Administrators password for you account. It also contains the instructions for manual install as well.
 
