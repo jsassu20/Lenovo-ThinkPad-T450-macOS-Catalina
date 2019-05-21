@@ -1,4 +1,4 @@
-![Screenshot](misc/Logo/screenshot.png)
+![Screenshot](misc/logo/screenshot.png)
 
 #
 # Hackintosh Base Info:
