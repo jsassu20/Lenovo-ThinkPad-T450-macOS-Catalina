@@ -202,13 +202,13 @@ I've included a folder that contains the files necessary for implementing my pre
 
 ### My Tools Repo (Has Everything You Need)
 
-```
+
 - https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
-```
+
 
 ### Useful Applications: Get All Of These!
 
-```
+
 - https://mackie100projects.altervista.org/download-clover-configurator/
 
 - https://github.com/Micky1979/Clover-Configurator-Pro
@@ -224,11 +224,11 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://www.hackintoshzone.com/files/category/21-applications/
 
 - https://github.com/acidanthera/IOJones/releases/download/1.2.2/IOJones_1.2.2.zip
-```
+
 
 ### Useful Kexts:
 
-```
+
 - https://github.com/acidanthera/Lilu/releases/download/1.3.5/1.3.5.RELEASE.zip
 
 - https://github.com/acidanthera/VirtualSMC/releases/download/1.0.3/1.0.3.RELEASE.zip
@@ -252,11 +252,11 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://github.com/acidanthera/HibernationFixup/releases/download/1.2.5/1.2.5.RELEASE.zip
 
 - https://bitbucket.org/RehabMan/
-```
+
 
 ### Helpful Resources:
 
-```
+
 - https://www.tonymacx86.com/threads/im-new-to-everything-where-do-i-start.104542/
 
 - https://www.tonymacx86.com/threads/simplest-mac-os-x-installation-guide.60255/
@@ -268,11 +268,11 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://github.com/RehabMan/OS-X-Clover-Laptop-Config
 
 - https://github.com/RehabMan/Laptop-DSDT-Patch
-```
+
 
 ### Other Guides:
 
-```
+
 - https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
 
 - https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440p.245567/
@@ -288,12 +288,12 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://www.insanelymac.com/forum/topic/309493-lenovo-thinkpad-t450s-hd5500-full-hardware-acceleration/
 
 - https://www.tonymacx86.com/threads/guide-sierra-12-6-on-thinkpad-t430-almost-perfect.229103/
-```
+
 
 
 ### Hackintosh Tools:
 
-```
+
 - https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
 
 - https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/
@@ -305,12 +305,12 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/
 
 - https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/
-```
+
 
 
 ### Other Builds:
 
-```
+
 - https://github.com/shockingpants/ThinkpadX1Y3
 
 - https://github.com/shmilee/T450-Hackintosh
@@ -324,4 +324,3 @@ I've included a folder that contains the files necessary for implementing my pre
 - https://github.com/jsassu20/Lenovo-ThinkPad-T440S
 
 - https://github.com/jsassu20/Lenovo-ThinkPad-T440P
-```
