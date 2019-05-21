@@ -1,4 +1,6 @@
-# Lenovo ThinkPad T450 Hackintosh | macOS Mojave
+#
+# Install macOS Mojave (Lenovo ThinkPad T450)
+#
 
 ![Screenshot](misc/logo/screenshot.png)
 
