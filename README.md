@@ -142,7 +142,6 @@ For people who have installed the Lenovo T440 TrackPad Synaptic UltraNav ClickPa
 
 Files can be found in:
 * "/Volumes/ESP/EFI/CLOVER/utilities/TrackPad/Lenovo\ T440\ Clickpad/"
-* "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/Lenovo\ T440\ Clickpad/"
 
 Run my ".command" located in:
 * "/Volumes/ESP/EFI/CLOVER/kexts/TrackPad/Lenovo\ T440\ Clickpad"  
