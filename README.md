@@ -200,127 +200,124 @@ I've included a folder that contains the files necessary for implementing my pre
 
 #
 
-### My Tools Repo (Has Everything You Need)
-
-
-- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
-
-
-### Useful Applications: Get All Of These!
-
-
-- https://mackie100projects.altervista.org/download-clover-configurator/
-
-- https://github.com/Micky1979/Clover-Configurator-Pro
-
-- https://www.tonymacx86.com/threads/release-hackintool-v2-4-6.254559/
-
-- https://www.insanelymac.com/forum/files/file/566-esp-mounter-pro/ 
-
-- https://github.com/Piker-Alpha/ssdtPRGen.sh
-
-- https://github.com/acidanthera/MaciASL/releases/download/1.5.4/1.5.4.RELEASE.zip
-
-- https://www.hackintoshzone.com/files/category/21-applications/
-
-- https://github.com/acidanthera/IOJones/releases/download/1.2.2/IOJones_1.2.2.zip
-
-
-### Useful Kexts:
-
-
-- https://github.com/acidanthera/Lilu/releases/download/1.3.5/1.3.5.RELEASE.zip
-
-- https://github.com/acidanthera/VirtualSMC/releases/download/1.0.3/1.0.3.RELEASE.zip
-
-- https://github.com/acidanthera/WhateverGreen/releases/download/1.2.8/1.2.8.RELEASE.zip
-
-- https://github.com/acidanthera/VoodooPS2/releases/download/2.0.1.1/VoodooPS2Controller.kext.zip
-
-- https://github.com/acidanthera/AppleALC/releases/download/1.3.7/1.3.7.RELEASE.zip
-
-- https://github.com/acidanthera/AptioFixPkg/releases/download/R26/AptioFix-R26-RELEASE.zip
-
-- https://github.com/acidanthera/AirportBrcmFixup/releases/download/2.0.0/2.0.0.RELEASE.zip
-
-- https://github.com/acidanthera/BT4LEContiunityFixup/releases/download/v1.1.2/1.1.2.RELEASE.zip
-
-- https://github.com/acidanthera/CPUFriend/releases/download/1.1.7/1.1.7.RELEASE.zip
-
-- https://github.com/acidanthera/RTCMemoryFixup/releases/download/v1.0.3/1.0.3.RELEASE.zip
-
-- https://github.com/acidanthera/HibernationFixup/releases/download/1.2.5/1.2.5.RELEASE.zip
-
-- https://bitbucket.org/RehabMan/
-
-
-### Helpful Resources:
-
-
-- https://www.tonymacx86.com/threads/im-new-to-everything-where-do-i-start.104542/
-
-- https://www.tonymacx86.com/threads/simplest-mac-os-x-installation-guide.60255/
-
-- https://www.tonymacx86.com/forums/the-basics.165/
-
-- https://pikeralpha.wordpress.com/
-
-- https://github.com/RehabMan/OS-X-Clover-Laptop-Config
-
-- https://github.com/RehabMan/Laptop-DSDT-Patch
-
-
-### Other Guides:
-
-
-- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
-
-- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440p.245567/
-
-- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
-
-- https://www.tonymacx86.com/threads/guide-thinkpad-x1-yoga-3rd-gen-20ld-with-mojave.261823/
-
-- https://www.tonymacx86.com/threads/guide-installing-10-13-6-high-sierra-on-the-thinkpad-x1-yoga-3rd-gen.259373/
-
-- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-x1-carbon-gen-3-2015-model-using-clover-uefi.251383/
-
-- https://www.insanelymac.com/forum/topic/309493-lenovo-thinkpad-t450s-hd5500-full-hardware-acceleration/
-
-- https://www.tonymacx86.com/threads/guide-sierra-12-6-on-thinkpad-t430-almost-perfect.229103/
-
-
-
-### Hackintosh Tools:
-
-
-- https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
-
-- https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/
-
-- https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/
-
-- https://www.tonymacx86.com/threads/guide-10-11-usb-changes-and-solutions.173616/
-
-- https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/
-
-- https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/
-
-
-
 ### Other Builds:
-
-
-- https://github.com/shockingpants/ThinkpadX1Y3
 
 - https://github.com/shmilee/T450-Hackintosh
 
-- https://github.com/stevenmirabito/T450s-Hackintosh
-
-- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
+- https://github.com/shockingpants/ThinkpadX1Y3
 
 - https://github.com/jsassu20/Lenovo-ThinkPad-L440
 
 - https://github.com/jsassu20/Lenovo-ThinkPad-T440S
 
 - https://github.com/jsassu20/Lenovo-ThinkPad-T440P
+
+- https://github.com/stevenmirabito/T450s-Hackintosh
+
+- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
+
+#
+
+### My Tools Repo (Has Everything You Need)
+
+- https://github.com/jsassu20/Lenovo-T450-Hackintosh-Tools
+
+#
+
+### Useful Applications: Get All Of These!
+
+- https://github.com/Piker-Alpha/ssdtPRGen.sh
+
+- https://github.com/Micky1979/Clover-Configurator-Pro
+
+- https://www.hackintoshzone.com/files/category/21-applications/
+
+- https://www.insanelymac.com/forum/files/file/566-esp-mounter-pro/ 
+
+- https://www.tonymacx86.com/threads/release-hackintool-v2-4-6.254559/
+
+- https://mackie100projects.altervista.org/download-clover-configurator/
+
+- https://github.com/acidanthera/MaciASL/releases/download/1.5.4/1.5.4.RELEASE.zip
+
+- https://github.com/acidanthera/IOJones/releases/download/1.2.2/IOJones_1.2.2.zip
+
+#
+
+### Useful Kexts:
+
+- https://bitbucket.org/RehabMan/
+
+- https://github.com/acidanthera/Lilu/releases/download/1.3.5/1.3.5.RELEASE.zip
+
+- https://github.com/acidanthera/AppleALC/releases/download/1.3.7/1.3.7.RELEASE.zip
+
+- https://github.com/acidanthera/CPUFriend/releases/download/1.1.7/1.1.7.RELEASE.zip
+
+- https://github.com/acidanthera/VirtualSMC/releases/download/1.0.3/1.0.3.RELEASE.zip
+
+- https://github.com/acidanthera/WhateverGreen/releases/download/1.2.8/1.2.8.RELEASE.zip
+
+- https://github.com/acidanthera/RTCMemoryFixup/releases/download/v1.0.3/1.0.3.RELEASE.zip
+
+- https://github.com/acidanthera/AptioFixPkg/releases/download/R26/AptioFix-R26-RELEASE.zip
+
+- https://github.com/acidanthera/AirportBrcmFixup/releases/download/2.0.0/2.0.0.RELEASE.zip
+
+- https://github.com/acidanthera/HibernationFixup/releases/download/1.2.5/1.2.5.RELEASE.zip
+
+- https://github.com/acidanthera/BT4LEContiunityFixup/releases/download/v1.1.2/1.1.2.RELEASE.zip
+
+- https://github.com/acidanthera/VoodooPS2/releases/download/2.0.1.1/VoodooPS2Controller.kext.zip
+
+#
+
+### Helpful Resources:
+
+- https://pikeralpha.wordpress.com/
+
+- https://github.com/RehabMan/Laptop-DSDT-Patch
+
+- https://www.tonymacx86.com/forums/the-basics.165/
+
+- https://github.com/RehabMan/OS-X-Clover-Laptop-Config
+
+- https://www.tonymacx86.com/threads/simplest-mac-os-x-installation-guide.60255/
+
+- https://www.tonymacx86.com/threads/im-new-to-everything-where-do-i-start.104542/
+
+#
+
+### Other Guides:
+
+- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
+
+- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440.245561/
+
+- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-t440p.245567/
+
+- https://www.tonymacx86.com/threads/guide-thinkpad-x1-yoga-3rd-gen-20ld-with-mojave.261823/
+
+- https://www.tonymacx86.com/threads/guide-sierra-12-6-on-thinkpad-t430-almost-perfect.229103/
+
+- https://www.insanelymac.com/forum/topic/309493-lenovo-thinkpad-t450s-hd5500-full-hardware-acceleration/
+
+- https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-x1-carbon-gen-3-2015-model-using-clover-uefi.251383/
+
+- https://www.tonymacx86.com/threads/guide-installing-10-13-6-high-sierra-on-the-thinkpad-x1-yoga-3rd-gen.259373/
+
+#
+
+### Hackintosh Tools:
+
+- https://www.tonymacx86.com/threads/guide-10-11-usb-changes-and-solutions.173616/
+
+- https://www.tonymacx86.com/threads/guide-how-to-patch-dsdt-for-working-battery-status.116102/
+
+- https://www.tonymacx86.com/threads/guide-creating-a-custom-ssdt-for-usbinjectall-kext.211311/
+
+- https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/
+
+- https://www.insanelymac.com/forum/topic/321080-sineteks-driver-for-realtek-rtsx-sdhc-card-readers/
+
+- https://www.tonymacx86.com/threads/guide-alternative-to-the-minstolensize-patch-with-32mb-dvmt-prealloc.221506/
