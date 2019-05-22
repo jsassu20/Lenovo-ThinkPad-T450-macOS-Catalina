@@ -4,13 +4,13 @@
 
 #
 
-### Dsl Folder
+### dsl folder
  
 - Collection of dsl files which can be used to add to the StaticPatch method for specific purposes. Make sure you understand whats going on before using them.
 
 #
 
-### Off folder
+### off folder
 
 - StaticPatch files that aren't in use.
 
