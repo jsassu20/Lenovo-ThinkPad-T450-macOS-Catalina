@@ -4,13 +4,13 @@ My T450 Hot Patched method. This configuration should be universal across all Br
 
 #
 
-### Dsl Folder
+### dsl folder
  
 - Collection of dsl files which can be used to add to the Hot Patched method for specific purposes. Make sure you understand whats going on before using them.
 
 #
 
-### Off folder
+### off folder
 
 - HotPatch files that aren't in use.
 
