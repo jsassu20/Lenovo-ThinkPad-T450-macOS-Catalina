@@ -28,6 +28,10 @@ AcidAnthera:
 
 - For Lilu.kext and all of the included Lilu Plugins which have made countless configurations possible among a plethora of Hackintosh machines! AcidAnther is a genius coder and developer and without his hard work and effort we would not be able to create the sheer number of hackintosh configurations with universal kexts like we have the ability to do now thanks to his/her development.
 
+Sniki:
+
+- For a number of his Hot Patched files which inspired a lot of the files I've been able to adapt. For his contribution to ThinPad hackintosh configurations which I've used for inspiration. For his install guides on Tonymacx86.com which I've used to learn countless amounts of info from in adapting this configuration. 
+
 The Hackintosh Community:
 
 - Without which I would not have been able to learn everything I have been able to learn. I want to thank you all this community is amazing!
