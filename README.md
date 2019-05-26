@@ -1,5 +1,13 @@
 ![Screenshot](EFI/CLOVER/misc/logo/screenshot.png)
 
+# EFI Folder (Clover's Directory)
+
+- This folder is the folder that should be present inside of your /Volumes/ESP directory. It is the directory that Clover and its boot-loader reside in. Just take the entire EFI folder and replace it with the one present on your mounted EFI partition (/Volumes/ESP/).
+
+### Be Sure To Add Any Files And Folders Present In Your EFI Folder If you Dual Boot Or You'll Lose The Ability.
+
+#
+
 # macOS Mojave (Lenovo ThinkPad T450)
 
 ```  
