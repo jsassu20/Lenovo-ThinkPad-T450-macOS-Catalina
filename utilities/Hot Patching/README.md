@@ -1,6 +1,6 @@
 # Hot Patched Configuration Files
 
-My T450 Hot Patched method. This configuration should be universal across all Broadwell based ThinkPad devices and probably most Broadwell based hackintosh setups with minor modifications needed.
+Lenovo T450 Hot Patched method. This configuration should be universal across all Broadwell based ThinkPad devices and probably most Broadwell based hackintosh setups with minor modifications needed. (Credit REHABMAN and JCSNIDER for their Hot Patched files which made this possible)
 
 #
 

@@ -1,4 +1,4 @@
-// Clover UEFI Hotpatch | Configuration Table | Lenovo ThinkPad T450 Ultrabook | Hackintosh (macOS Mojave) | Compiled By: James Sassu (Sass86oh) |
+// Clover UEFI Hotpatch | Configuration Table | Lenovo ThinkPad T450 Ultrabook | Hackintosh (macOS Mojave)
 
 // Intel 5th Generation Architecture (Broadwell) | Intel Core i7-5600U) | Intel Series 9 Chipset | Intel HD 5500 Integrated Graphics | Unlocked UEFI BIOS |
 // Apple Airport Extreme WiFi (BCM94360CSX) | USB 3.1 (x3) | Mini Display (4K) | 3x Samsung Evo SSDs | LTE Ready | AUX In/Out | SDHC Reader | Gigabit LAN | 720p HD WebCam |

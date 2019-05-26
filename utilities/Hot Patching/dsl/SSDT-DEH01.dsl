@@ -1,4 +1,4 @@
-// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave) | Build By: Jsassu20 (James Sassu)
+// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave)
 //
 // Clover UEFI Hotpatch | Disables USB EHCI EH01 In DSDT...
 //

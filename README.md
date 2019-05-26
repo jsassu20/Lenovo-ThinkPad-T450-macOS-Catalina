@@ -13,6 +13,26 @@
 ```
 
 #
+
+# Credits
+
+RehabMan:
+
+- For a number of different parts of this configuration which have made this build possible including his USBInjectAll.kext configuration, SSDT-DEH01 for disabling the EH01 device and allowing all USB traffic on the XHC device, VoodooPS2Controller.kext which provides a perfect configuration for TouchPad functionality along with SSDT-VPS2 which is based on his SSDT-PS2K Hot Patched file, SSDT-UIAC for providing a template to configure proper USB injection, and a number of other SSDT Hot Patches present in the dsl folder which can be used to configure a number of different situations. RehabMan is an absolute genius when it comes to Hackintosh configurations in the community and I owe the knowledge I've managed to gain over the last year to his tireless efforts and guides in the community.
+
+JcSnider:
+
+- For providing me with an excellent build in the for of his Lenovo ThinkPad X1 Carbon Generation 3 Build which has been the basis of this Hot Patched configuration. A number of the Hot Patched files present in this build come directly from his X1 Carbon configuration and it has been the main reason why I've been able to adapt a build for us T450 users so please thank him for his outstanding work!
+
+AcidAnthera:
+
+- For Lilu.kext and all of the included Lilu Plugins which have made countless configurations possible among a plethora of Hackintosh machines! AcidAnther is a genius coder and developer and without his hard work and effort we would not be able to create the sheer number of hackintosh configurations with universal kexts like we have the ability to do now thanks to his/her development.
+
+The Hackintosh Community:
+
+- Without which I would not have been able to learn everything I have been able to learn. I want to thank you all this community is amazing!
+
+#
    
 # Hardware Configuration:
 

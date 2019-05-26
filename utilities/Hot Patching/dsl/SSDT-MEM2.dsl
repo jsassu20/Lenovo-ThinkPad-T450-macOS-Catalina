@@ -1,5 +1,4 @@
-// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave) | Build By: Jsassu20 (James Sassu)
-//
+// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave)
 // Clover UEFI Hotpatch | SSDT-MEM2...
 //
 // This Configuration Injects defunctional MEM2 device present in real MacBook Pros...

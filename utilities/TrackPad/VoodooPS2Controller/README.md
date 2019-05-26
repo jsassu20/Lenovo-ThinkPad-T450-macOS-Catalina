@@ -14,11 +14,5 @@ This folder contains RehabMan's VoodooPS2Controller TrackPad configuration. It's
 
 - The actual VoodooPS2Controller kernel extension resides in this folder (Credit to RehabMan since it's his creation).
 
-#
-
-### Static Patched
-
-- This folder contains .aml file should be used with the Static Patched setup because the LPC device is named LPCB and the KBD_ device is named PS2K so its necessary to have two different setups.
-
 
 

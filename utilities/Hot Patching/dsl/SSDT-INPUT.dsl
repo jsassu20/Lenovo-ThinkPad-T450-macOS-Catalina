@@ -1,4 +1,4 @@
-// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave) | Build By: Jsassu20 (James Sassu) | May 2nd 2019...                       //
+// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave)                       //
 //                                                                                                                                             //                                     
 // Clover UEFI Hotpatch | Keyboard Function Keys & TrackPad & TrackPoint Configuration method for Lenovo systems (works with others too)       //
 //                                                                                                                                             //

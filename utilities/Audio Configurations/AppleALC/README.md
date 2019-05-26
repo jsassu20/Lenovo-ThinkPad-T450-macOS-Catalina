@@ -1,14 +1,12 @@
-# AppleALC ALC3232 Modification
+# AppleALC Lilu Plugin for Dynamic Audio Patching
 
-AppleALC.kext (Lilu Plugin for patching AppleHDA.kext for system sound functionality) ALC292 converted to ALC3232 (Modified by Jsassu20 | James Sassu)
+#
 
-* ALC292 has been modified to ALC3232 specifically for the Lenovo ThinkPad T450 (macOS Mojave) ***
+AppleALC.kext is a Lilu Plugin for patching AppleHDA.kext for system sound functionality. Credit AcidAnthera for creating this excellent Lilu Plugin (Lilu is also AcidAnthera's
 
-* This kext is specifically configured to use as a system audio configuration for patching ApplHDA on the fly. Its been modified to allow for                functionality of the microphone and the AUX/Line In config. The ALC293 configuration has been modded to actually use ALC3232. If you update this kext      youll lose the proper configuration which I've modded. 
+#
 
-* layout-id - 28 (1C000000 in HEX format)
-
-Clover Configurator: /Devices/Properties/PciRoot(0x0)/Pci(0x1b,0x0)
+### Clover Configurator: /Devices/Properties/PciRoot(0x0)/Pci(0x1b,0x0)
    
 * layout-id (DATA) - 1C000000 | or (NUMBER) - 28 |
    

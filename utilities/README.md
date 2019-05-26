@@ -6,21 +6,19 @@ This folder contains a number of different useful tools I find helpful with sett
 
 ### Audio Configuration
 
-- Everything needed to create a patched AppleHDA kext which controls system sound. This is the Codec configuration that the T450 uses. This kext will provide you with a perfectly configured sound setup with Microphone and AUX working.
+- Contains 2 separate methods for successfully getting proper system audio functionality with with this configuration. (Credit JCSNIDER for ALC3232 Method and ACIDANTHERA for AppleALC Lilu Plugin)
 
-- Also includes AppleALC.kext file with a modification made for proper support on ALC3232 based configurations (fixes bad mic).
+#
+
+### HD Graphics 5500
+
+- Different monitor configurations for my personal setup. HIDPI is enabled and working very well. The clarity is very impressive, other tools for configuring proper DVMT options on systems with locked BIOS configurations.
 
 #
 
 ### Hot Patching
 
 - All of my current files used for HotPatching Lenovo ThinkPad T450 and a bunch of other ".dsl" files which can be used as well. 
-
-#
-
-### Static Patching
-
-- My T450 Static patch method. This should only be used with T450's and may not work. The SSDTs are universal but you may have to patch your own DSDT to use. You can look over mine for reference. Especially in the battery section.
 
 #
 
