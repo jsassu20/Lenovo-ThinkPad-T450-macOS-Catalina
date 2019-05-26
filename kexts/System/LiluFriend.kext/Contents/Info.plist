@@ -88,16 +88,12 @@
 		<string>12.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
 		<string>12.0.0</string>
-		<key>fish.goldfish64.DiskArbitrationFixup</key>
-		<string>1.0</string>
 		<key>fish.goldfish64.SystemProfilerMemoryFixup</key>
 		<string>1.0</string>
 		<key>org.vanilla.driver.CPUFriend</key>
 		<string>1.0</string>
 		<key>org.vulgo.NoVPAJpeg</key>
 		<string>1.0.0</string>
-		<key>ru.joedm.SMCSuperIO</key>
-		<string>1.0</string>
 		<key>ru.usrsse2.SMCBatteryManager</key>
 		<string>1.0.0</string>
 	</dict>
