@@ -1,0 +1,63 @@
+#T440s Fn key fix
+# _Q15 (Fn+F5) brightness down key
+into method label _Q15 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0205)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x0285)\n
+end;
+
+# _Q14 (Fn+F6) brightness up key
+into method label _Q14 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0206)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x0286)\n
+end;
+
+# _Q6A (Fn+F4) Microphone Mute key
+into method label _Q6A replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0168)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e8)\n
+end;
+
+# _Q16 (Fn+F7) Projector / Mirror mode key
+into method label _Q16 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x026e)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x02ee)\n
+end;
+
+# _Q64 (Fn+F8) Wireless disable key
+into method label _Q64 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0169)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e9)\n
+end;
+
+# _Q66 (Fn+F9) Settings key
+into method label _Q66 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0164)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e4)\n
+end;
+
+# _Q67 (Fn+F10) Spotlight key
+into method label _Q67 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0165)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e5)\n
+end;
+
+# _Q68 (Fn+F11) App switcher key
+into method label _Q68 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0166)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e6)\n
+end;
+
+# _Q69 (Fn+F12) Launchpad key
+into method label _Q69 replace_content
+begin
+    Notify(\_SB.PCI0.LPC.KBD, 0x0167)\n
+    Notify(\_SB.PCI0.LPC.KBD, 0x01e7)\n
+end;

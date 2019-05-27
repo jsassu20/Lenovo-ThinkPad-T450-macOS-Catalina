@@ -1,0 +1,21 @@
+# instant wake problem of T450
+# work better if _PRW name is present, but returns 0 (original was 3 or 4) for sleep state
+# replace RehabMan's usb_prw_0x6d_xhc.txt
+
+into device label IGBE code_regex (Name.*PRW.*\n.*\n.*0x6D.*)\n.*[34] replaceall_matched
+begin
+%1\n
+                    0x00
+end;
+
+into device label XHCI code_regex (Name.*PRW.*\n.*\n.*0x6D.*)\n.*[34] replaceall_matched
+begin
+%1\n
+                    0x00
+end;
+
+into device label EHC1 code_regex (Name.*PRW.*\n.*\n.*0x6D.*)\n.*[34] replaceall_matched
+begin
+%1\n
+                    0x00
+end;
