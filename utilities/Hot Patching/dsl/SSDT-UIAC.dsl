@@ -4,92 +4,56 @@
 //
 // This Configuration Injects The USB Ports On XHC USB 3.1 Controller...
 //
-// Proper USB Ports Injection Mapping | 8086:9cb3 | XHC USB 3.0 Controller | USBInjectAll.kext required...
+// Proper USB Ports Injection Mapping | 8086:9cb1 | XHC USB 3.0 Controller | USBInjectAll.kext required...
 //
-DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-UIAC", 0)
+DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-UIAC", 0x00140000)
 {
-    Device(UIAC)
+    External (_SB_.PCI0.XHC_, DeviceObj)
+    
+    Name (_ADR, 0x00140000)
+    Method (_SB.PCI0.XHC._DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
     {
-        Name(_HID, "UIA00000")
-        Name(RMCF, Package()
+        If (!Arg2) { Return (Buffer (One){ 0x03 } )}Local0 = Package (){
+                
+                "AAPL,current-available", Buffer(){0x34, 0x08, 0x00, 0x00}, 
+                "AAPL,current-extra", Buffer(){0x98, 0x08, 0x00, 0x00}, 
+                "AAPL,current-extra-in-sleep", Buffer(){0x40, 0x06, 0x00, 0x00},
+                "AAPL,device-internal", Buffer(){0x02},   
+                "AAPL,max-port-current-in-sleep", Buffer() {0x34, 0x08, 0x00, 0x00},
+                "AAPL,slot-name", Buffer(){"Built In"},
+                "device-id", Buffer(){0x9C, 0xB1, 0x00, 0x00},
+                "vendor-id", Buffer(){0x80, 0x86, 0x00, 0x00},
+                "device_type", Buffer() {"USB Controller"},
+                "model", Buffer(){"Intel 9 Series Chipset Family Wildcat Point-LP USB 3.1 xHCI Controller"}} Return (Local0)}
+
+    Device (UIAC)
+    {
+        Name (_HID, "UIA00000")  // _HID: Hardware ID
+        Name (RMCF, Package ()
         {
-            "XHC", Package()
+            "AppleBusPowerControllerUSB", Package(){"kUSBSleepPortCurrentLimit", 0x0834, "kUSBSleepPowerSupply", 0x0A28, "kUSBWakePortCurrentLimit", 0x0834, "kUSBWakePowerSupply", 0x0C80}, 
+            
+            "8086_9cb1", Package()
             {
-                "port-count", Buffer() { 15, 0, 0, 0 },
-                "ports", Package()
+                "port-count", Buffer(){0x0F, 0x00, 0x00, 0x00}, 
+                "ports", 
+                Package()
                 {
-                    "HS01", Package() // USB 2.0 | External Port | Left Side Near Power Port |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 1, 0, 0, 0 },
-                    },
-                    "HS02", Package() // USB 2.0 | External Port | Left Side Near Mini Display Port |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 2, 0, 0, 0 },
-                    },
-                    "HS03", Package() // USB 2.0 | External Port | Right Side Near SDHC Card Reader |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 3, 0, 0, 0 },
-                    },
-                    //"HS04", Package() // Internal USB Input | Internal SDHC Card Reader Control |
-                    //{ 
-                    //    "UsbConnector", 255,
-                    //    "port", Buffer() { 4, 0, 0, 0 },
-                    //},
-                    //"HS05", Package() // Internal USB | Internal | Motorola LTE Modem | M.2 SATA NGFF WWAN Port |
-                    //{
-                    //    "UsbConnector", 255,
-                    //    "port", Buffer() { 5, 0, 0, 0 },
-                    //},
-                    //"HS06", Package() //  Internal USB | Fingerprint Reader | Onboard |
-                    //{
-                    //    "UsbConnector", 255,
-                    //    "port", Buffer() { 6, 0, 0, 0 },
-                    //},
-                    "HS07", Package() // Internal USB | Broadcom BCM2070280 BLUETOOTH 4.0 Controller | M.2 SATA NGFF WLAN Port |
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 7, 0, 0, 0 },
-                    },
-                    "HS08", Package() // Internal USB | Lenovo 720P HD WebCamera | Onboard |
-                    {
-                        "UsbConnector", 255,
-                        "port", Buffer() { 8, 0, 0, 0 },
-                    },
-                    "SSP1", Package() // USB3 3.0 | External Port | Left Side Near Power Port |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 12, 0, 0, 0 },
-                    },
-                    "SSP2", Package() // USB 3.0 | External Port | Left Side Near Mini Display Port |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 13, 0, 0, 0 },
-                    },
-                    "SSP3", Package() // USB 3.0 | External Port | Right Side Near SDHC Card Reader |
-                    {
-                        "UsbConnector", 3,
-                        "port", Buffer() { 14, 0, 0, 0 },
-                    },
-                   // "SSP4", Package() // Internal USB | Not Sure What It Controls | Possibly Docking Port |
-                   // {
-                   //     "UsbConnector", 255,
-                   //     "port", Buffer() { 15, 0, 0, 0 },
-                   // },
-                },
-            },
+                    "HSP0", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x01, 0x00, 0x00, 0x00 }}, // USB 2.0 | External | Left side port near power input 
+                    "HSP1", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x02, 0x00, 0x00, 0x00 }}, // USB 2.0 | External | Left side prt near Mini Display port
+                    "HSP2", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x03, 0x00, 0x00, 0x00 }}, // USB 2.0 | External | Right side single port
+                    "HSP3", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x04, 0x00, 0x00, 0x00 }}, // USB 2.0 | Internal | Synaptic Touchpad
+                    "HSP4", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x05, 0x00, 0x00, 0x00 }}, // USB 2.0 | Internal | Sierra LTE Card power
+                    //"HSP5", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x06, 0x00, 0x00, 0x00 }}, // USB 2.0 | Internal | Fingerprint sensor Card power
+                    "HSP6", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x07, 0x00, 0x00, 0x00 }}, // USB 2.0 | Internal | Broadcom Bluetooth power 
+                    "HSP7", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x08, 0x00, 0x00, 0x00 }}, // USB 2.0 | Internal | FaceTime WebCam power
+                    "SSP0", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x0C, 0x00, 0x00, 0x00 }}, // USB 3.1 | External | Left side port near power input
+                    "SSP1", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x0D, 0x00, 0x00, 0x00 }}, // USB 3.1 | External | Left side prt near Mini Display port
+                    "SSP2", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x0E, 0x00, 0x00, 0x00 }}, // USB 3.1 | External | Right side single port
+                    //"SSP3", Package(){ "UsbConnector", 0x03, "port", Buffer(){ 0x0F, 0x00, 0x00, 0x00 }}, // USB 3.1 | Internal | Not Used 
+                }
+            }
         })
     }
-    
-    External(_SB.PCI0.XHC, DeviceObj)
-    // In DSDT, native ESEL is renamed ESEX
-    // As a result, calls to it land here.
-    Method(_SB.PCI0.XHC.ESEL)
-    {
-        // do nothing
-    }
-    
 }
-//EOF
+
