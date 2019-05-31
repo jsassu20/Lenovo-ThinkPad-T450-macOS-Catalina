@@ -78,6 +78,12 @@ This folder contains a number of different useful tools I find helpful with sett
 
 #
 
+### !homefix.command
+
+- Installs the HomeEndFix files automatically. Fixes the Home and End button configurations on ThinkPad Hackintosh setups to match Macintosh hardware in the macOS environment.
+
+#
+
 ### !install_tools.command
 
 - Installs binaries and other tools for hackintosh builds which can be found in the "Tools/usr/" directory and they include a number of different binary apps which can. be executed from the terminal including "patchmatic", "iasl", "lscpi", "gfxutil", "hda-verb", "plistbuddy", "mnt", "sleepwatcher", and a number of other useful tools which are beneficial in setting up a fully working system with the proper tools needed to keep things running smooth. Just execute this script and enter the password for your account and the binaries will be installed to "/usr/local/bin/" folder automatically.  
