@@ -65,13 +65,73 @@
 			<array>
 				<dict>
 					<key>Comment</key>
+					<string>change _PTS to ZPTS</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1BUUwE=
+					</data>
+					<key>Replace</key>
+					<data>
+					WlBUUwE=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change _WAK to ZWAK</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1dBSwk=
+					</data>
+					<key>Replace</key>
+					<data>
+					WldBSwk=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
 					<string>change OSI to XOSI Windows</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
-					<data>X09TSQ==</data>
+					<data>
+					X09TSQ==
+					</data>
 					<key>Replace</key>
-					<data>WE9TSQ==</data>
+					<data>
+					WE9TSQ==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify(BAT0 to Notify(BATC </string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					hkJBVDA=
+					</data>
+					<key>Replace</key>
+					<data>
+					hkJBVEM=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change Notify(BAT1 to Notify(BATC </string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					hkJBVDE=
+					</data>
+					<key>Replace</key>
+					<data>
+					hkJBVEM=
+					</data>
 				</dict>
 			</array>
 			<key>SlpSmiAtWake</key>
@@ -90,10 +150,19 @@
 		<true/>
 		<key>HaltEnabler</key>
 		<true/>
+		<key>RenameDevices</key>
+		<dict>
+			<key>_SB.PCI0.RP02.PXSX</key>
+			<string>ARPT</string>
+		</dict>
+		<key>ResetAddress</key>
+		<string>0x0CF9</string>
+		<key>ResetValue</key>
+		<string>0x06</string>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<false/>
+			<true/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
@@ -106,23 +175,6 @@
 			<key>PluginType</key>
 			<string>1</string>
 		</dict>
-		<key>SortedOrder</key>
-		<array>
-			<string>DSDT.aml</string>
-			<string>SSDT-2.aml</string>
-			<string>SSDT-3.aml</string>
-			<string>SSDT-4.aml</string>
-			<string>SSDT-5.aml</string>
-			<string>SSDT-7.aml</string>
-			<string>SSDT-ALC3.aml</string>
-			<string>SSDT-DEH1.aml</string>
-			<string>SSDT-DTGP.aml</string>
-			<string>SSDT-MEM2.aml</string>
-			<string>SSDT-PTWK.aml</string>
-			<string>SSDT-PWRB.aml</string>
-			<string>SSDT-UIAC.aml</string>
-			<string>SSDT-XOSI.aml</string>
-		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -141,7 +193,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>5</integer>
+		<integer>0</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -179,39 +231,42 @@
 		<false/>
 		<key>Properties</key>
 		<dict>
-			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal</string>
-				<key>built-in</key>
-				<data>AA==</data>
-				<key>device_type</key>
-				<string>Host Bridge</string>
-				<key>model</key>
-				<string>Intel Broadwell-U PCI Express Main Host Bridge OPI</string>
-				<key>name</key>
-				<string>MCHC</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
+			<key>## PciRoot(0x0)/Pci(0x14,0x0)</key>
 			<dict>
 				<key>AAPL,current-available</key>
-				<data>AAg0</data>
+				<data>
+				AAg0
+				</data>
 				<key>AAPL,current-extra</key>
-				<data>AAqM</data>
+				<data>
+				AAqM
+				</data>
 				<key>AAPL,current-extra-in-sleep</key>
-				<data>AAg0</data>
+				<data>
+				AAg0
+				</data>
 				<key>AAPL,current-in-sleep</key>
-				<data>AAPo</data>
+				<data>
+				AAPo
+				</data>
 				<key>AAPL,device-internal</key>
-				<data>AAI=</data>
+				<data>
+				AAI=
+				</data>
 				<key>AAPL,max-port-current-in-sleep</key>
-				<data>AAqM</data>
+				<data>
+				AAqM
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device-id</key>
-				<data>nLEAAA==</data>
+				<data>
+				nLEAAA==
+				</data>
 				<key>device_type</key>
 				<string>USB Controller</string>
 				<key>model</key>
@@ -219,14 +274,33 @@
 				<key>name</key>
 				<string>XHC</string>
 				<key>vendor-id</key>
-				<data>gIYAAA==</data>
+				<data>
+				gIYAAA==
+				</data>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
+				<key>device_type</key>
+				<string>Host Bridge</string>
+				<key>model</key>
+				<string>Intel Broadwell-U PCI Express Main Host Bridge OPI</string>
+				<key>name</key>
+				<string>MCHC</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x16,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>Communication Controller</string>
 				<key>model</key>
@@ -239,7 +313,9 @@
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>Ethernet Controller</string>
 				<key>model</key>
@@ -252,13 +328,17 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>Audio Controller</string>
+				<string>Audio Controller </string>
 				<key>hda-gfx</key>
 				<string>onboard-2</string>
 				<key>layout-id</key>
-				<data>HAAAAA==</data>
+				<data>
+				HAAAAA==
+				</data>
 				<key>model</key>
 				<string>Realtek High Definition Audio Controller (Intel Broadwell-U Wildcat Point-LP Audio)</string>
 				<key>name</key>
@@ -269,7 +349,9 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>PCI Bridge</string>
 				<key>model</key>
@@ -293,7 +375,9 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>PCI Bridge</string>
 				<key>model</key>
@@ -315,23 +399,39 @@
 			<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
 			<dict>
 				<key>AAPL,current-available</key>
-				<data>AAg0</data>
+				<data>
+				AAg0
+				</data>
 				<key>AAPL,current-extra</key>
-				<data>AAqM</data>
+				<data>
+				AAqM
+				</data>
 				<key>AAPL,current-extra-in-sleep</key>
-				<data>AAg0</data>
+				<data>
+				AAg0
+				</data>
 				<key>AAPL,current-in-sleep</key>
-				<data>AAPo</data>
+				<data>
+				AAPo
+				</data>
 				<key>AAPL,device-internal</key>
-				<data>AAI=</data>
+				<data>
+				AAI=
+				</data>
 				<key>AAPL,max-port-current-in-sleep</key>
-				<data>AAqM</data>
+				<data>
+				AAqM
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device-id</key>
-				<data>ppwAAA==</data>
+				<data>
+				ppwAAA==
+				</data>
 				<key>device_type</key>
 				<string>USB Controller</string>
 				<key>model</key>
@@ -339,14 +439,18 @@
 				<key>name</key>
 				<string>EH01</string>
 				<key>vendor-id</key>
-				<data>gIYAAA==</data>
+				<data>
+				gIYAAA==
+				</data>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>ISA Bridge</string>
 				<key>model</key>
@@ -370,7 +474,9 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>System Bus Controller</string>
 				<key>model</key>
@@ -383,7 +489,9 @@
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>Signal Processing Controller</string>
 				<key>model</key>
@@ -393,55 +501,65 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
-				<key>AAPL,GfxYTile</key>
-				<data>AQAAAA==</data>
 				<key>AAPL,ig-platform-id</key>
-				<data>BgAmFg==</data>
+				<data>
+				BgAmFg==
+				</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>built-in</key>
-				<data>AA==</data>
 				<key>device_type</key>
 				<string>VGA Compatible Controller</string>
-				<key>disable-external-gpu</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con0-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con0-pipe</key>
-				<data>EgAAAA==</data>
 				<key>framebuffer-con1-enable</key>
-				<data>AQAAAA==</data>
-				<key>framebuffer-con1-pipe</key>
-				<data>EgAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con1-type</key>
-				<data>AAgAAA==</data>
+				<data>
+				AAgAAA==
+				</data>
 				<key>framebuffer-con2-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-con2-index</key>
-				<data>/////w==</data>
+				<data>
+				/////w==
+				</data>
+				<key>framebuffer-fbmem</key>
+				<data>
+				AACQAA==
+				</data>
 				<key>framebuffer-patch-enable</key>
-				<data>AQAAAA==</data>
+				<data>
+				AQAAAA==
+				</data>
 				<key>framebuffer-portcount</key>
-				<data>AgAAAA==</data>
-				<key>framebuffer-unifiedmem</key>
-				<data>AAAAgA==</data>
+				<data>
+				AgAAAA==
+				</data>
+				<key>framebuffer-stolenmem</key>
+				<data>
+				AAAwAQ==
+				</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>model</key>
 				<string>Intel HD Graphics 5500</string>
-				<key>name</key>
-				<string>IGPU</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>built-in</key>
-				<data>AA==</data>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
-				<string>Audio Controller</string>
+				<string>Audio Controller </string>
 				<key>layout-id</key>
-				<data>HAAAAA==</data>
+				<data>
+				HAAAAA==
+				</data>
 				<key>model</key>
 				<string>Intel Broadwell-U HDMI Audio Controller</string>
 				<key>name</key>
@@ -584,9 +702,13 @@
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>ILniAAAADzA=</data>
+				<data>
+				ILniAAAADzA=
+				</data>
 				<key>Replace</key>
-				<data>ILniAAAAkJA=</data>
+				<data>
+				ILniAAAAkJA=
+				</data>
 			</dict>
 		</array>
 		<key>KextsToPatch</key>
@@ -597,13 +719,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>hQjsEA==</data>
+				<data>
+				hQjsEA==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -611,13 +737,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>hAjsEA==</data>
+				<data>
+				hAjsEA==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -625,13 +755,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>gxnUEQ==</data>
+				<data>
+				gxnUEQ==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>AAAAAA==</data>
+				<data>
+				AAAAAA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -639,13 +773,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>hBnUEQ==</data>
+				<data>
+				hBnUEQ==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
-				<data>kgLsEA==</data>
+				<data>
+				kgLsEA==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -653,13 +791,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
+				<data>
+				BgAmCgEDAwMAAAACAAAwAQAAYAA=
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>BgAmCgEDAwMAAAAIAAAAAwAAAAM=</data>
+				<data>
+				BgAmCgEDAwMAAAAIAAAAAwAAAAM=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -667,13 +809,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>AQUJAAAEAACHAAAA</data>
+				<data>
+				AQUJAAAEAACHAAAA
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>AQUSAAAEAACHAAAA</data>
+				<data>
+				AQUSAAAEAACHAAAA
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -681,13 +827,17 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>iUXIOcd2Tw==</data>
+				<data>
+				iUXIOcd2Tw==
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleIntelBDWGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>iUXIOcfrTw==</data>
+				<data>
+				iUXIOcfrTw==
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -695,27 +845,35 @@
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
-				<data>AQAAdSU=</data>
+				<data>
+				AQAAdSU=
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
-				<data>AQAA6yU=</data>
+				<data>
+				AQAA6yU=
+				</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
 				<string>Port_0x5-DP2HDM</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
-				<data>AQUJAAAEAAAHBQAA</data>
+				<data>
+				AQUJAAAEAAAHBQAA
+				</data>
 				<key>InfoPlistPatch</key>
 				<false/>
 				<key>Name</key>
 				<string>AppleIntelBDWGraphicsFramebuffer</string>
 				<key>Replace</key>
-				<data>AQUJAAAIAACCAAAA</data>
+				<data>
+				AQUJAAAIAACCAAAA
+				</data>
 			</dict>
 		</array>
 	</dict>

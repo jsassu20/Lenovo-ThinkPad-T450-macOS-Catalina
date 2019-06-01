@@ -15,9 +15,9 @@
 				<key>AddDTGP</key>
 				<false/>
 				<key>AddIMEI</key>
-				<false/>
+				<true/>
 				<key>AddMCHC</key>
-				<false/>
+				<true/>
 				<key>AddPNLF</key>
 				<false/>
 				<key>DeleteUnused</key>
@@ -77,20 +77,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change MEI to IMEI Graphics</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					TUVJXw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change OSI to XOSI Windows</string>
 					<key>Disabled</key>
 					<false/>
@@ -101,20 +87,6 @@
 					<key>Replace</key>
 					<data>
 					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI Graphics</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
 					</data>
 				</dict>
 				<dict>
@@ -587,8 +559,6 @@
 	<dict>
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
-		<key>Arguments</key>
-		<string>dart=0 nv_disable=1 kext-dev-mode=1</string>
 		<key>HibernationFixup</key>
 		<false/>
 		<key>NeverHibernate</key>
@@ -615,17 +585,10 @@
 			<key>ResetHDA</key>
 			<false/>
 		</dict>
-		<key>FakeID</key>
-		<dict>
-			<key>IntelGFX</key>
-			<string>0x16268086</string>
-		</dict>
 		<key>HDMIInjection</key>
 		<true/>
 		<key>Inject</key>
 		<false/>
-		<key>IntelMaxValue</key>
-		<string>0x0AD9</string>
 		<key>LANInjection</key>
 		<true/>
 		<key>LpcTune</key>
@@ -634,23 +597,10 @@
 		<false/>
 		<key>Properties</key>
 		<dict>
-			<key>## PciRoot(0x0)/Pci(0x1c,0x1)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>NGFF A/E PCIe</string>
-				<key>device_type</key>
-				<string>AirPort Extreme</string>
-				<key>model</key>
-				<string>Apple AirPort Extreme Broadcom BCM4360 802.11ac Wireless Network Adapter</string>
-			</dict>
 			<key>PciRoot(0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>Host Bridge</string>
 				<key>model</key>
@@ -684,10 +634,6 @@
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device-id</key>
 				<data>
 				nLEAAA==
@@ -705,10 +651,6 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>Communication Controller</string>
 				<key>model</key>
@@ -727,10 +669,6 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>Audio Controller</string>
 				<key>hda-gfx</key>
@@ -802,10 +740,6 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>ISA Bridge</string>
 				<key>model</key>
@@ -824,10 +758,6 @@
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>System Bus</string>
 				<key>model</key>
@@ -882,10 +812,6 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
-				<key>built-in</key>
-				<data>
-				AA==
-				</data>
 				<key>device_type</key>
 				<string>Audio Controller</string>
 				<key>hda-gfx</key>
@@ -895,9 +821,9 @@
 			</dict>
 		</dict>
 		<key>SetIntelBacklight</key>
-		<true/>
+		<false/>
 		<key>SetIntelMaxBacklight</key>
-		<true/>
+		<false/>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
@@ -938,9 +864,9 @@
 			<key>DoubleClick</key>
 			<integer>500</integer>
 			<key>Enabled</key>
-			<false/>
+			<true/>
 			<key>Mirror</key>
-			<false/>
+			<true/>
 			<key>Speed</key>
 			<integer>8</integer>
 		</dict>
@@ -948,8 +874,6 @@
 		<false/>
 		<key>Scan</key>
 		<true/>
-		<key>ScreenResolution</key>
-		<string>1600x900</string>
 		<key>Theme</key>
 		<string>FlatCamp</string>
 	</dict>
@@ -1011,13 +935,13 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleIntelCPUPM</key>
-		<false/>
+		<true/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>DellSMBIOSPatch</key>
 		<false/>
 		<key>KernelLapic</key>
-		<false/>
+		<true/>
 		<key>KernelPm</key>
 		<true/>
 		<key>KernelToPatch</key>
@@ -1060,7 +984,7 @@
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02728200GUGDVV1M</string>
+		<string>C02542300CDGDVVA8</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -1083,11 +1007,6 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
-		<key>Memory</key>
-		<dict>
-			<key>SlotCount</key>
-			<integer>2</integer>
-		</dict>
 		<key>Mobile</key>
 		<true/>
 		<key>PlatformFeature</key>
@@ -1097,7 +1016,7 @@
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for Broadwell identifiers</string>
 		<key>SerialNumber</key>
-		<string>C02V2CZBH1DP</string>
+		<string>C02QK2YRH1DP</string>
 		<key>SmUUID</key>
 		<string>5E7BF10D-5778-4191-B9AC-11C8F1339167</string>
 		<key>Trust</key>
@@ -1108,7 +1027,7 @@
 	<key>SystemParameters</key>
 	<dict>
 		<key>CustomUUID</key>
-		<string>86979C9C-60CD-43AD-8598-1DF9E95FBB22</string>
+		<string>26F441FC-69AF-4F9C-A096-1492DBCBE8AB</string>
 		<key>InjectKexts</key>
 		<string>Detect</string>
 		<key>InjectSystemID</key>

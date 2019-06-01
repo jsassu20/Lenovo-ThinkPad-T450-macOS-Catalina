@@ -28,6 +28,7 @@ DefinitionBlock ("", "SSDT", 2, "LENOVO", "HD5500", 0x00002000)
             "framebuffer-con1-pipe", Buffer() { 0x12, 0x00, 0x00, 0x00 },
             "device_type", Buffer() { "VGA Compatible Controller" },
             "hda-gfx", Buffer() { "onboard-1" },
+            "built-in", Buffer() { 0x00 },
             "framebuffer-patch-enable", Buffer() { 0x01, 0x00, 0x00, 0x00 },
             "framebuffer-con0-pipe", Buffer() { 0x12, 0x00, 0x00, 0x00 },
             "framebuffer-con1-type", Buffer() { 0x00, 0x08, 0x00, 0x00 },
@@ -37,6 +38,10 @@ DefinitionBlock ("", "SSDT", 2, "LENOVO", "HD5500", 0x00002000)
             "model", Buffer() { "Intel HD Graphics 5500" },
             "framebuffer-con1-enable", Buffer() { 0x01, 0x00, 0x00, 0x00 },
             "framebuffer-con0-enable", Buffer () { 0x01, 0x00, 0x00, 0x00 },
+            "vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },
+            "subsystem-vendor-id", Buffer() { 0xAA, 0x17, 0x00, 0x00 },
+            "subsystem-device-id", Buffer() { 0x34, 0x50, 0x00, 0x00 },
+            "name", Buffer() { "Retina Display" },
         })
     }
 }
