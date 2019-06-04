@@ -1,6 +1,6 @@
-![Screenshot](misc/logo/screenshot.png)
-
 # macOS Mojave (Lenovo ThinkPad T450)
+
+![Screenshot](misc/logo/screenshot.png)
 
 ```  
 - Intel 5th Generation Architecture (Broadwell)
@@ -12,9 +12,7 @@
 - All native macOS Mojave features work as long as you upgrade the WiFi card to a supported configuration
 ```
 
-#
-
-# Credits
+## Credits
 
 RehabMan:
 
@@ -28,7 +26,7 @@ AcidAnthera:
 
 - For Lilu.kext and all of the included Lilu Plugins which have made countless configurations possible among a plethora of Hackintosh machines! AcidAnther is a genius coder and developer and without his hard work and effort we would not be able to create the sheer number of hackintosh configurations with universal kexts like we have the ability to do now thanks to his/her development.
 
-Sniki:
+Snikii:
 
 - For a number of his Hot Patched files which inspired a lot of the files I've been able to adapt. For his contribution to ThinPad hackintosh configurations which I've used for inspiration. For his install guides on Tonymacx86.com which I've used to learn countless amounts of info from in adapting this configuration. 
 
@@ -36,9 +34,8 @@ The Hackintosh Community:
 
 - Without which I would not have been able to learn everything I have been able to learn. I want to thank you all this community is amazing!
 
-#
    
-# Hardware Configuration:
+## Hardware Configuration:
 
 ```  
 - Intel Core i7-5600U | Broadwell (5th Generation) 
@@ -52,10 +49,8 @@ The Hackintosh Community:
 - Synaptic One Button Trackpad from T440s (Replaced 3 button Trackpad for better functionality with macOS)
 - AirPort Extreme AC (1300 MB/s) & Bluetooth 4.0 PCIe (Broadcom BCM94360CSAX) NGFF A/E Adapter Required  
 ```
-
-#
     
-# Build Features:
+## Build Features:
 
 - This is a 100% working macOS Mojave setup! Nothing needs to be changed! Just swap your files with mine and enjoy! (WiFi upgrade needed for complete functionality)
 
@@ -63,17 +58,15 @@ The Hackintosh Community:
 
 - Find My Mac only works with real AirPort card! If you lock the device via iCloud with a PC WiFi card (even with a supported chipset) you're gonna find    yourself in a situation you don't want to deal with. 
     
-#
 
-# Recommended Hardware Changes:
+## Recommended Hardware Changes:
   
 For full functionality, you will need to swap out the stock Intel WiFi & BT card with a natively supported AirPort Card. The wireless network card is the only hardware change needed for complete functionality (everything else functions in Mac). The original Intel WiFi & Bluetooth 4.1 Card is not supported in macOS (Bluetooth works) so if you want WiFi you have to replace the internal NGFF card with one that's supported in macOS Mojave. The chipsets that Mac actually comes with are almost always Broadcom or Atheros based cards. There are no Intel cards which will function in Mac so don't waste your time trying to get it working. I recommend purchasing the Apple AirPort Extreme Broadcom BCM94360CSAX along with an NGFF A/E adapter, I can confirm this card fits and works perfectly in the T450. Using an actual Apple card also allows for proper Handoff, AirDrop, Instant Hotspot, and other Continuity features to function properly and also solves a number of other issues you'll face with a PC based card even if its supported. The BCM94360CSAX is supported OOB and it even functions during macOS installation and gives you the ability to install macOS from online in recovery mode if you lose the USB install drive that you made and your system runs into an issue that requires the OS to be reinstalled. 
 
 The card is a MIMO 3x3 (use one of the WWAN antennas for the third antenna probe or use the two normal ones and the speed will max out at 866 Mbps) It's 802.11 AC based and can download up to 1.3 Gbps. I got both the AirPort card and the required adapter for $40 dollars off Amazon with same day shipping! This card is also supported in Windows with the proper drivers so you can continue running Windows if need be.
     
-#
 
-# BIOS Configuration Settings:
+## BIOS Configuration Settings:
 
 ```  
 - UEFI Bios Version: JBET71WW (1.35) | Latest Version Available (as of April 2019)
@@ -92,26 +85,21 @@ The card is a MIMO 3x3 (use one of the WWAN antennas for the third antenna probe
 - Hyper threading enabled
 - My BIOS is unlocked so I can set DVMT to 64MB. I recommend doing this but it's not required.
 ```
-
-#
         
-# Support For Similar Hardware:
+## Support For Similar Hardware:
   
 This post contain basically everything necessary to install macOS Mojave on a Lenovo ThinkPad T450 as well as most Broadwell Lenovo Laptops from 2014-2016 with Intel HD5500 Graphics on either the i5 or i7 processors if you opt to use my Static Patched ACPI files. This will almost certainly require that you patch your own DSDT though. You can find information below regarding the actual process but you may also try mine out and see if it works (only if you have a T450 or T450s though). Any other device will require that you patch your own DSDT. Take a look in "utilities/ACPI" for my files and use them as a guide to patch your own DSDT if you choose to go with static patching for whatever reason. I strongly recommend that you choose to stick with the Hot Patched configuration as it provides a number of benefits over the old method of Static Patching. First its already complete in this build which means you can just delete the contents of your "/Volumes/ESP/EFI/CLOVER" folder and then copy and paste the entire setup I've created into that same CLOVER folder. Hot Patching is capable of universal support across a wide range of comparable hardware so even if your laptop in not a T450 or Lenovo for that matter but it contains a Broadwell processor and HD Graphics 5500 then this setup will almost certainly work for you (with minor adjustments possibly needed in the config.plist or with kexts for other hardware not present in my configuration). The most beneficial reason for choosing the Hot Patched method though is that it requires no knowledge of how to patch an DSDT because Clover takes care of everything for you and survives BIOS changes and updates! Anyone who can copy and paste can use this build so long as there base configuration matches mine (refer to the first section of this guide for that information).
 
-#
   
-# Installing Clover Bootloader & macOS Mojave:
+## Installing Clover Boot-loader & macOS Mojave:
 
 ```  
 Your computer WILL RESTART at least one time while installing. THIS IS NORMAL.
 ```
   
 Use CLOVER Installer in order to setup the needed EFI partition on your USB macOS Installer as well as the permanent EFI partition that will be on the same Hard Drive where you plan on installing macOS (if there is not already the proper partition present on the device Clover installer will create it for you). When the process finishes all you have to do is mount the EFI partition of both drives and swap out the CLOVER and BOOT folders that exist inside of the EFI folder with the ones from my setup. My configuration is a full Hot Patched instead of Static Patched DSDT patching which is more of a problem in maintaining over time. Hot Patching is much more stable and its also universally supported across the designated hardware it was based on. You won't have to worry about needing to patch your own DSDT because this method doesn't require you to patch your DSDT file. Clover will patch it on the fly with this setup. 
-
-#
   
-# Advanced Configuration and Power Interface (ACPI):
+## Advanced Configuration and Power Interface (ACPI):
 
 One of the most important aspects of running macOS on PC hardware and getting all of the proper functionality out of the setup is a properly configured DSDT file. For those of you who aren't yet familiar, a DSDT is essentially a configuration file which informs the operating system you are using about the hardware thats present in your system. As far as I'm aware, all computers with Intel processors have a DSDT, its part of whats called an ACPI (Advanced Configuration and Power Interface) which is a method created by Intel for allowing its hardware to be identified in a wide range of devices. Since Apple Computers utilize Intel processors, they too have an ACPI and in turn a DSDT. The only issue is that Apple has different definitions for their hardware than most other PC manufacturers and as such they require the need to patch the DSDT on PC hardware in order to achieve full functionality. There are also SSDT files which can be used to add code into the actual DSDT file without needing to modify the DSDT itself. Think of SSDTs as DSDT extensions. There are two methods for patching the DSDT on PC hardware for use with macOS... 
   
@@ -122,8 +110,6 @@ The newest method for patching ACPI code in order to solve issues with functiona
 - The first method is searching and replacing. When using this option you are essentially telling clover to find specific code in the DSDT such as the name of a specific piece of hardware. An example is the video controller. In macOS the video card needs to be named IGPU in order for power management to work with it. In order to hot patch this section of the DSDT you would create a patch in Clover Configurator that basically looks for all instances of the video card (if not named IGPU) and then it will replace those pieces of code with the proper needed name. So if your video card is named GFX0 in your systems ACPI then you create a patch using ASCII code that basically says "Find all GFX0 references and Replace them with IGPU". This will solve your graphics power control issue.
    
 - The other method utilized in Hot patching is called find and disable. It works on the same principle in that it finds specific code present in the system and instead of replacing it, it will rename the method which voids its function and then a new SSDT will be created which contains the method you voided so that the changes you need to make are introduced in the custom SSDT.
-  
-#
 
 ### Static Patching:
 
@@ -133,9 +119,8 @@ The original method involves the process of pulling the physical DSDT and SSDT f
      	   
 - Second, Static Patching has no universal support and thus is required to be done for all configurations individually which utilize this method for patching the ACPI! This means that in almost all cases, if someone has the same computer as you and they post their build on a forum and you come across it, you almost always wont be able to just load their configuration into your's by substituting the CLOVER folder's contents with regards to the ACPI directory even though you have the same device. This means that all users who want to install macOS on their devices will unfortunately need to know how to patch their DSDT if they want a completely functioning setup. This is unfortunately an advanced process and requires extensive knowledge of the inner workings of ASL coding and the macOS ACPI configuration in order to accomplish a complete DSDT patch.       
 
-#
           
-# Static Patching General Steps:
+## Static Patching General Steps:
 
 If you want to STATIC patch then check out the "utilities/ACPI" directory for my files and the patches you can use. Everything is labeled. I can not give you a perfectly detailed method for Static patching a DSDT as its a very complicated process and its very specific to each device which you attempt to utilize it with. All ACPI configurations are different across different manufacturers and thus require specific changes and utilize specific patches which are created by users of the devices they were designed to be used on. I can only provide you with the steps and information thats universal across all devices with Static Patching. That would be extracting the required files, decompiling the DSDT and SSDTs, the process of applying a patch in maciASL, saving the finished product as an compiled configuration in .aml format, and moving the patched files into the         "/Volumes/ESP/EFI/CLOVER/ACPI/patched" folder.
 
@@ -182,9 +167,7 @@ If you want to STATIC patch then check out the "utilities/ACPI" directory for my
 
 PAY ATTENTION TO THE .dsl and .asl extension of each file and don't mix them up.
 
-#
-
-# Users Who've Installed The T440 TrackPad
+## Users Who've Installed The T440 TrackPad
 
 I've included a folder that contains the files necessary for implementing my preferred trackpad configuration after installing the Synaptic One Button Clickpad in my Lenovo ThinkPad T450. I don't recommend using these files unless you have installed the T440 trackpad as well. The configuration can be found at "/Volumes/ESP/EFI/CLOVER/utilities/Trackpad/T440-Clickpad/"
 
@@ -208,9 +191,7 @@ I've included a folder that contains the files necessary for implementing my pre
 3. Run the !kextcache.command script (requires admin password).
 ```
 
-#
-
-# Miscellaneous Information:
+## Miscellaneous Information:
 
 - Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video men as hit as you can, disable fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning. Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
 
