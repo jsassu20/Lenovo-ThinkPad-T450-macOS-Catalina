@@ -1,6 +1,12 @@
 # Patched T440 ACPI Files
 
-Patched .aml configuration files are inserted here and Clover will inject them at boot time in order to modify the ACPI codebase with all changes present in the individual files. 
+Patched .aml configuration files are inserted here and Clover will inject them at boot time in order to modify the ACPI codebase with all changes present in the individual files. EITHER USE THE INDIVIDUAL ".aml" FILES OR THE SINGLE "SSDT-T440.aml" FILE IN THE "AIO" FOLDER. DO NOT INCLUDE BOTH OPTIONS TOGETHER OR YOUR SYSTEM WONT BOOT. THE SINGLE "SSDT-T440.aml" IS JUST A COMBINATION OF ALL INDIVIDUAL HOT PATCHES IN ONE SINGLE FILE.  
+
+#
+
+### config.plist
+
+- The configuration file that should be used with Lenovo ThinkPad T440 systems. Replace the config.plist made for my T450 setup in the main folder with this config.plist file for proper functionality. The main difference is with the graphics configuration since the T450 uses Broadwell integrated graphics and the T440 uses Haswell integrated graphics.
 
 #
 
@@ -24,7 +30,7 @@ Patched .aml configuration files are inserted here and Clover will inject them a
 
 ### Off Folder
 
-- Hot Patches not currently needed or desired.
+- Hot Patches not currently needed or desired. Move ".aml" files that you wish to disable in here instead of deleting them incase you need them later on.
 
 
 
