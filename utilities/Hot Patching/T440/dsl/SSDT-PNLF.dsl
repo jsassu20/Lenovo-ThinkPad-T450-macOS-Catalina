@@ -1,5 +1,9 @@
-// Adding PNLF device for IntelBacklight.kext or AppleBacklight.kext+AppleBacklightInjector.kext
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-PNLF...
+//
+// Injects the proper configuration for the display and allows brightness control | Intel Haswell Graphics | 0x0AD9 Backlight For Framebuffer...
+//
 #define SANDYIVY_PWMMAX 0x710
 #define HASWELL_PWMMAX 0xad9
 #define SKYLAKE_PWMMAX 0x56c

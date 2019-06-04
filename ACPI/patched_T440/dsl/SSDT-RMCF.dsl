@@ -1,5 +1,9 @@
-// configuration data for other SSDTs in this pack
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-RMCF...
+//
+// Configuration Data For Other SSDTs In This Setup...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-RMCF", 0)
 {

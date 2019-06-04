@@ -1,5 +1,11 @@
-// Override for host defined _OSI to handle "Darwin"...
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-XOSI...
+//
+// Voids _OSI MethodObj And Replaces It With XOSI For Returning "Darwin" During OS Probing And Instead Returns "Windows" As The OS In Use | More Stable With ACPI Patching Done By Clover...
+//
+// Requires Clover Configurator ACPI/Patch "change _OSI to XOSI" In Order To Work...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-XOSI", 0)
 {

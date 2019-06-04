@@ -1,4 +1,6 @@
-// SSDT-DDA.dsl
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-DHDA...
 //
 // The purpose of this file is to define only the symbol RMDA.
 // With RMDA defined, SSDT-HDEF, SSDT-HDAU, and SSDT-IGPU will disable "hda-gfx" injection

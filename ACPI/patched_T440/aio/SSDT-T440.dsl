@@ -1,3 +1,9 @@
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-T440...
+//
+// Combines All Single Hot Patch .aml Files In To A Single Configuration Table...
+//
 DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-T440", 0x00000000)
 {
     External (_SB_.IAOE.GAOS, MethodObj)    // 0 Arguments

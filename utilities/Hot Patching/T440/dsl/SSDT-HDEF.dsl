@@ -1,5 +1,9 @@
-// Automatic injection of HDEF properties
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | Configuration For System Sound Functionality...
+//
+// Automatic Injection Of HDEF (System Audio) Layout Properties (System Audio Functionality) | Only Use Layout 28 | 1C000000...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-HDEF", 0)
 {

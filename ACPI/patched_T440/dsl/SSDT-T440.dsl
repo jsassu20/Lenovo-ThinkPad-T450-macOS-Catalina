@@ -1,4 +1,9 @@
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-T440...
+//
 // for testing including all SSDTs with NO_DEFINITIONBLOCK
+//
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-T440", 0)
 {
     #define NO_DEFINITIONBLOCK

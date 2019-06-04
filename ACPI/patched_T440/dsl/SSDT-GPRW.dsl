@@ -1,5 +1,9 @@
-// For solving instant wake by hooking GPRW or UPRW
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-GPWR...
+//
+// For Solving Instant Wake By Hooking GPRW or UPRW
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-GPRW", 0)
 {

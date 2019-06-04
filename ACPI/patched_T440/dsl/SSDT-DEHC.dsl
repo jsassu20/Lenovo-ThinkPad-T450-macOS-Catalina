@@ -1,5 +1,9 @@
-// Disable EHCI #1
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | Disables USB EHCI EH01 In DSDT...
+//
+// This Configuration Disables The EHCI Controller | Routes All USB Traffic Over XHC...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-DEHC", 0)
 {

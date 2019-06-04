@@ -1,10 +1,18 @@
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-ALC3...
+//
+// Must Use AlcPlugFix To Have All Inputs & Outputs Functioning | Wake & Sleep Fix | Solves Internal Microphone Issues...
+//
+// Realtek ALC3232 Codec Configuration | Patched AppleHDA Configuration | Install AppleALC3232-Mod.kext In BOTH /Library/Extensions & /EFI/CLOVER/other/kexts... 
+//
 // Custom Configuration for Realtek ALC3232 Codec with ComboJack on Lenovo ThinkPad L440.
 // Works also on Lenovo Thinkpad: L450/T440/T440S/T440P/T540P/T450/X240... etc.
 // Must use AlcPlugFix to have all working Inputs & Outputs ; Wake & Sleep.
-
+//
 // This data provided by @Sniki.
 // See here: https://www.tonymacx86.com/threads/guide-lenovo-thinkpad-l440.232589/
-
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 1, "LENOVO", "TP-ALC3", 0)
 {

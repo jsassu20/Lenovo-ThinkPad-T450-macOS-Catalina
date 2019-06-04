@@ -1,8 +1,11 @@
-// Lenovo ThinkPad T440 USB Port Injector.
-// Supports TouchScreen.
-// FingerPrint Reader Disabled (Not supported on macOS).
-// Fixed AutoStart after Shutdown if a USB device is plugged in.
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-UIAC...
+//
+// This Configuration Injects The USB Ports On XHC USB 3.1 Controller...
+//
+// Proper USB Ports Injection Mapping | XHC USB 3.0 Controller | USBInjectAll.kext required...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock ("", "SSDT", 2, "LENOVO", "TP-UIAC", 0)
 {

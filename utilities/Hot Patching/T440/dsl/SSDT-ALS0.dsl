@@ -1,5 +1,9 @@
-// Fake ambient light sensor device
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-ALSO...
+//
+// This Configuration Injects The ALS0 Controller | Ambient light sensor...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-ALS0", 0)
 {

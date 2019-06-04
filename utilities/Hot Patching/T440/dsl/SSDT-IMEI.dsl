@@ -1,5 +1,9 @@
-// Add the missing IMEI device.
-
+// Lenovo ThinkPad T440 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-IMEI...
+//
+// Adds Missing IMEI DeviceObj Into DSDT | Patched On The Fly | Fixes Issues With iTunes Store and macOS App Store DRM Verification...
+//
 #ifndef NO_DEFINITIONBLOCK
 DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-IMEI", 0)
 {
