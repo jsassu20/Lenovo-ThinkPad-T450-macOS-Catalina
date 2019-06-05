@@ -2,6 +2,10 @@
 
 ![Screenshot](misc/logo/screenshot.png)
 
+### PayPal
+
+- If you like my work then please feel free to donate. Every little bit helps! Sassuajames@gmail.com | Paypal.me/Sass86oh
+
 ```  
 - Intel 5th Generation Architecture (Broadwell)
 - Intel HD Graphics 5500
