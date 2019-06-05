@@ -8,18 +8,16 @@
 		<true/>
 		<key>DSDT</key>
 		<dict>
-			<key>DropOEM_DSM</key>
-			<true/>
 			<key>Fixes</key>
 			<dict>
 				<key>#Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
 				<key>AddDTGP</key>
-				<true/>
+				<false/>
 				<key>AddIMEI</key>
-				<false/>
+				<true/>
 				<key>AddMCHC</key>
-				<false/>
+				<true/>
 				<key>AddPNLF</key>
 				<false/>
 				<key>DeleteUnused</key>
@@ -27,7 +25,7 @@
 				<key>FixACST</key>
 				<false/>
 				<key>FixADP1</key>
-				<true/>
+				<false/>
 				<key>FixDarwin7</key>
 				<false/>
 				<key>FixDisplay</key>
@@ -50,8 +48,6 @@
 				<false/>
 				<key>FixS3D</key>
 				<false/>
-				<key>FixSATA</key>
-				<false/>
 				<key>FixSBUS</key>
 				<true/>
 				<key>FixShutdown</key>
@@ -61,7 +57,7 @@
 				<key>FixUSB</key>
 				<false/>
 				<key>FixWAK</key>
-				<false/>
+				<true/>
 			</dict>
 			<key>Patches</key>
 			<array>
@@ -77,20 +73,6 @@
 					<key>Replace</key>
 					<data>
 					UlAw
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change MEI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					TUVJXw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
 					</data>
 				</dict>
 				<dict>
@@ -167,7 +149,7 @@
 					<key>Comment</key>
 					<string>change DSM to XDSM PCI Info</string>
 					<key>Disabled</key>
-					<true/>
+					<false/>
 					<key>Find</key>
 					<data>
 					X0RTTQ==
@@ -245,20 +227,6 @@
 					<key>Replace</key>
 					<data>
 					WlBUUwE=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HECI to IMEI</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SEVDSQ==
-					</data>
-					<key>Replace</key>
-					<data>
-					SU1FSQ==
 					</data>
 				</dict>
 				<dict>
@@ -556,18 +524,12 @@
 					</data>
 				</dict>
 			</array>
-			<key>SlpSmiAtWake</key>
-			<false/>
 		</dict>
 		<key>DropTables</key>
 		<array>
 			<dict>
 				<key>Signature</key>
 				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>#MCFG</string>
 			</dict>
 		</array>
 		<key>FixHeaders</key>
@@ -580,23 +542,11 @@
 		<dict>
 			<key>DropOem</key>
 			<false/>
-			<key>EnableC2</key>
-			<true/>
-			<key>EnableC4</key>
-			<true/>
-			<key>EnableC6</key>
-			<true/>
-			<key>EnableC7</key>
-			<true/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
 				<true/>
 			</dict>
-			<key>MaxMultiplier</key>
-			<integer>32</integer>
-			<key>MinMultiplier</key>
-			<integer>5</integer>
 			<key>NoDynamicExtract</key>
 			<true/>
 			<key>NoOemTableId</key>
@@ -609,22 +559,16 @@
 	<dict>
 		<key>#DefaultVolume</key>
 		<string>LastBootedVolume</string>
-		<key>Arguments</key>
-		<string>kext-dev-mode=1 dart=0 nv_disable=1 -cdfon</string>
-		<key>DefaultVolume</key>
-		<string>macOS Mojave</string>
 		<key>HibernationFixup</key>
 		<false/>
-		<key>Legacy</key>
-		<string>PBR</string>
 		<key>NeverHibernate</key>
-		<false/>
+		<true/>
 		<key>NoEarlyProgress</key>
 		<false/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>10</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -639,10 +583,8 @@
 			<key>Inject</key>
 			<integer>0</integer>
 			<key>ResetHDA</key>
-			<true/>
+			<false/>
 		</dict>
-		<key>ForceHPET</key>
-		<false/>
 		<key>HDMIInjection</key>
 		<true/>
 		<key>Inject</key>
@@ -663,8 +605,6 @@
 				<string>Host Bridge</string>
 				<key>model</key>
 				<string>Intel Broadwell-U PCI Express Main Host Bridge OPI</string>
-				<key>name</key>
-				<string>PCI Express Bridge</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x14,0x0)</key>
 			<dict>
@@ -674,11 +614,11 @@
 				</data>
 				<key>AAPL,current-extra</key>
 				<data>
-				AAiY
+				AAqM
 				</data>
 				<key>AAPL,current-extra-in-sleep</key>
 				<data>
-				AAZA
+				AAg0
 				</data>
 				<key>AAPL,current-in-sleep</key>
 				<data>
@@ -686,11 +626,11 @@
 				</data>
 				<key>AAPL,device-internal</key>
 				<data>
-				Ag==
+				AAI=
 				</data>
 				<key>AAPL,max-port-current-in-sleep</key>
 				<data>
-				AAg0
+				AAqM
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
@@ -702,8 +642,6 @@
 				<string>USB Controller</string>
 				<key>model</key>
 				<string>Intel 9 Series Chipset Family Wildcat Point-LP USB 3.1 xHCI Controller</string>
-				<key>name</key>
-				<string>USB 3.1 Controller</string>
 				<key>vendor-id</key>
 				<data>
 				gIYAAA==
@@ -717,8 +655,6 @@
 				<string>Communication Controller</string>
 				<key>model</key>
 				<string>Intel Broadwell Wildcat Point-LP MEI Controller</string>
-				<key>name</key>
-				<string>Intel MEI Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x19,0x0)</key>
 			<dict>
@@ -728,70 +664,30 @@
 				<string>Ethernet Controller</string>
 				<key>model</key>
 				<string>Intel Gigabit Local Area Network Ethernet Connection (3) I218-LM</string>
-				<key>name</key>
-				<string>Gigabit Ethernet Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1b,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
-				<key>PinConfigurations</key>
-				<data>
-				</data>
 				<key>device_type</key>
-				<string>Audio Controller </string>
+				<string>Audio Controller</string>
 				<key>hda-gfx</key>
-				<string>onboard-1</string>
+				<string>onboard-2</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<data>
+				HAAAAA==
+				</data>
 				<key>model</key>
 				<string>Realtek High Definition Audio Controller (Intel Broadwell-U Wildcat Point-LP Audio)</string>
-				<key>name</key>
-				<string>Realtek High Definition Audio</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal</string>
-				<key>device_type</key>
-				<string>PCI Bridge</string>
-				<key>model</key>
-				<string>Intel Broadwell Wildcat Point-LP PCI Express Root Port #6</string>
-				<key>name</key>
-				<string>PCI Express Root Bridge #6</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1c,0x0)/Pci(0x0,0x0)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
-				<string>Internal</string>
+				<string>Internal@2,0,0</string>
 				<key>device_type</key>
 				<string>Card Reader</string>
 				<key>model</key>
-				<string>Realtek RTS5227 PCI Express Card Reader</string>
-				<key>name</key>
-				<string>Apple Memory Card Reader</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x1)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal</string>
-				<key>device_type</key>
-				<string>PCI Bridge</string>
-				<key>model</key>
-				<string>Intel Broadwell Wildcat Point-LP PCI Express Root Port #3</string>
-				<key>name</key>
-				<string>PCI Express Root Bridge #3</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1c,0x1)/Pci(0x0,0x0)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>M.2 NGFF A/E</string>
-				<key>device_type</key>
-				<string>AirPort Extreme</string>
-				<key>model</key>
-				<string>Apple AirPort Extreme Broadcom BCM4360 802.11ac Wireless Network Adapter</string>
-				<key>name</key>
-				<string>Apple AirPort Extreme</string>
+				<string>Realtek RTS5227 PCI SDHC Express Card Reader</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1d,0x0)</key>
 			<dict>
@@ -801,11 +697,11 @@
 				</data>
 				<key>AAPL,current-extra</key>
 				<data>
-				AAiY
+				AAqM
 				</data>
 				<key>AAPL,current-extra-in-sleep</key>
 				<data>
-				AAZA
+				AAg0
 				</data>
 				<key>AAPL,current-in-sleep</key>
 				<data>
@@ -813,14 +709,18 @@
 				</data>
 				<key>AAPL,device-internal</key>
 				<data>
-				Ag==
+				AAI=
 				</data>
 				<key>AAPL,max-port-current-in-sleep</key>
 				<data>
-				AAg0
+				AAqM
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Built In</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device-id</key>
 				<data>
 				ppwAAA==
@@ -830,7 +730,7 @@
 				<key>model</key>
 				<string>Intel 9 Series Chipset Family Wildcat Point-LP Enhanced USB 2.0 EHCI Controller</string>
 				<key>name</key>
-				<string>Enhanced USB Controller</string>
+				<string>EH01</string>
 				<key>vendor-id</key>
 				<data>
 				gIYAAA==
@@ -844,8 +744,6 @@
 				<string>ISA Bridge</string>
 				<key>model</key>
 				<string>Intel Broadwell Wildcat Point-LP LPC Controller (Low Pin Count Bus)</string>
-				<key>name</key>
-				<string>Apple LPC Bus</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x2)</key>
 			<dict>
@@ -855,30 +753,15 @@
 				<string>SATA Controller</string>
 				<key>model</key>
 				<string>Intel Broadwell Wildcat Point-LP SATA Controller [AHCI Mode]</string>
-				<key>name</key>
-				<string>SATA Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
 			<dict>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
 				<key>device_type</key>
-				<string>SMC Bus Controller</string>
+				<string>System Bus</string>
 				<key>model</key>
-				<string>Intel Wildcat Point-LP SMC Bus Controller</string>
-				<key>name</key>
-				<string>SMC Bus Controller</string>
-			</dict>
-			<key>PciRoot(0x0)/Pci(0x1f,0x6)</key>
-			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal</string>
-				<key>device_type</key>
-				<string>Signal Processing Controller</string>
-				<key>model</key>
-				<string>Intel Broadwell Wildcat Point-LP Thermal Management Controller</string>
-				<key>name</key>
-				<string>Intel Thermal Controller</string>
+				<string>Intel Broadwell Wildcat Point-LP SMBus Controller</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
@@ -929,21 +812,12 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
-				<key>AAPL,slot-name</key>
-				<string>Internal</string>
-				<key>PinConfigurations</key>
-				<data>
-				</data>
 				<key>device_type</key>
-				<string>Audio Controller </string>
+				<string>Audio Controller</string>
 				<key>hda-gfx</key>
-				<string>onboard-1</string>
-				<key>layout-id</key>
-				<integer>28</integer>
+				<string>onboard-2</string>
 				<key>model</key>
-				<string>Intel Broadwell-U HDMI Audio Controller</string>
-				<key>name</key>
-				<string>HDMI Output</string>
+				<string>Intel Broadwell-U HDMI Output Audio Controller</string>
 			</dict>
 		</dict>
 		<key>SetIntelBacklight</key>
@@ -957,11 +831,11 @@
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
-			<false/>
+			<true/>
 			<key>Inject</key>
 			<true/>
 			<key>NameEH00</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
 		<true/>
@@ -972,6 +846,8 @@
 	</array>
 	<key>GUI</key>
 	<dict>
+		<key>EmbeddedThemeType</key>
+		<string>Dark</string>
 		<key>Hide</key>
 		<array>
 			<string>Preboot</string>
@@ -988,25 +864,16 @@
 			<key>DoubleClick</key>
 			<integer>500</integer>
 			<key>Enabled</key>
-			<false/>
+			<true/>
 			<key>Mirror</key>
-			<false/>
+			<true/>
 			<key>Speed</key>
 			<integer>8</integer>
 		</dict>
 		<key>PlayAsync</key>
 		<false/>
 		<key>Scan</key>
-		<dict>
-			<key>Entries</key>
-			<true/>
-			<key>Linux</key>
-			<true/>
-			<key>Tool</key>
-			<true/>
-		</dict>
-		<key>ScreenResolution</key>
-		<string>1920x1080</string>
+		<true/>
 		<key>Theme</key>
 		<string>FlatCamp</string>
 	</dict>
@@ -1068,7 +935,7 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleIntelCPUPM</key>
-		<false/>
+		<true/>
 		<key>AppleRTC</key>
 		<true/>
 		<key>DellSMBIOSPatch</key>
@@ -1094,189 +961,6 @@
 				</data>
 			</dict>
 		</array>
-		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>ALC3232 Zeroing 0883</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				hQjsEA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				AAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ALC3232 Zeroing 0884</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				hAjsEA==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				AAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ALC3232 Zeroing 1983</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				gxnUEQ==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				AAAAAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ALC3232 Patch 11d41984 with 10ec0292 codec</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				hBnUEQ==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleHDA</string>
-				<key>Replace</key>
-				<data>
-				kgLsEA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Enable 128MB DVMT-prealloc, 48MB framebuffer, 48MB cursor bytes, 0x0a260006</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAYAA=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				BgAmCgEDAwMAAAAIAAAAAwAAAAM=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>MiniDP-audio, port 0105(12), 0x0a260006</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAACHAAAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQUSAAAEAACHAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HD5500</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				iUXIOcd2Tw==
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				iUXIOcfrTw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>HD5500</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQAAdSU=
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>IOGraphicsFamily</string>
-				<key>Replace</key>
-				<data>
-				AQAA6yU=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Port_0x5-DP2HDM</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AQUJAAAEAAAHBQAA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>AppleIntelBDWGraphicsFramebuffer</string>
-				<key>Replace</key>
-				<data>
-				AQUJAAAIAACCAAAA
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>change F%uT%04x to F%uTxxxx in AppleBacklightInjector.kext (credit RehabMan)</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RiV1VCUwNHgA
-				</data>
-				<key>InfoPlistPatch</key>
-				<false/>
-				<key>Name</key>
-				<string>com.apple.driver.AppleBacklight</string>
-				<key>Replace</key>
-				<data>
-				RiV1VHh4eHgA
-				</data>
-			</dict>
-		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>
@@ -1289,46 +973,14 @@
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
-		<key>BiosReleaseDate</key>
-		<string>12/20/2018</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MBP121.88Z.F000.B00.1812201005</string>
-		<key>Board-ID</key>
-		<string>Mac-E43C1C25D4880AD6</string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardType</key>
-		<integer>10</integer>
-		<key>BoardVersion</key>
-		<string>1.0</string>
-		<key>ChassisAssetTag</key>
-		<string>MacBook-Aluminum</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>0x09</string>
-		<key>EfiVersion</key>
-		<string>181.0.0.0.0</string>
-		<key>Family</key>
-		<string>MacBook Pro</string>
-		<key>FirmwareFeatures</key>
-		<string>0xFC0FE137</string>
-		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
-		<key>LocationInChassis</key>
-		<string>Part Component</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
 		<key>Mobile</key>
-		<true/>
-		<key>PlatformFeature</key>
-		<string>0x02</string>
+		<false/>
 		<key>ProductName</key>
 		<string>MacBookPro12,1</string>
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for Broadwell identifiers</string>
+		<key>Trust</key>
+		<false/>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>
