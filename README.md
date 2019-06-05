@@ -1,6 +1,6 @@
-# macOS Mojave (Lenovo ThinkPad T450)
-
 ![Screenshot](misc/logo/screenshot.png)
+
+# macOS Mojave (Lenovo ThinkPad T450)
 
 ```  
 - Intel 5th Generation Architecture (Broadwell)
