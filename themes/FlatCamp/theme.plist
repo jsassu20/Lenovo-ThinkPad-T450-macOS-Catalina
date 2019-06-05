@@ -5,7 +5,7 @@
 	<key>Author</key>
 	<string>Badruzeus</string>
 	<key>Description</key>
-	<string>Clover theme with BootCamp style and flat icons. Version: 1.7</string>
+	<string>Clover theme with BootCamp style and flat icons. Version: 1.8</string>
 	<key>Theme</key>
 	<dict>
 		<key>Background</key>
@@ -95,7 +95,7 @@
 		</dict>
 	</dict>
 	<key>Version</key>
-	<string>1.7</string>
+	<string>1.8</string>
 	<key>Year</key>
 	<string>2019</string>
 </dict>

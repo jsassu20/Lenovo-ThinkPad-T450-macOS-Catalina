@@ -16,6 +16,8 @@
 			<dict>
 				<key>Comment-IRQ Fix</key>
 				<string>The following fixes may be needed for onboard audio/USB/etc</string>
+				<key>FixADP1</key>
+				<true/>
 				<key>FixHPET</key>
 				<true/>
 				<key>FixIPIC</key>
@@ -23,6 +25,8 @@
 				<key>FixMutex</key>
 				<true/>
 				<key>FixRTC</key>
+				<true/>
+				<key>FixSBUS</key>
 				<true/>
 				<key>FixTMR</key>
 				<true/>
@@ -325,20 +329,6 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Change Method(_Q14,0,N) to XQ14</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1ExNAA=
-					</data>
-					<key>Replace</key>
-					<data>
-					WFExNAA=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>Change Method(_Q15,0,N) to XQ15</string>
 					<key>Disabled</key>
 					<false/>
@@ -349,6 +339,20 @@
 					<key>Replace</key>
 					<data>
 					WFExNQA=
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>Change Method(_Q14,0,N) to XQ14</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					X1ExNAA=
+					</data>
+					<key>Replace</key>
+					<data>
+					WFExNAA=
 					</data>
 				</dict>
 				<dict>
@@ -451,12 +455,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>DisabledAML</key>
-		<array>
-			<string>SSDT.aml</string>
-			<string>SSDT-XCPM.aml</string>
-			<string>SSDT-PluginType1.aml</string>
-		</array>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -479,8 +477,12 @@
 				<key>PluginType</key>
 				<true/>
 			</dict>
+			<key>NoDynamicExtract</key>
+			<true/>
 			<key>NoOemTableId</key>
-			<false/>
+			<true/>
+			<key>PluginType</key>
+			<string>1</string>
 		</dict>
 	</dict>
 	<key>Boot</key>
@@ -489,12 +491,14 @@
 		<string>LastBootedVolume</string>
 		<key>Arguments</key>
 		<string>kext-dev-mode=1 dart=0 nv_disable=1 -cdfon</string>
+		<key>Legacy</key>
+		<string>PBR</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>10</integer>
+		<integer>5</integer>
 	</dict>
 	<key>Comment</key>
 	<string>This file is for Haswell graphics that require FakeID=0x04128086</string>
@@ -510,6 +514,8 @@
 			<key>#IntelGFX</key>
 			<string>0x04128086</string>
 		</dict>
+		<key>HDMIInjection</key>
+		<true/>
 		<key>Properties</key>
 		<dict>
 			<key>PciRoot(0)/Pci(0x02,0)</key>
@@ -586,7 +592,7 @@
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<false/>
+		<true/>
 	</dict>
 	<key>DisableDrivers</key>
 	<array>
@@ -700,7 +706,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable panic kext logging on 10.13 release kernel (credit Vandroiy)</string>
+				<string>Disable panic kext logging on 10.13 release kernel (credit vit9696)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -716,7 +722,7 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Disable panic kext logging on 10.14 release kernel (credit Vandroiy)</string>
+				<string>Disable panic kext logging on 10.14 release kernel (credit vit9696)</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
@@ -843,6 +849,8 @@
 	<dict>
 		<key>InjectKexts</key>
 		<string>Detect</string>
+		<key>InjectSystemID</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

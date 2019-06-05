@@ -65,34 +65,6 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change _PTS to ZPTS</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1BUUwE=
-					</data>
-					<key>Replace</key>
-					<data>
-					WlBUUwE=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change _WAK to ZWAK</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					X1dBSwk=
-					</data>
-					<key>Replace</key>
-					<data>
-					WldBSwk=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change OSI to XOSI Windows</string>
 					<key>Disabled</key>
 					<false/>
@@ -103,34 +75,6 @@
 					<key>Replace</key>
 					<data>
 					WE9TSQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Notify(BAT0 to Notify(BATC </string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					hkJBVDA=
-					</data>
-					<key>Replace</key>
-					<data>
-					hkJBVEM=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change Notify(BAT1 to Notify(BATC </string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					hkJBVDE=
-					</data>
-					<key>Replace</key>
-					<data>
-					hkJBVEM=
 					</data>
 				</dict>
 			</array>
@@ -150,19 +94,10 @@
 		<true/>
 		<key>HaltEnabler</key>
 		<true/>
-		<key>RenameDevices</key>
-		<dict>
-			<key>_SB.PCI0.RP02.PXSX</key>
-			<string>ARPT</string>
-		</dict>
-		<key>ResetAddress</key>
-		<string>0x0CF9</string>
-		<key>ResetValue</key>
-		<string>0x06</string>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<true/>
+			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>PluginType</key>
@@ -175,6 +110,23 @@
 			<key>PluginType</key>
 			<string>1</string>
 		</dict>
+		<key>SortedOrder</key>
+		<array>
+			<string>DSDT.aml</string>
+			<string>SSDT-2.aml</string>
+			<string>SSDT-3.aml</string>
+			<string>SSDT-4.aml</string>
+			<string>SSDT-5.aml</string>
+			<string>SSDT-7.aml</string>
+			<string>SSDT-ALC3.aml</string>
+			<string>SSDT-DEH1.aml</string>
+			<string>SSDT-DTGP.aml</string>
+			<string>SSDT-MEM2.aml</string>
+			<string>SSDT-PTWK.aml</string>
+			<string>SSDT-PWRB.aml</string>
+			<string>SSDT-UIAC.aml</string>
+			<string>SSDT-XOSI.aml</string>
+		</array>
 	</dict>
 	<key>Boot</key>
 	<dict>
@@ -193,7 +145,7 @@
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
-		<integer>0</integer>
+		<integer>5</integer>
 		<key>XMPDetection</key>
 		<false/>
 	</dict>
@@ -501,17 +453,41 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
+				<key>AAPL,GfxYTile</key>
+				<data>
+				AQAAAA==
+				</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>
 				BgAmFg==
 				</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal</string>
+				<key>built-in</key>
+				<data>
+				AA==
+				</data>
 				<key>device_type</key>
 				<string>VGA Compatible Controller</string>
+				<key>disable-external-gpu</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con0-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-con0-pipe</key>
+				<data>
+				EgAAAA==
+				</data>
 				<key>framebuffer-con1-enable</key>
 				<data>
 				AQAAAA==
+				</data>
+				<key>framebuffer-con1-pipe</key>
+				<data>
+				EgAAAA==
 				</data>
 				<key>framebuffer-con1-type</key>
 				<data>
@@ -525,10 +501,6 @@
 				<data>
 				/////w==
 				</data>
-				<key>framebuffer-fbmem</key>
-				<data>
-				AACQAA==
-				</data>
 				<key>framebuffer-patch-enable</key>
 				<data>
 				AQAAAA==
@@ -537,14 +509,16 @@
 				<data>
 				AgAAAA==
 				</data>
-				<key>framebuffer-stolenmem</key>
+				<key>framebuffer-unifiedmem</key>
 				<data>
-				AAAwAQ==
+				AAAAgA==
 				</data>
 				<key>hda-gfx</key>
 				<string>onboard-1</string>
 				<key>model</key>
 				<string>Intel HD Graphics 5500</string>
+				<key>name</key>
+				<string>IGPU</string>
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)</key>
 			<dict>
@@ -861,7 +835,7 @@
 				<key>Comment</key>
 				<string>Port_0x5-DP2HDM</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
 				AQUJAAAEAAAHBQAA
@@ -898,6 +872,8 @@
 		<string>Mac-E43C1C25D4880AD6</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string>C02547207GUGDVV1M</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
@@ -920,44 +896,6 @@
 		<string>Part Component</string>
 		<key>Manufacturer</key>
 		<string>Apple Inc.</string>
-		<key>Memory</key>
-		<dict>
-			<key>Channels</key>
-			<integer>1</integer>
-			<key>Modules</key>
-			<array>
-				<dict>
-					<key>Frequency</key>
-					<integer>1600</integer>
-					<key>Part</key>
-					<string>CT102464BF160B.M16FP</string>
-					<key>Size</key>
-					<integer>8192</integer>
-					<key>Slot</key>
-					<integer>0</integer>
-					<key>Type</key>
-					<string>DDR3</string>
-					<key>Vendor</key>
-					<string>Crucial</string>
-				</dict>
-				<dict>
-					<key>Frequency</key>
-					<integer>1600</integer>
-					<key>Part</key>
-					<string>CT102464BF160B.M16FP</string>
-					<key>Size</key>
-					<integer>8192</integer>
-					<key>Slot</key>
-					<integer>1</integer>
-					<key>Type</key>
-					<string>DDR3</string>
-					<key>Vendor</key>
-					<string>Crucial</string>
-				</dict>
-			</array>
-			<key>SlotCount</key>
-			<integer>2</integer>
-		</dict>
 		<key>Mobile</key>
 		<true/>
 		<key>PlatformFeature</key>
@@ -966,8 +904,10 @@
 		<string>MacBookPro12,1</string>
 		<key>ProductName-Comment</key>
 		<string>Using Haswell MacBookAir6,2 until Clover has support for Broadwell identifiers</string>
-		<key>Trust</key>
-		<true/>
+		<key>SerialNumber</key>
+		<string>C02QQPYMH1DP</string>
+		<key>SmUUID</key>
+		<string>D849469C-E9E3-46A0-A723-B3351121432B</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

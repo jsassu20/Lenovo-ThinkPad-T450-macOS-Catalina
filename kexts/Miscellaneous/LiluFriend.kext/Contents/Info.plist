@@ -90,10 +90,14 @@
 		<string>1.0</string>
 		<key>org.vanilla.driver.CPUFriend</key>
 		<string>1.0</string>
+		<key>org.vulgo.NoVPAJpeg</key>
+		<string>1.0.0</string>
 		<key>ru.joedm.SMCSuperIO</key>
 		<string>1.0</string>
 		<key>ru.usrsse2.SMCBatteryManager</key>
 		<string>1.0.0</string>
+		<key>ru.usrsse2.SMCLightSensor</key>
+		<string></string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
