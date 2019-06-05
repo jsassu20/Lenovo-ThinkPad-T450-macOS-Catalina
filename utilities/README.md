@@ -10,6 +10,12 @@ This folder contains a number of different useful tools I find helpful with sett
 
 #
 
+### BIOS Folder
+
+- Contains pictures which show the proper BIOS settings required for the system to boot properly. Anything that show "Permanently Disabled" as an option can be substituted by the "Disable" action instead if you would rather have the option to utilize the features down the road.
+
+#
+
 ### HD Graphics 5500
 
 - Different monitor configurations for my personal setup. HIDPI is enabled and working very well. The clarity is very impressive, other tools for configuring proper DVMT options on systems with locked BIOS configurations.
