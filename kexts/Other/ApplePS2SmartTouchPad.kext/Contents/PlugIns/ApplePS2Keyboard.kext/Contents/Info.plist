@@ -105,37 +105,37 @@
 			<key>Fn Keys Mode 2</key>
 			<dict>
 				<key>BrightnessDown</key>
-				<string>F5</string>
+				<string></string>
 				<key>BrightnessUp</key>
-				<string>F6</string>
+				<string></string>
 				<key>KBBacklightDown</key>
-				<string>F3</string>
+				<string></string>
 				<key>KBBacklightUp</key>
-				<string>F4</string>
+				<string></string>
 				<key>Launchpad</key>
-				<string>F4</string>
+				<string></string>
 				<key>MediaNext</key>
-				<string>ArrowRight</string>
+				<string></string>
 				<key>MediaPlayPause</key>
-				<string>ArrowDown</string>
+				<string></string>
 				<key>MediaPrevious</key>
-				<string>ArrowLeft</string>
+				<string></string>
 				<key>Misson Control</key>
-				<string>F3</string>
+				<string></string>
 				<key>SleepDisplay</key>
-				<string>F7</string>
+				<string></string>
 				<key>SystemSleep</key>
-				<string>F1</string>
+				<string></string>
 				<key>Touchpad</key>
-				<string>F9</string>
+				<string></string>
 				<key>VideoMirror</key>
-				<string>F8</string>
+				<string></string>
 				<key>VolumeDown</key>
-				<string>F11</string>
+				<string></string>
 				<key>VolumeMute</key>
-				<string>F10</string>
+				<string></string>
 				<key>VolumeUp</key>
-				<string>F12</string>
+				<string></string>
 			</dict>
 			<key>Fn keys Layout</key>
 			<string>NONE</string>
@@ -152,7 +152,7 @@
 				<key>Disable Num Lock LED</key>
 				<false/>
 				<key>Enable Extended Functions</key>
-				<true/>
+				<false/>
 				<key>Enable Sierra Caps Lock Fix</key>
 				<true/>
 				<key>FinerFnBrightnessControl</key>
@@ -166,7 +166,7 @@
 				<key>Make Num Lock into Clear</key>
 				<false/>
 				<key>Make context menu key into key</key>
-				<integer>84</integer>
+				<integer>0</integer>
 				<key>Make delete key into cmd + backspace</key>
 				<false/>
 				<key>Make right alt into key</key>
@@ -174,7 +174,7 @@
 				<key>Make right control into key</key>
 				<integer>0</integer>
 				<key>Make shift + caps into Fn key</key>
-				<false/>
+				<true/>
 				<key>Num Lock enabled at boot</key>
 				<false/>
 				<key>Swap alt and windows key</key>
