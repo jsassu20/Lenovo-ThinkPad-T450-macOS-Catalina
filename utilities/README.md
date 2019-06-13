@@ -4,6 +4,12 @@ This folder contains a number of different useful tools I find helpful with sett
 
 #
 
+### AirPort Windows Drivers
+
+- Contains the required drivers needed for using the Broadcom BCM94360CSAX (also BCM94360CS and BCM94360CS2) AirPort Extreme wireless network card and Bluetooth 4.0 LE PCIe card in Windows 7-10 operating systems. This allows dual booting and being able to use the actual Apple AirPort Extreme card.
+
+#
+
 ### Audio Configuration
 
 - Contains 2 separate methods for successfully getting proper system audio functionality with with this configuration. (Credit JCSNIDER for ALC3232 Method and ACIDANTHERA for AppleALC Lilu Plugin)
