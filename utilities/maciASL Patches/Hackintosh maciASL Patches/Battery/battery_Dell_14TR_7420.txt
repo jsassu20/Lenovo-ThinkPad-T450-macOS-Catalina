@@ -1,0 +1,58 @@
+#Maintained by: dxxs for: 派奇
+#battery_Dell_14TR_7420.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-06-28, 由 dxxs 制作 
+
+# works for: 针对
+#  DELL 14TR 7420
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#CAP0
+into device label EC0 code_regex CAP0,\s+16, replace_matched begin AP01,8,AP02,8, end;
+#VOT0
+into device label EC0 code_regex VOT0,\s+16, replace_matched begin OT01,8,OT02,8, end;
+#CRT0
+into device label EC0 code_regex CRT0,\s+16, replace_matched begin RT01,8,RT02,8, end;
+#FCP0
+into device label EC0 code_regex FCP0,\s+16, replace_matched begin CP01,8,CP02,8, end;
+#DCP0
+into device label EC0 code_regex DCP0,\s+16, replace_matched begin DC01,8,DC02,8, end;
+#DVT0
+into device label EC0 code_regex DVT0,\s+16, replace_matched begin VT01,8,VT02,8, end;
+#BSN0
+into device label EC0 code_regex BSN0,\s+16, replace_matched begin SN01,8,SN02,8, end;
+
+# ==== Replace called method 替换调用方法 ====
+#CAP0
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.CAP0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.AP01,^^PCI0.LPCB.EC0.AP02) end;
+#VOT0
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.VOT0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.OT01,^^PCI0.LPCB.EC0.OT02) end;
+#CRT0
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.CRT0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.RT01,^^PCI0.LPCB.EC0.RT02) end;
+#FCP0
+into method label _BIF code_regex \^\^PCI0.LPCB.EC0.FCP0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CP01,^^PCI0.LPCB.EC0.CP02) end;
+#DCP0
+into method label _BIF code_regex \^\^PCI0.LPCB.EC0.DCP0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.DC01,^^PCI0.LPCB.EC0.DC02) end;
+#DVT0
+into method label _BIF code_regex \^\^PCI0.LPCB.EC0.DVT0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.VT01,^^PCI0.LPCB.EC0.VT02) end;
+#BSN0
+into method label _BIF code_regex \^\^PCI0.LPCB.EC0.BSN0 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.SN01,^^PCI0.LPCB.EC0.SN02) end;
+
+# ==== Data handling method 数据处理方法 ====
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+}\n
+end;

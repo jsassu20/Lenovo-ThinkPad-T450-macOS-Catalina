@@ -1,0 +1,10 @@
+# Rename device AZAL to HDEF and change all references to it
+#
+into device name_adr 0x001B0000 set_label
+begin
+HDEF
+end;
+into_all all code_regex AZAL replaceall_matched
+begin
+HDEF
+end

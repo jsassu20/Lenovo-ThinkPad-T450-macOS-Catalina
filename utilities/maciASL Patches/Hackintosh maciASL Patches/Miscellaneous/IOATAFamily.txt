@@ -1,0 +1,29 @@
+# Fix IDE Timing Register to avoid IOATAFamily on 10.6.0-10.6.2
+#
+into device name_adr 0x001F0001 code_regex_not OperationRegion\s*\(IDET insert
+begin
+OperationRegion (IDET, PCI_Config, 0x40, 0x04) // IDE Timing Register\n
+Field (IDET, WordAcc, NoLock, Preserve)\n
+{\n
+	Offset (0x00),\n
+	M1, 8,\n
+	Offset (0x01),\n
+	M2, 8,\n
+	Offset (0x02),\n
+	M3, 8,\n
+	Offset (0x03),\n
+	M4, 8\n
+}
+end;
+into method label _DSM parent_adr 0x001F0001 remove_entry;
+into device name_adr 0x001F0001 insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+	Store (0x07, M1)\n
+	Store (0xE3, M2)\n
+	Store (Zero, M3)\n
+	Store (0xC0, M4)\n
+	Return (Zero)\n
+}
+end

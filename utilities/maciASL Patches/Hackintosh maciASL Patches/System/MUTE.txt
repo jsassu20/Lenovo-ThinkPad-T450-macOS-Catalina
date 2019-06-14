@@ -1,0 +1,5 @@
+into_all all code_regex (Acquire\s\(MUTE,\s0x)....\)
+replace_matched
+begin
+%1FFFF)
+end

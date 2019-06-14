@@ -1,0 +1,22 @@
+#Maintained by: dxxs for: 派奇
+#battery_HASEE_K650C.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-06-20, 由 dxxs 制作 
+
+# works for: 针对
+#  HASEE 神舟 K650C
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+#  特别说明：有的 神舟 K650C 有显示电池容量为负数的问题，有这个问题的，才需要打此补丁。
+
+# remove some statement that influerence battery capacity.
+# 删除影响电池容量信息的语句。
+into_all all code_regex And\s\(Local1,\s0x8000,\sLocal7\)\s+If\s\(LEqual\s\(Local7,\s0x8000\)\)\s+\{\s+Store\s\(0xFFFFFFFF,\sLocal1\)\s+\} removeall_matched;

@@ -1,0 +1,125 @@
+#Maintained by: dxxs for: 派奇
+#battery_HP_Envy_14_U204TX.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2015-05-13, 由 psp7456 制作 
+
+# works for: 针对
+#  HP 惠普 Envy 14 U204TX
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized) { Return (Or (Arg0, ShiftLeft (Arg1, 8))) }\n
+end;
+
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+#
+# Note: Offsets below into EC are based on the following data in the native DSDT
+#
+#            Field (ERAM, ByteAcc, Lock, Preserve)
+#            {
+#                SMPR,   8, //0x00
+#                SMST,   8, //0x01
+#                SMAD,   8, //0x02
+#                SMCM,   8, //0x03
+#                SMD0,   256,//!!0x04 
+#                ……
+#
+#
+#            Field (ERAM, ByteAcc, NoLock, Preserve)
+#            {
+#                Offset (0x04), 
+#                FLD0,   64 //!!0x04
+#            }
+#
+#            Field (ERAM, ByteAcc, NoLock, Preserve)
+#            {
+#                Offset (0x04), 
+#                FLD1,   128//!!0x04
+#            }
+#
+#            Field (ERAM, ByteAcc, NoLock, Preserve)
+#            {
+#                Offset (0x04), 
+#                FLD2,   192//!!0x04
+#            }
+#
+#            Field (ERAM, ByteAcc, NoLock, Preserve)
+#            {
+#                Offset (0x04), 
+#                FLD3,   256//!!0x04
+#            }
+#
+# If the native DSDT has any such data re-organized such that the fields
+# being read with RECB are at a different offset, the offsets below
+# (first param to WECB/RECB) would need to be changed for the DSDT.
+#
+# This is something to watch out for when adapting this patch to another 
+# computer and maybe even after updating to a new BIOS.
+#
+
+# deal with buffer fields above
+into method label SMWR code_regex SMD0 replaceall_matched begin RECB(0x04,256) end;
+into method label SMRD code_regex FLD0 replaceall_matched begin RECB(0x04,64) end;
+into method label SMRD code_regex FLD1 replaceall_matched begin RECB(0x04,128) end;
+into method label SMRD code_regex FLD2 replaceall_matched begin RECB(0x04,192) end;
+into method label SMRD code_regex FLD3 replaceall_matched begin RECB(0x04,256) end;
+
+# 16-bit registers
+into device label EC0 code_regex SMW0,\s+16 replace_matched begin MW00,8,MW01,8 end;
+into device label EC0 code_regex BADC,\s+16 replace_matched begin DC10,8,DC11,8 end;
+into device label EC0 code_regex BFCC,\s+16 replace_matched begin CC10,8,CC11,8 end;
+into device label EC0 code_regex MCUR,\s+16 replace_matched begin UR10,8,UR11,8 end;
+into device label EC0 code_regex MBRM,\s+16 replace_matched begin RM10,8,RM11,8 end;
+into device label EC0 code_regex MBCV,\s+16 replace_matched begin CV10,8,CV11,8 end;
+
+# fix 16-bit methods
+#SMW0 fix 2
+into method label SMRD code_regex SMW0 replaceall_matched begin B1B2(MW00,MW01) end;
+into method label SMWR code_regex SMW0 replaceall_matched begin B1B2(MW00,MW01) end;
+
+#BADC
+into method label UPBI code_regex \^\^PCI0\.LPCB\.EC0\.BADC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.DC10,^^PCI0.LPCB.EC0.DC11) end;
+
+#BFCC
+into method label UPBI code_regex \^\^PCI0\.LPCB\.EC0\.BFCC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CC10,^^PCI0.LPCB.EC0.CC11) end;
+
+#MCUR
+into method label UPBS code_regex \^\^PCI0\.LPCB\.EC0\.MCUR replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.UR10,^^PCI0.LPCB.EC0.UR11) end;
+
+#MBRM fix 2
+into method label CLRI code_regex \^\^LPCB\.EC0\.MBRM replaceall_matched begin B1B2(^^LPCB.EC0.RM10,^^LPCB.EC0.RM11) end;
+into method label UPBS code_regex \^\^PCI0\.LPCB\.EC0\.MBRM replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.RM10,^^PCI0.LPCB.EC0.RM11) end;
+
+#MBCV
+into method label UPBS code_regex \^\^PCI0\.LPCB\.EC0\.MBCV replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CV10,^^PCI0.LPCB.EC0.CV11) end;
+

@@ -1,0 +1,210 @@
+#Maintained by: dxxs for: 派奇
+#battery_Toshiba_M805_T02T.txt
+
+# version(版本): 2.0
+# Update Time(更新时间) : 2014-6-27
+
+# initial work by dxxs 2014-06-20, 由 dxxs 制作 
+
+# works for: 针对
+#  Toshiba 东芝 M805 T02T
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#FSPD
+into device label EC0 code_regex FSPD,\s+16 replace_matched begin FSPC,8,FSPD,8 end;
+#BATS
+into device label EC0 code_regex BATS,\s+16 replace_matched begin BATR,8,BATS,8 end;
+#MTEM
+into device label EC0 code_regex MTEM,\s+16 replace_matched begin MTEM,8,MTEN,8 end;
+#MBMD
+into device label EC0 code_regex MBMD,\s+16 replace_matched begin MBMD,8,MBME,8 end;
+#MCUR
+into device label EC0 code_regex MCUR,\s+16 replace_matched begin MCU0,8, MCU1,8 end;
+#MBRM
+into device label EC0 code_regex MBRM,\s+16 replace_matched begin MBRM,8, MBRN,8 end;
+#MBVG
+into device label EC0 code_regex MBVG,\s+16 replace_matched begin MBVG,8, MBVH,8 end;
+#LFCC
+into device label EC0 code_regex LFCC,\s+16 replace_matched begin LFCC,8, LFCD,8 end;
+#BTSN
+into device label EC0 code_regex BTSN,\s+16 replace_matched begin BTSM,8, BTSN,8 end;
+#BTDC
+into device label EC0 code_regex BTDC,\s+16 replace_matched begin BTDC,8, BTDD,8 end;
+#BTDV
+into device label EC0 code_regex BTDV,\s+16 replace_matched begin BTDV,8, BTDW,8 end;
+#HDX1
+into device label EC0 code_regex HDX1,\s+16 replace_matched begin HDX0,8, HDX1,8 end;
+#HDY1
+into device label EC0 code_regex HDY1,\s+16 replace_matched begin HDY0,8, HDY1,8 end;
+#HDZ1
+into device label EC0 code_regex HDZ1,\s+16 replace_matched begin HDZ0,8, HDZ1,8 end;
+#HDX2
+into device label EC0 code_regex HDX2,\s+16 replace_matched begin HDXA,8, HDXB,8 end;
+#HDY2
+into device label EC0 code_regex HDY2,\s+16 replace_matched begin HDYA,8, HDYB,8 end;
+#HDZ2
+into device label EC0 code_regex HDZ2,\s+16 replace_matched begin HDZA,8, HDZB,8 end;
+#HDX3
+into device label EC0 code_regex HDX3,\s+16 replace_matched begin HDXC,8, HDXD,8 end;
+#HDY3
+into device label EC0 code_regex HDY3,\s+16 replace_matched begin HDYC,8, HDYD,8 end;
+#HDZ3
+into device label EC0 code_regex HDZ3,\s+16 replace_matched begin HDZC,8, HDZD,8 end;
+#HDX4
+into device label EC0 code_regex HDX4,\s+16 replace_matched begin HDXE,8, HDXF,8 end;
+#HDY4
+into device label EC0 code_regex HDY4,\s+16 replace_matched begin HDYE,8, HDYF,8 end;
+#HDZ4
+into device label EC0 code_regex HDZ4,\s+16 replace_matched begin HDZE,8, HDZF,8 end;
+#ACCU
+into device label EC0 code_regex ACCU,\s+16 replace_matched begin ACCU,8, ACCV,8 end;
+#CSV1
+into device label EC0 code_regex CSV1,\s+16 replace_matched begin CSVA,8, CSVB,8 end;
+#CSV2
+into device label EC0 code_regex CSV2,\s+16 replace_matched begin CSVC,8, CSVD,8 end;
+#CSV3
+into device label EC0 code_regex CSV3,\s+16 replace_matched begin CSVE,8, CSVF,8 end;
+#CSV4
+into device label EC0 code_regex CSV4,\s+16 replace_matched begin CSVG,8, CSVH,8 end;
+#VEVT
+into device label EC0 code_regex VEVT,\s+16 replace_matched begin VEVS,8, VEVT,8 end;
+#FEVT
+into device label EC0 code_regex FEVT,\s+16 replace_matched begin FEVS,8, FEVT,8 end;
+#NEVT
+into device label EC0 code_regex NEVT,\s+16 replace_matched begin NEVS,8, NEVT,8 end;
+#PSST
+into device label EC0 code_regex PSST,\s+16 replace_matched begin PSSS,8, PSST,8 end;
+#PSET
+into device label EC0 code_regex PSET,\s+16 replace_matched begin PSES,8, PSET,8 end;
+
+# ==== Replace called method 替换调用方法 ====
+#MBMN
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.MBMN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x1A, 80) end;
+into method label UBIX code_regex \^\^PCI0.LPCB.EC0.MBMN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x1A, 80) end;
+into method label HMB1 code_regex \^\^PCI0.LPCB.EC0.MBMN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x1A, 80) end;
+#MBPN
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.MBPN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x25, 96) end;
+into method label UBIX code_regex \^\^PCI0.LPCB.EC0.MBPN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x25, 96) end;
+into method label HMB1 code_regex \^\^PCI0.LPCB.EC0.MBPN replaceall_matched begin ^^PCI0.LPCB.EC0.RECB(0x25, 96) end;
+#FSPD
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.FSPD replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.FSPC,^^PCI0.LPCB.EC0.FSPD) end;
+#BATS
+into method label SPFC code_regex \s\^\^PCI0.LPCB.EC0.BATS replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BATR,^^PCI0.LPCB.EC0.BATS) end;
+#MTEM
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.MTEM replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MTEM,^^PCI0.LPCB.EC0.MTEN) end;
+#MBMD
+into method label HMB1 code_regex \^\^PCI0.LPCB.EC0.MBMD replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBMD,^^PCI0.LPCB.EC0.MBME) end;
+#MCUR
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MCUR replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MCU0,^^PCI0.LPCB.EC0.MCU1) end;
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.MCUR replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MCU0,^^PCI0.LPCB.EC0.MCU1) end;
+#MBRM
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MBRM replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBRM,^^PCI0.LPCB.EC0.MBRN) end;
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.MBRM replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBRM,^^PCI0.LPCB.EC0.MBRN) end;
+#MBVG
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.MBVG replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBVG,^^PCI0.LPCB.EC0.MBVH) end;
+into method label UBIX code_regex \^\^PCI0.LPCB.EC0.MBVG replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBVG,^^PCI0.LPCB.EC0.MBVH) end;
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MBVG replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBVG,^^PCI0.LPCB.EC0.MBVH) end;
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.MBVG replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBVG,^^PCI0.LPCB.EC0.MBVH) end;
+#LFCC
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.LFCC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.LFCC,^^PCI0.LPCB.EC0.LFCD) end;
+into method label UBIX code_regex \^\^PCI0.LPCB.EC0.LFCC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.LFCC,^^PCI0.LPCB.EC0.LFCD) end;
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.LFCC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.LFCC,^^PCI0.LPCB.EC0.LFCD) end;
+#BTSN
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.BTSN replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTSM,^^PCI0.LPCB.EC0.BTSN) end;
+into method label HMB1 code_regex \^\^PCI0.LPCB.EC0.BTSN replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTSM,^^PCI0.LPCB.EC0.BTSN) end;
+#BTDC
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.BTDC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDC,^^PCI0.LPCB.EC0.BTDD) end;
+into method label UBIX code_regex \^\^PCI0.LPCB.EC0.BTDC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDC,^^PCI0.LPCB.EC0.BTDD) end;
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.BTDC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDC,^^PCI0.LPCB.EC0.BTDD) end;
+#BTDV
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.BTDV replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDV,^^PCI0.LPCB.EC0.BTDW) end;
+#HDX1
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDX1 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDX0,^^PCI0.LPCB.EC0.HDX1) end;
+#HDY1
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDY1 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDY0,^^PCI0.LPCB.EC0.HDY1) end;
+#HDZ1
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDZ1 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDZ0,^^PCI0.LPCB.EC0.HDZ1) end;
+#HDX2
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDX2 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDXA,^^PCI0.LPCB.EC0.HDXB) end;
+#HDY2
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDY2 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDYA,^^PCI0.LPCB.EC0.HDYB) end;
+#HDZ2
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDZ2 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDZA,^^PCI0.LPCB.EC0.HDZB) end;
+#HDX3
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDX3 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDXC,^^PCI0.LPCB.EC0.HDXD) end;
+#HDY3
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDY3 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDYC,^^PCI0.LPCB.EC0.HDYD) end;
+#HDZ3
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDZ3 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDZC,^^PCI0.LPCB.EC0.HDZD) end;
+#HDX4
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDX4 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDXE,^^PCI0.LPCB.EC0.HDXF) end;
+#HDY4
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDY4 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDYE,^^PCI0.LPCB.EC0.HDYF) end;
+#HDZ4
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.HDZ4 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.HDZE,^^PCI0.LPCB.EC0.HDZF) end;
+#ACCU
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.ACCU replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.ACCU,^^PCI0.LPCB.EC0.ACCV) end;
+#CSV1
+into method label SPFC code_regex \s\^\^PCI0.LPCB.EC0.CSV1 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CSVA,^^PCI0.LPCB.EC0.CSVB) end;
+#CSV2
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.CSV2 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CSVC,^^PCI0.LPCB.EC0.CSVD) end;
+#CSV3
+into method label SPFC code_regex \s\^\^PCI0.LPCB.EC0.CSV3 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CSVE,^^PCI0.LPCB.EC0.CSVF) end;
+#CSV4
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.CSV4 replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.CSVG,^^PCI0.LPCB.EC0.CSVH) end;
+#VEVT
+into method label INFO code_regex \^\^PCI0.LPCB.EC0.VEVT replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.VEVS,^^PCI0.LPCB.EC0.VEVT) end;
+#FEVT
+into method label INFO code_regex \^\^PCI0.LPCB.EC0.FEVT replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.FEVS,^^PCI0.LPCB.EC0.FEVT) end;
+#NEVT
+into method label INFO code_regex \^\^PCI0.LPCB.EC0.NEVT replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.NEVS,^^PCI0.LPCB.EC0.NEVT) end;
+#PSST
+into method label SPFC code_regex \(\^\^PCI0.LPCB.EC0.PSST replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.PSSS,^^PCI0.LPCB.EC0.PSST) end;
+into method label SPFC code_regex Store\s\(ShiftRight\s\(Local0,\s0x10\),\s\^\^PCI0.LPCB.EC0.PSST\) replaceall_matched begin Store(ShiftRight(ShiftRight (Local0, 0x10),8), ^^PCI0.LPCB.EC0.PSST)\nStore(ShiftRight (Local0, 0x10), ^^PCI0.LPCB.EC0.PSSS) end;
+#PSET
+into method label SPFC code_regex \^\^PCI0.LPCB.EC0.PSET, replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.PSES,^^PCI0.LPCB.EC0.PSET), end;
+into method label SPFC code_regex Store\s\(And\s\(Local0,\s0xFFFF\),\s\^\^PCI0.LPCB.EC0.PSET\) replaceall_matched begin Store(ShiftRight(And (Local0, 0xFFFF),8), ^^PCI0.LPCB.EC0.PSET)\nStore(And (Local0, 0xFFFF), ^^PCI0.LPCB.EC0.PSES) end;
+
+# ==== Data handling method 数据处理方法 ====
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+\n
+}\n
+end;

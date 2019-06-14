@@ -1,0 +1,19 @@
+# Maintained by: PJALM (help@pjalm.com) for: http://pjalm.com/repos/
+
+# These patches are the registered property of PJALM.COM and can not be
+# redistributed or modified without the written consent of PJALM.COM.
+# Links to these patches are allowed. All material is protected under the DMCA.
+
+# Last Updated  : 10/12/2015
+# Patch Name    : Add MCHC
+# Patch Version : 1.0
+
+# Add the missing MCHC device
+into device label MCHC parent_label PCI0 remove_entry;
+into device label PCI0 insert begin
+Device (MCHC)\n
+{\n
+	Name (_ADR, Zero)\n
+}
+end;
+

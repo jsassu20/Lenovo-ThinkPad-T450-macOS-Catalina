@@ -1,0 +1,7 @@
+into_all all code_regex _T_0 replaceall_matched begin T_0 end;
+into_all all code_regex _T_1 replaceall_matched begin T_1 end;
+into_all all code_regex _T_2 replaceall_matched begin T_2 end;
+into_all all code_regex _T_3 replaceall_matched begin T_3 end;
+into_all all code_regex _T_4 replaceall_matched begin T_4 end;
+into_all all code_regex _T_5 replaceall_matched begin T_5 end;
+into_all all code_regex _T_6 replaceall_matched begin T_6 end

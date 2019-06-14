@@ -1,0 +1,77 @@
+#
+#     | Rename PEG to PEG0 (Cosmetic, Proper macOS Extended Graphics Controller Label, HDMI and DVI Out Name, No real added benefits)
+#
+#
+into device label PEG set_label begin PEG0 end;
+into_all all code_regex \.PEG\. replaceall_matched begin .PEG0. end;
+into_all all code_regex PEG\. replaceall_matched begin PEG0. end;
+into_all all code_regex PEG\. replaceall_matched begin PEG0. end;
+into_all scope label \_SB.PCI0.PEG.IGFX set_label begin \_SB.PCI0.PEG0.IGFX end;
+into_all scope label \_SB.PCI0.PEG.VID set_label begin \_SB.PCI0.PEG0.VID end;
+into_all scope label \_SB.PCI0.PEG.VID_ set_label begin \_SB.PCI0.PEG0.VID_ end;
+#
+# DONE
+#
+#
+#    | Rename IGBE to GIGE (Cosmetic, Proper macOS Gigabit Ethernet Controller Label, No added functions just cosmetic)
+#
+# 
+into device label IGBE set_label begin GIGE end;
+#
+# DONE
+#
+#
+#   | Rename SMBU to SBUS (Cosmetic, Proper macOS SMBUS Controller Label)
+#
+#
+into device label SMBU set_label begin SBUS end;
+into_all all code_regex SMBU replaceall_matched begin SBUS end;
+#
+# DONE
+#
+#
+#   | Rename PIC to IPIC (Cosmetic, Proper macOS IPIC Controller Label)
+#
+#
+into device label PIC set_label begin IPIC end;
+#
+# DONE
+#
+#
+#   | Rename EHC1 to EH01 (Cosmetic, Proper macOS Enhanced USB Controller Label, Proper USB Injection and Speed Configurations)
+#
+#
+into device label EHC1 set_label begin EH01 end;
+into_all all code_regex EHC1 replaceall_matched begin EH01 end;
+#
+# DONE
+#
+#
+#   | System HPET Fix (Avoid AppleIntelCPUPowerManagement Kernel Panic)
+#
+#
+#
+#     | Rename LPCB.KBD to LPCB.PS2K (Cosmetic, PS2 Bus Location (Not In Macs), Enables Synaptic TrackPoint Functionality, and Permanently Activates Magic Trackpad Settings with RHM’s SSDT-PS2K.aml)
+#
+into device label KBD set_label begin PS2K end;
+#
+# DONE
+
+#   | System Add Missing IMEI Device
+#
+#
+into device label PCI0 insert
+begin
+Device (IMEI)\n
+{\n
+	Name (_ADR, 0x00160000)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+		Store (Package (0x02) {\n
+			"layout-id", Buffer(0x04) {0x3a,0x8c,0x00,0x00},\n
+		}, Local0)\n
+		DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+		Return (Local0)\n
+	}\n
+}\n
+end;

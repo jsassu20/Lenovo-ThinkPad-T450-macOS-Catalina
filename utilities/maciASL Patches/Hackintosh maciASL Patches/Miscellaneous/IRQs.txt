@@ -1,0 +1,18 @@
+# Remove IRQ from device PIC and move IRQs from devices RTC and TMR to device HPET
+#
+into device name_hid PNP0000 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0100 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} store_%8;
+into device name_hid PNP0100 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0B00 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} store_%9;
+into device name_hid PNP0B00 code_regex IRQNoFlags\s\(\)\n\s+\{(\d+)\} remove_matched;
+into device name_hid PNP0103 code_regex_not IRQNoFlags code_regex Name\s\(([^,]+),\sResourceTemplate\s\(\)\n\s+\{((?:.|\n)*)\}\) replace_matched
+begin
+Name (%1, ResourceTemplate ()\n
+                    {\n
+                        IRQNoFlags ()\n
+                            {%8}\n
+                        IRQNoFlags ()\n
+                            {%9}\n
+%2
+})
+end

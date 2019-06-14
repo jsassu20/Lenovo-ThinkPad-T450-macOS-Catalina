@@ -1,0 +1,184 @@
+# Insert methods _PSS (14 P-states), _PSD and _CST into P001-4
+#
+into method label _PSS parent_label P001 remove_entry;
+into processor label P001 insert
+begin
+Method (_PSS, 0, NotSerialized)\n
+{\n
+    Return (Package (0x0E)\n
+    {\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x4C24, Zero },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x0C23, One },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x4B22, 2 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x0B21, 3 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x4A20, 4 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x0A1F, 5 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x491E, 6 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x091D, 7 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x481C, 8 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x081B, 9 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x471A, 10 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x0719, 11 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x4618, 12 },\n
+		Package (0x06) { Zero, Zero, 10, 10, 0x0616, 13 }\n
+    })\n
+}
+end;
+into method label _PSD parent_label P001 remove_entry;
+into processor label P001 insert
+begin
+Method (_PSD, 0, NotSerialized)\n
+{\n
+    Return (Package (0x05)\n
+    {\n
+        0x05, \n
+        Zero, \n
+        Zero, \n
+        0xFC, \n
+        0x02\n
+    })\n
+}
+end;
+into method label _CST parent_label P001 remove_entry;
+into processor label P001 insert
+begin
+Method (_CST, 0, NotSerialized)\n
+{\n
+    Return (Package (0x02)\n
+    {\n
+        One, \n
+        Package (0x04)\n
+        {\n
+            ResourceTemplate ()\n
+            {\n
+                Register (FFixedHW, \n
+                    0x01,               // Bit Width\n
+                    0x02,               // Bit Offset\n
+                    0x0000000000000000, // Address\n
+                    0x01,               // Access Size\n
+                    )\n
+            }, \n
+            One, \n
+            0x9D, \n
+            0x03E8\n
+        }\n
+    })\n
+}
+end;
+into method label _PSS parent_label P002 remove_entry;
+into processor label P002 insert
+begin
+Method (_PSS, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSS ())\n
+}
+end;
+into method label _PSD parent_label P002 remove_entry;
+into processor label P002 insert
+begin
+Method (_PSD, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSD ())\n
+}
+end;
+into method label _CST parent_label P002 remove_entry;
+into processor label P002 insert
+begin
+Method (_CST, 0, NotSerialized)\n
+{\n
+    Return (Package (0x04)\n
+    {\n
+        0x03, \n
+        Package (0x04)\n
+        {\n
+            ResourceTemplate ()\n
+            {\n
+                Register (FFixedHW, \n
+                    0x01,               // Bit Width\n
+                    0x02,               // Bit Offset\n
+                    0x0000000000000000, // Address\n
+                    ,)\n
+            }, \n
+            One, \n
+            Zero, \n
+            0x03E8\n
+        }, \n
+        Package (0x04)\n
+        {\n
+            ResourceTemplate ()\n
+            {\n
+                Register (FFixedHW, \n
+                    0x08,               // Bit Width\n
+                    0x00,               // Bit Offset\n
+                    0x0000000000000414, // Address\n
+                    ,)\n
+            }, \n
+            0x02, \n
+            One, \n
+            0x01F4\n
+        }, \n
+        Package (0x04)\n
+        {\n
+            ResourceTemplate ()\n
+            {\n
+                Register (FFixedHW, \n
+                    0x08,               // Bit Width\n
+                    0x00,               // Bit Offset\n
+                    0x0000000000000415, // Address\n
+                    ,)\n
+            }, \n
+            0x03, \n
+            0x55, \n
+            0xFA\n
+        }\n
+    })\n
+}
+end;
+into method label _PSS parent_label P003 remove_entry;
+into processor label P003 insert
+begin
+Method (_PSS, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSS ())\n
+}
+end;
+into method label _PSD parent_label P003 remove_entry;
+into processor label P003 insert
+begin
+Method (_PSD, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSD ())\n
+}
+end;
+into method label _CST parent_label P003 remove_entry;
+into processor label P003 insert
+begin
+Method (_CST, 0, NotSerialized)\n
+{\n
+    Return (^^P002._CST ())\n
+}
+end;
+into method label _PSS parent_label P004 remove_entry;
+into processor label P004 insert
+begin
+Method (_PSS, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSS ())\n
+}
+end;
+into method label _PSD parent_label P004 remove_entry;
+into processor label P004 insert
+begin
+Method (_PSD, 0, NotSerialized)\n
+{\n
+    Return (^^P001._PSD ())\n
+}
+end;
+into method label _CST parent_label P004 remove_entry;
+into processor label P004 insert
+begin
+Method (_CST, 0, NotSerialized)\n
+{\n
+    Return (^^P002._CST ())\n
+}
+end

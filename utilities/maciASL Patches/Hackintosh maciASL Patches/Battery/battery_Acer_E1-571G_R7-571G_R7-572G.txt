@@ -1,0 +1,67 @@
+#Maintained by: dxxs for: 派奇
+#battery_Acer-Aspire-E1-571_R7-571G_R7-572G.txt
+# version(版本): 2.0
+
+# Update Time(更新时间) : 2014-6-25
+
+# initial work by dxxs 2014-06-20, 由 dxxs 制作 
+
+# works for: 针对
+#  Acer Aspire E1-571
+#  Acer Aspire R7-571
+#  Acer Aspire R7-572
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#ERIB
+into device label EC0 code_regex ERIB,\s+16, replace_matched begin ERI0,8,ERI1,8, end;
+
+# ==== Replace called method 替换调用方法 ====
+#SMD0
+into method label CFUN code_regex Store\s\(Zero,\sSMD0\) replaceall_matched begin WECB(0x64,256,Zero) end;
+into method label CFUN code_regex \(SMD0 replaceall_matched begin (RECB(0x64,256) end;
+#ERIB
+into method label FANG code_regex Store\s\(Arg0,\sERIB\) replaceall_matched begin Store(ShiftRight(Arg0,8),ERI1)\nStore(Arg0, ERI0) end;
+into method label FANW code_regex Store\s\(Arg0,\sERIB\) replaceall_matched begin Store(ShiftRight(Arg0,8),ERI1)\nStore(Arg0, ERI0) end;
+
+# ==== Data handling method 数据处理方法 ====
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+}\n
+end;

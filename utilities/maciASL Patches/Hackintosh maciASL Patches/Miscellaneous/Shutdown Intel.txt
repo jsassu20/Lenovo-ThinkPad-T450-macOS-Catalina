@@ -1,0 +1,23 @@
+# Change method _PTS where Arg0 is 0x05 (shutdown)
+#
+into method label _PTS code_regex_not If\s*\(LEqual\s*\(Arg0,\s*0x05\)\) code_regex ^((?:.|\n)*)$ replace_matched
+begin
+        If (LEqual (Arg0, 0x05))\n
+        {\n
+            Store (Zero, SLPE)\n
+            Sleep (0x10)\n
+        }\n
+        Else\n
+        {\n
+%1
+        }
+end;
+into definitionblock code_regex . code_regex_not OperationRegion\s*\(PMRS insert
+begin
+OperationRegion (PMRS, SystemIO, 0x0430, One)\n
+Field (PMRS, ByteAcc, NoLock, Preserve)\n
+{\n
+        ,   4, \n
+    SLPE,   1\n
+}
+end

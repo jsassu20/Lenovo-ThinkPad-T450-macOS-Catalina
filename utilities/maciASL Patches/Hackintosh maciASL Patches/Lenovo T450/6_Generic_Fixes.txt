@@ -1,0 +1,51 @@
+into_all all code_regex _T_([0-6]) replaceall_matched begin T_%1 end;
+
+into_all method label _INI code_regex INIR\n replace_matched begin Store (Zero, INIR)\n end;
+
+into device label PCI0 code_regex (\s+Zero){2,} remove_matched;
+into_all method label ADBG code_regex (?<=Return\s\(MDBG\))\s+Arg0 remove_matched;
+into_all method label _PS3 code_regex PS3X\n replace_matched begin Store (Zero, PS3X)\n end;
+into_all method label _PS2 code_regex PS2X\n replace_matched begin Store (Zero, PS2X)\n end;
+into_all method label _PS0 code_regex PS0X\n replace_matched begin Store (Zero, PS0X)\n end;
+
+into_all method label GPEH insert begin Return (Zero) end;
+
+into method label _CRS parent_label PCI0 code_regex DWordField\s\(BUF0,\s\\_SB.PCI0._Y1E._LEN,\sMSLN\) replace_matched begin QWordField (BUF0, \\_SB.PCI0._Y1E._LEN, MSLN) end;
+
+into_all all code_regex Acquire\s\(MUT0,\s0x0FFF\) replace_matched begin Acquire (MUT0, 0xFFFF) end;
+
+into method label _HID parent_label _SB.PCI0.LPCB.TPM code_regex (Return\s\(Zero\)) remove_matched;
+into method label _HID parent_label _SB.PCI0.LPCB.TPM insert begin Return (Zero) end;
+into method label _HID parent_label _SB.PCI0.LPC.TPM code_regex (Return\s\(Zero\)) remove_matched;
+into method label _HID parent_label _SB.PCI0.LPC.TPM insert begin Return (Zero) end;
+
+into method label _PS0 parent_label NVM0 code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS0 parent_label NVM0 insert begin Return (Zero) end;
+
+into method label _PS0 parent_label XHC code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS0 parent_label XHC insert begin Return (Zero) end;
+
+into method label _PS0 parent_label RHUB code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS0 parent_label RHUB insert begin Return (Zero) end;
+
+into method label _PS3 parent_label NVM0 code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS3 parent_label NVM0 insert begin Return (Zero) end;
+
+into method label _PS3 parent_label XHC code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS3 parent_label XHC insert begin Return (Zero) end;
+into method label _PS3 parent_label XHCI code_regex (Return\s\(Zero\)) remove_matched;
+into method label _PS3 parent_label XHCI insert begin Return (Zero) end;
+
+into method label _DSM parent_label SHUB code_regex (Return\s\(Zero\)) remove_matched;
+into method label _DSM parent_label SHUB insert begin Return (Zero) end;
+
+into method label RDCA parent_label SHUB code_regex (Return\s\(Zero\)) remove_matched;
+into method label RDCA insert begin Return (Zero) end;
+
+into method label CNRS parent_label SHUB code_regex (Return\s\(Zero\)) remove_matched;
+into method label CNRS insert begin Return (Zero) end;
+
+into method label SPL1 parent_label SHUB code_regex (Return\s\(Zero\)) remove_matched;
+into method label SPL1 insert begin Return (Zero) end;
+
+

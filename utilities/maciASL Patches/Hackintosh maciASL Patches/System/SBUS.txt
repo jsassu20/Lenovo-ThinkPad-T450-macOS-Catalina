@@ -1,0 +1,33 @@
+# Insert device SBUS into device PCI0
+#
+into device name_adr 0x001F0003 parent_label PCI0 remove_entry;
+into device label PCI0 insert
+begin
+Device (SBUS)\n
+{\n
+    Name (_ADR, 0x001F0003)\n
+    Device (BUS0)\n
+    {\n
+        Name (_CID, "smbus")\n
+        Name (_ADR, Zero)\n
+        Device (DVL0)\n
+        {\n
+            Name (_ADR, 0x57)\n
+            Name (_CID, "diagsvault")\n
+        }\n
+    }\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+        Store (Package (0x02)\n
+            {\n
+                "device-id", \n
+                Buffer (0x04)\n
+                {\n
+                    0x30, 0x3A, 0x00, 0x00\n
+                }\n
+            }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+    }\n
+}
+end

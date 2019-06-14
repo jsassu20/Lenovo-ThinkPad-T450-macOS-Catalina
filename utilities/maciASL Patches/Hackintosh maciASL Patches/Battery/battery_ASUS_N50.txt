@@ -1,0 +1,159 @@
+#Maintained by: dxxs for: 派奇
+#battery_ASUS_N50.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-08-22, 由 472950043 制作 
+
+# works for: 针对
+#  ASUS N50
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# 16位拆分补丁 2 + 6 + 3 + 6 + 3 + 1 = 21
+into device label EC0 code_regex TAH0,\s+16, replace_matched begin DC00,8,DC01,8, end;
+into device label EC0 code_regex TAH1,\s+16, replace_matched begin DC02,8,DC03,8, end;
+
+into device label EC0 code_regex B0VL,\s+16, replace_matched begin DC04,8,DC05,8, end;
+into device label EC0 code_regex B0RC,\s+16, replace_matched begin DC06,8,DC07,8, end;
+into device label EC0 code_regex B0FC,\s+16, replace_matched begin DC08,8,DC09,8, end;
+into device label EC0 code_regex B0MD,\s+16, replace_matched begin DC10,8,DC11,8, end;
+into device label EC0 code_regex B0ST,\s+16, replace_matched begin DC12,8,DC13,8, end;
+into device label EC0 code_regex B0CC,\s+16, replace_matched begin DC14,8,DC15,8, end;
+
+into device label EC0 code_regex B0DC,\s+16, replace_matched begin DC16,8,DC17,8, end;
+into device label EC0 code_regex B0DV,\s+16, replace_matched begin DC18,8,DC19,8, end;
+into device label EC0 code_regex B0SN,\s+16, replace_matched begin DC20,8,DC21,8, end;
+
+into device label EC0 code_regex B1VL,\s+16, replace_matched begin DC24,8,DC25,8, end;
+into device label EC0 code_regex B1RC,\s+16, replace_matched begin DC26,8,DC27,8, end;
+into device label EC0 code_regex B1FC,\s+16, replace_matched begin DC28,8,DC29,8, end;
+into device label EC0 code_regex B1MD,\s+16, replace_matched begin DC30,8,DC31,8, end;
+into device label EC0 code_regex B1ST,\s+16, replace_matched begin DC32,8,DC33,8, end;
+into device label EC0 code_regex B1CC,\s+16, replace_matched begin DC34,8,DC35,8, end;
+
+into device label EC0 code_regex B1DC,\s+16, replace_matched begin DC36,8,DC37,8, end;
+into device label EC0 code_regex B1DV,\s+16, replace_matched begin DC38,8,DC39,8, end;
+into device label EC0 code_regex B1SN,\s+16 replace_matched begin DC40,8,DC41,8 end;
+
+into device label EC0 code_regex DT2B,\s+16 replace_matched begin DC22,8,DC23,8 end;
+
+
+# 16位拆分用到的读取方法2 + 7 + 3 + 7 + 3 + 1 = 23
+into method label TACH code_regex \(TAH0, replaceall_matched begin (B1B2(DC00,DC01), end;
+into method label TACH code_regex \(TAH1, replaceall_matched begin (B1B2(DC02,DC03), end;
+
+into method label BVOT code_regex \(B0VL, replaceall_matched begin (B1B2(DC04,DC05), end;
+into method label BRCP code_regex \(B0RC, replaceall_matched begin (B1B2(DC06,DC07), end;
+into method label BIF2 code_regex \(B0FC, replaceall_matched begin (B1B2(DC08,DC09), end;
+into method label BIF0 code_regex \(B0MD, replaceall_matched begin (B1B2(DC10,DC11), end;
+into method label BIF3 code_regex \(B0MD, replaceall_matched begin (B1B2(DC10,DC11), end;
+into method label BSTS code_regex \(B0ST, replaceall_matched begin (B1B2(DC12,DC13), end;
+into method label BCRT code_regex \(B0CC, replaceall_matched begin (B1B2(DC14,DC15), end;
+
+into method label BIF1 code_regex \(B0DC, replaceall_matched begin (B1B2(DC16,DC17), end;
+into method label BIF4 code_regex \(B0DV, replaceall_matched begin (B1B2(DC18,DC19), end;
+into method label BIFA code_regex \(B0SN, replaceall_matched begin (B1B2(DC20,DC21), end;
+
+into method label BVOT code_regex \(B1VL, replaceall_matched begin (B1B2(DC24,DC25), end;
+into method label BRCP code_regex \(B1RC, replaceall_matched begin (B1B2(DC26,DC27), end;
+into method label BIF2 code_regex \(B1FC, replaceall_matched begin (B1B2(DC28,DC29), end;
+into method label BIF0 code_regex \(B1MD, replaceall_matched begin (B1B2(DC30,DC31), end;
+into method label BIF3 code_regex \(B1MD, replaceall_matched begin (B1B2(DC30,DC31), end;
+into method label BSTS code_regex \(B1ST, replaceall_matched begin (B1B2(DC32,DC33), end;
+into method label BCRT code_regex \(B1CC, replaceall_matched begin (B1B2(DC34,DC35), end;
+
+into method label BIF1 code_regex \(B1DC, replaceall_matched begin (B1B2(DC36,DC37), end;
+into method label BIF4 code_regex \(B1DV, replaceall_matched begin (B1B2(DC38,DC39), end;
+into method label BIFA code_regex \(B1SN, replaceall_matched begin (B1B2(DC40,DC41), end;
+
+into method label SMBR code_regex \(DT2B, replaceall_matched begin (B1B2(DC22,DC23), end;
+
+# 16位拆分用到的写入方法 1
+into method label SMBW code_regex Store\s\(Arg4,\s\\_SB.PCI0.SBRG.EC0.DT2B\) replaceall_matched begin Store(ShiftRight(Arg4,8),\\_SB.PCI0.SBRG.EC0.DC23)\nStore(Arg4, \\_SB.PCI0.SBRG.EC0.DC22) end;
+
+# 32位以上读取方法 3
+into method label SMBR code_regex \(BDAT, replaceall_matched begin (RECB(0x04,256), end;
+into method label SMBW code_regex \(BDAT, replaceall_matched begin (RECB(0x04,256), end;
+into method label ECSB code_regex \(BDA2, replaceall_matched begin (RECB(0x04,256), end;
+
+# 32位以上写入方法 3
+into method label SMBR code_regex Store\s\(Zero,\s\\_SB.PCI0.SBRG.EC0.BDAT\) replaceall_matched begin \\_SB.PCI0.SBRG.EC0.WECB(0x04,256,Zero) end;
+into method label SMBW code_regex Store\s\(Zero,\s\\_SB.PCI0.SBRG.EC0.BDAT\) replaceall_matched begin \\_SB.PCI0.SBRG.EC0.WECB(0x04,256,Zero) end;
+into method label SMBW code_regex Store\s\(Arg4,\s\\_SB.PCI0.SBRG.EC0.BDAT\) replaceall_matched begin \\_SB.PCI0.SBRG.EC0.WECB(0x04,256,Arg4) end;
+
+# Rehabman写好的16位拆分补丁
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+}\n
+end;
+
+# Rehabman写好的32位以上读取补丁
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+
+# Rehabman写好的32位以上写入补丁
+into method label WE1B parent_label EC0 remove_entry;
+into method label WECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (WE1B, 2, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Store(Arg1, BYTE)\n
+}\n
+Method (WECB, 3, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+// Arg2 - value to write\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Store(Arg2, TEMP)\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        WE1B(Arg0, DerefOf(Index(TEMP, Local0)))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+}\n
+end;

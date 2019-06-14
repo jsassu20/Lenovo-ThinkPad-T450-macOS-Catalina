@@ -1,0 +1,72 @@
+#Maintained by: dxxs for: 派奇
+#battery_HASEE_K590S.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-06-26, 由 dxxs 制作 
+
+# works for: 针对
+#  HASEE 神舟 K590S
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#BDC0
+into device label EC code_regex BDC0,\s+32, replace_matched begin DC01,8,DC02,8,DC03,8,DC04,8, end;
+#BFC0
+into device label EC code_regex BFC0,\s+32, replace_matched begin FC01,8,FC02,8,FC03,8,FC04,8, end;
+#BDV0
+into device label EC code_regex BDV0,\s+32, replace_matched begin DV01,8,DV02,8,DV03,8,DV04,8, end;
+#BST0
+into device label EC code_regex BST0,\s+32, replace_matched begin ST01,8,ST02,8,ST03,8,ST04,8, end;
+#BPR0
+into device label EC code_regex BPR0,\s+32, replace_matched begin BPR1,8,BPR2,8,BPR3,8,BPR4,8, end;
+#BRC0
+into device label EC code_regex BRC0,\s+32, replace_matched begin RC01,8,RC02,8,RC03,8,RC04,8, end;
+#BPV0
+into device label EC code_regex BPV0,\s+32, replace_matched begin PV01,8,PV02,8,PV03,8,PV04,8, end;
+#BCW0
+into device label EC code_regex BCW0,\s+32, replace_matched begin CW01,8,CW02,8,CW03,8,CW04,8, end;
+#BCL0
+into device label EC code_regex BCL0,\s+32, replace_matched begin CL01,8,CL02,8,CL03,8,CL04,8, end;
+
+# ==== Replace called method 替换调用方法 ====
+#BDC0
+into method label UPBI code_regex BDC0 replaceall_matched begin B1B4(DC01,DC02,DC03,DC04) end;
+into method label WMBB code_regex \^\^PCI0.LPCB.EC.BDC0 replaceall_matched begin B1B4(^^PCI0.LPCB.EC.DC01,^^PCI0.LPCB.EC.DC02,^^PCI0.LPCB.EC.DC03,^^PCI0.LPCB.EC.DC04) end;
+#BFC0
+into method label UPBI code_regex BFC0 replaceall_matched begin B1B4(FC01,FC02,FC03,FC04) end;
+into method label WMBB code_regex \^\^PCI0.LPCB.EC.BFC0 replaceall_matched begin B1B4(^^PCI0.LPCB.EC.FC01,^^PCI0.LPCB.EC.FC02,^^PCI0.LPCB.EC.FC03,^^PCI0.LPCB.EC.FC04) end;
+#BDV0
+into method label UPBI code_regex BDV0 replaceall_matched begin B1B4(DV01,DV02,DV03,DV04) end;
+#BST0
+into method label UPBS code_regex BST0 replaceall_matched begin B1B4(ST01,ST02,ST03,ST04) end;
+#BPR0
+into method label UPBS code_regex BPR0 replaceall_matched begin B1B4(BPR1,BPR2,BPR3,BPR4) end;
+#BRC0
+into method label UPBS code_regex BRC0 replaceall_matched begin B1B4(RC01,RC02,RC03,RC04) end;
+#BPV0
+into method label UPBS code_regex BPV0 replaceall_matched begin B1B4(PV01,PV02,PV03,PV04) end;
+#BCW0
+into method label UPBI code_regex BCW0 replaceall_matched begin B1B4(CW01,CW02,CW03,CW04) end;
+#BCL0
+into method label UPBI code_regex BCL0 replaceall_matched begin B1B4(CL01,CL02,CL03,CL04) end;
+
+# ==== Data handling method 数据处理方法 ====
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;

@@ -1,0 +1,37 @@
+#      | Rename EXP devices to RP01-03 (Cosmetic, Proper macOS name for PCIe Lane Inputs, Helps with proper PCIe device functionality, Apple AirPort WiFi card configuration)
+#
+#
+into device label EXP1 set_label begin RP01 end;
+into device label EXP2 set_label begin RP02 end;
+into device label EXP3 set_label begin RP03 end;
+into_all all code_regex EXP1 replaceall_matched begin RP01 end;
+into_all all code_regex EXP2 replaceall_matched begin RP02 end;
+into_all all code_regex EXP3 replaceall_matched begin RP03 end;
+#
+# DONE
+#
+#
+#      | Add the missing PXSX nodes to RP01 - RP03 PCI BUS Inputs Devices (Cosmetic, Proper macOS PCI Bus Injection nodes, Helps with most AirPort WiFi patches available online)
+#
+#
+into device label PXSX parent_label RP01 remove_entry;
+into device label RP01 insert begin
+Device (PXSX)\n
+{\n
+	Name (_ADR, Zero)\n
+}
+end;
+into device label PXSX parent_label RP02 remove_entry;
+into device label RP02 insert begin
+Device (PXSX)\n
+{\n
+	Name (_ADR, Zero)\n
+}
+end;
+into device label PXSX parent_label RP03 remove_entry;
+into device label RP03 insert begin
+Device (PXSX)\n
+{\n
+	Name (_ADR, Zero)\n
+}
+end;

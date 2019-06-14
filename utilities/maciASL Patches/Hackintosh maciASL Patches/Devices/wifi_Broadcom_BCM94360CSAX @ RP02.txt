@@ -1,0 +1,19 @@
+into device label ARPT parent_label RP02 replace_content begin
+Name (_ADR, Zero)\n
+Name (_PRW, Package (0x02) {0x09,0x04})\n
+Name (_SUN, One)\n
+Method (_DSM, 4, NotSerialized)\n
+{\n
+	Store (Package (0x0C) {\n
+		"AAPL,slot-name", "AirPort",\n
+		"name", "AirPort Extreme",\n
+		"model", Buffer () {"Broadcom BCM94360CSAX 802.11 a/b/g/n/ac Wireless Network Adapter"},\n
+		"device_type", Buffer (0x07) {"AirPort"},\n
+		"compatible", "pci14e4,43a0"\n
+		"built-in", Buffer (One) {0x01}\n
+	}, Local0)\n
+	DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+	Return (Local0)\n
+}
+end;
+

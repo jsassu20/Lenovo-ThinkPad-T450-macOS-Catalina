@@ -1,0 +1,27 @@
+into device name_hid PNP0103 parent_adr 0x001F0000 remove_entry;
+into device name_adr 0x001F0000 insert
+begin
+Device (HPET)\n
+{\n
+    Name (_HID, EisaId ("PNP0103"))\n
+    Name (CRS, ResourceTemplate ()\n
+    {\n
+        IRQNoFlags ()\n
+            {0}\n
+        IRQNoFlags ()\n
+            {8}\n
+        Memory32Fixed (ReadOnly,\n
+            0xFED00000,         // Address Base\n
+            0x00000400,         // Address Length\n
+            _Y09)\n
+    })\n
+    Method (_STA, 0, NotSerialized)\n
+    {\n
+        Return (0x0F)\n
+    }\n
+    Method (_CRS, 0, NotSerialized)\n
+    {\n
+        Return (CRS)\n
+    }\n
+}
+end

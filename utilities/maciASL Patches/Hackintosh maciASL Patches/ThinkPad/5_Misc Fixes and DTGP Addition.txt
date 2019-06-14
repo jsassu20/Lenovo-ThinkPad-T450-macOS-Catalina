@@ -1,0 +1,134 @@
+#
+#       | Syntax Fix (Various code repair)
+#
+#
+into_all all code_regex Name\s+\(_HID,\s+\"\*(.*)\"\) replaceall_matched begin Name (_HID, "%1") end;
+#
+# DONE
+#
+#
+#       | IRC Fix (Battery Reporting)
+#
+#
+into device label IGPU parent_label PEG0 code_regex Name\s+\(_IRC,\s+([^\)].*)\) replace_matched
+begin
+Method(_IRC, 0, NotSerialized) { Return(%1) }
+end;
+#
+# DONE
+#
+#
+#      | Rename _DSM Methods to XDSM (Prevents conflicts with PCIe Info Injections)
+#
+#
+into_all method label _DSM set_label begin XDSM end;
+into_all method code_regex _DSM replaceall_matched begin XDSM end;
+#
+#
+# DONE
+#
+#
+#      | Series 9 Fixes
+#
+#
+into_all all code_regex _T_([0-6]) replaceall_matched begin T_%1 end;
+into device label PIC set_label begin IPIC end;
+#
+# DONE
+#
+#
+#      | Insert BLTH, MCHC, DTGP, LAN0, FPRN (Add Various Missing Devices) 
+#
+#
+into device label BLTH parent_label HSP6 remove_entry;
+into device label HSP6 insert begin
+Device (BLTH)\n
+{\n
+	Name (_ADR, Zero)\n
+}\n
+end;
+#
+into device label FPRD parent_label HSP5 remove_entry;
+into device label HSP5 insert begin
+Device (FPRD)\n
+{\n
+	Name (_ADR, Zero)\n
+}\n
+end;
+#
+into device label MCHC parent_label PCI0 remove_entry;
+into device label PCI0 insert begin
+Device (MCHC)\n
+{\n
+	Name (_ADR, Zero)\n
+}\n
+end;
+#
+into device name_adr Zero parent_adr 0x001C0002 remove_entry;
+into device name_adr 0x001C0002 insert
+begin
+Device (LAN0)\n
+{\n
+    Name (_ADR, Zero)\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+        Store (Package (0x04)\n
+        {\n
+            "built-in",\n
+            Buffer (One)\n
+            {\n
+                0x01\n
+            },\n
+            "location", \n
+            Buffer (0x02)\n
+            {\n
+                "1"\n
+            }\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+    }\n
+}\n
+end;
+#
+#
+# DONE
+#
+#
+#      Insert DTGP (Specific to Apple authentic hardware, helps legitimize code present in DSDT)
+#
+#
+into method label DTGP remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (DTGP, 5, NotSerialized)\n
+{\n
+    If (LEqual (Arg0, Buffer (0x10)\n
+            {\n
+                /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, \n
+                /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
+            }))\n
+    {\n
+        If (LEqual (Arg1, One))\n
+        {\n
+            If (LEqual (Arg2, Zero))\n
+            {\n
+                Store (Buffer (One)\n
+                    {\n
+                        0x03\n
+                    }, Arg4)\n
+                Return (One)\n
+            }\n
+            If (LEqual (Arg2, One))\n
+            {\n
+                Return (One)\n
+            }\n
+        }\n
+    }\n
+    Store (Buffer (One)\n
+        {\n
+            0x00\n
+        }, Arg4)\n
+    Return (Zero)\n
+}
+end;

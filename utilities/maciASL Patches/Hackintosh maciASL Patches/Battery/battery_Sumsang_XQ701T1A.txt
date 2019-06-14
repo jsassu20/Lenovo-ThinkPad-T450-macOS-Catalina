@@ -1,0 +1,53 @@
+#Maintained by: dxxs for: 派奇
+#battery_Sumsang_XQ701T1A.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-06-20, 由 dxxs 制作 
+
+# works for: 针对
+#  Sumsang 三星 XQ 701 T1A
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#B1RR
+into device label H_EC code_regex B1RR,\s+32 replace_matched begin B1R0,8,B1R1,8,B1R2,8,B1R3,8 end;
+#B1PV
+into device label H_EC code_regex B1PV,\s+32 replace_matched begin B1P0,8,B1P1,8,B1P2,8,B1P3,8 end;
+#B1AF
+into device label H_EC code_regex B1AF,\s+32 replace_matched begin B1A0,8,B1A1,8,B1A2,8,B1A3,8 end;
+#B1VL
+into device label H_EC code_regex B1VL,\s+32 replace_matched begin B1V0,8,B1V1,8,B1V2,8,B1V3,8 end;
+
+# ==== Replace called method 替换调用方法 ====
+#B1RR
+into method label _BST code_regex \\_SB.PCI0.LPCB.H_EC.B1RR replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1R0,\\_SB.PCI0.LPCB.H_EC.B1R1,\\_SB.PCI0.LPCB.H_EC.B1R2,\\_SB.PCI0.LPCB.H_EC.B1R3) end;
+#B1PV
+into method label _BST code_regex \\_SB.PCI0.LPCB.H_EC.B1PV replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1P0,\\_SB.PCI0.LPCB.H_EC.B1P1,\\_SB.PCI0.LPCB.H_EC.B1P2,\\_SB.PCI0.LPCB.H_EC.B1P3) end;
+##B1AF
+into method label _BIF code_regex \\_SB.PCI0.LPCB.H_EC.B1AF replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1A0,\\_SB.PCI0.LPCB.H_EC.B1A1,\\_SB.PCI0.LPCB.H_EC.B1A2,\\_SB.PCI0.LPCB.H_EC.B1A3) end;
+into method label _PTS code_regex \\_SB.PCI0.LPCB.H_EC.B1AF replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1A0,\\_SB.PCI0.LPCB.H_EC.B1A1,\\_SB.PCI0.LPCB.H_EC.B1A2,\\_SB.PCI0.LPCB.H_EC.B1A3) end;
+into method label _WAK code_regex \\_SB.PCI0.LPCB.H_EC.B1AF replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1A0,\\_SB.PCI0.LPCB.H_EC.B1A1,\\_SB.PCI0.LPCB.H_EC.B1A2,\\_SB.PCI0.LPCB.H_EC.B1A3) end;
+into method label PNOT code_regex \\_SB.PCI0.LPCB.H_EC.B1AF replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1A0,\\_SB.PCI0.LPCB.H_EC.B1A1,\\_SB.PCI0.LPCB.H_EC.B1A2,\\_SB.PCI0.LPCB.H_EC.B1A3) end;
+#B1VL
+into method label _BIF code_regex \\_SB.PCI0.LPCB.H_EC.B1VL replaceall_matched begin B1B4(\\_SB.PCI0.LPCB.H_EC.B1V0,\\_SB.PCI0.LPCB.H_EC.B1V1,\\_SB.PCI0.LPCB.H_EC.B1V2,\\_SB.PCI0.LPCB.H_EC.B1V3) end;
+
+# ==== Data handling method 数据处理方法 ====
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;

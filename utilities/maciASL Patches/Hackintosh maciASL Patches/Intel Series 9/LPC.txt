@@ -1,0 +1,23 @@
+# Maintained by: PJALM (help@pjalm.com) for: http://pjalm.com/repos/
+
+# These patches are the registered property of PJALM.COM and can not be
+# redistributed or modified without the written consent of PJALM.COM.
+# Links to these patches are allowed. All material is protected under the DMCA.
+
+# Last Updated  : 10/12/2015
+# Patch Name    : LPC
+# Patch Version : 1.0
+
+# Fix the LPC Device
+into method label _DSM parent_label LPCB remove_entry;
+into device label LPCB insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+	Store (Package (0x02) {\n
+		"compatible", Buffer () {"pci8086,8c44"}\n
+	}, Local0)\n
+	DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+	Return (Local0)\n
+}
+end;
+

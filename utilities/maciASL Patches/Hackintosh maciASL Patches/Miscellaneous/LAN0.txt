@@ -1,0 +1,28 @@
+# Insert device LAN0 into device with _ADR 0x001C0002
+#
+into device name_adr Zero parent_adr 0x001C0002 remove_entry;
+into device name_adr 0x001C0002 insert
+begin
+Device (LAN0)\n
+{\n
+    Name (_ADR, Zero)\n
+    Method (_DSM, 4, NotSerialized)\n
+    {\n
+        Store (Package (0x04)\n
+        {\n
+            "built-in",\n
+            Buffer (One)\n
+            {\n
+                0x01\n
+            },\n
+            "location", \n
+            Buffer (0x02)\n
+            {\n
+                "1"\n
+            }\n
+        }, Local0)\n
+        DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+        Return (Local0)\n
+    }\n
+}
+end

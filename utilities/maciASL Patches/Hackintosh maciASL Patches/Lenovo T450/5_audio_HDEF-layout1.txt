@@ -1,0 +1,29 @@
+#Maintained by: shmilee for: T450 ALC3232
+#audio_HDEF-layout1.txt
+
+# Note: Change your layout-id if you need something different
+
+# Inject Audio info
+into method label _DSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
+        "layout-id", Buffer() { 1, 0x00, 0x00, 0x00 },\n
+        "codec-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
+        "model", Buffer() { "Realtek ALC3232 HD Audio" },\n
+        "name", Buffer() { "Realtek ALC3232" },\n
+        "device_type", Buffer() { "Audio Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+        "PinConfigurations", Buffer() { },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        //"MaximumBootBeepVolume", 77,\n
+    })\n
+}\n
+end;
+

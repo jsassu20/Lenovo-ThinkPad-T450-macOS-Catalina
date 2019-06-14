@@ -1,0 +1,21 @@
+# Insert return into method _WAK to fix warning
+# (for Gigabyte motherboards)
+#
+into method label _WAK code_regex Return\s\(\s*\n?\s*Package\s*\n?\s*\(0x02\)\s*\n?\s*\{\s*\n?(?:\s*Zero,?\s*\n?){2}\s*\}\s*\n?\s*\) remove_matched;
+into method label _WAK insert
+begin
+Return (Package (0x02)\n
+{\n
+    Zero, \n
+    Zero\n
+})
+end;
+into method label \_WAK code_regex Return\s\(\s*\n?\s*Package\s*\n?\s*\(0x02\)\s*\n?\s*\{\s*\n?(?:\s*Zero,?\s*\n?){2}\s*\}\s*\n?\s*\) remove_matched;
+into method label \_WAK insert
+begin
+Return (Package (0x02)\n
+{\n
+    Zero, \n
+    Zero\n
+})
+end

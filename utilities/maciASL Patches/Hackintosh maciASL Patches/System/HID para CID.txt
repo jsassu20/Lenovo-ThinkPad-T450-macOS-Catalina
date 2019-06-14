@@ -1,0 +1,1 @@
+into device label PWRB code_regex (Name\s\()_HID(\,\sEisaId\s\(\"PNP0C0C\"\)\)) replace_matched begin %1_CID%2 end

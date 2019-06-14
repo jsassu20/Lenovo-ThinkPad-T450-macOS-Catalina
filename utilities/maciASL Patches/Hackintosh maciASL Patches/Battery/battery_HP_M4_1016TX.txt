@@ -1,0 +1,186 @@
+#Maintained by: dxxs for: 派奇
+#battery_HP_Envy6_1005TX.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-08-23, 由 dxxs 制作 
+
+# works for: 针对
+#  HP M4 1016TX
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#FANR
+into device label H_EC code_regex FANR,\s+16, replace_matched begin FANR,8,FANP,8, end;
+#BDC0
+into device label H_EC code_regex BDC0,\s+16, replace_matched begin BDCA,8,BDCB,8, end;
+#BFC0
+into device label H_EC code_regex BFC0,\s+16, replace_matched begin BFCA,8,BFCB,8, end;
+#BFC1
+into device label H_EC code_regex BFC1,\s+16, replace_matched begin BFCC,8,BFCD,8, end;
+#BDV0
+into device label H_EC code_regex BDV0,\s+16, replace_matched begin BDVA,8,BDVB,8, end;
+#BDV1
+into device label H_EC code_regex BDV1,\s+16, replace_matched begin BDVC,8,BDVD,8, end;
+#BPR0
+into device label H_EC code_regex BPR0,\s+16, replace_matched begin BPRA,8,BPRB,8, end;
+#BPR1
+into device label H_EC code_regex BPR1,\s+16, replace_matched begin BPRC,8,BPRD,8, end;
+#BRC0
+into device label H_EC code_regex BRC0,\s+16, replace_matched begin BRCA,8,BRCB,8, end;
+#BRC1
+into device label H_EC code_regex BRC1,\s+16, replace_matched begin BRCC,8,BRCD,8, end;
+#BCC0
+into device label H_EC code_regex BCC0,\s+16, replace_matched begin BCCA,8,BCCB,8, end;
+#CV01
+into device label H_EC code_regex CV01,\s+16, replace_matched begin CV0A,8,CV0B,8, end;
+#CV02
+into device label H_EC code_regex CV02,\s+16, replace_matched begin CV0C,8,CV0D,8, end;
+#CV03
+into device label H_EC code_regex CV03,\s+16, replace_matched begin CV0E,8,CV0F,8, end;
+#CV04
+into device label H_EC code_regex CV04,\s+16, replace_matched begin CV0G,8,CV0H,8, end;
+#BMD0
+into device label H_EC code_regex BMD0,\s+16, replace_matched begin BMDA,8,BMDB,8, end;
+#BMD1
+into device label H_EC code_regex BMD1,\s+16, replace_matched begin BMDC,8,BMDD,8, end;
+#BPV0
+into device label H_EC code_regex BPV0,\s+16, replace_matched begin BPVA,8,BPVB,8, end;
+#BPV1
+into device label H_EC code_regex BPV1,\s+16, replace_matched begin BPVC,8,BPVD,8, end;
+#BSN0
+into device label H_EC code_regex BSN0,\s+16, replace_matched begin BSNA,8,BSNB,8, end;
+#BSN1
+into device label H_EC code_regex BSN1,\s+16, replace_matched begin BSNC,8,BSND,8, end;
+#BCV0
+into device label H_EC code_regex BCV0,\s+16, replace_matched begin BCVA,8,BCVB,8, end;
+#CRG0
+into device label H_EC code_regex CRG0,\s+16, replace_matched begin CRGA,8,CRGB,8, end;
+#BTY0
+into device label H_EC code_regex BTY0,\s+32, replace_matched begin BTYA,8,BTYB,8,BTYC,8,BTYD,8, end;
+#CBT0
+into device label H_EC code_regex CBT0,\s+16, replace_matched begin CBTA,8,CBTB,8, end;
+
+# ==== Replace called method 替换调用方法 ====
+#BDN0
+into method label GBTI code_regex BDN0 replaceall_matched begin RECB(0x10,56) end;
+#BMN0
+into method label GBTI code_regex BMN0 replaceall_matched begin RECB(0x21,120) end;
+#BCT0
+into method label GBTI code_regex BCT0 replaceall_matched begin RECB(0x30,128) end;
+#FANR
+into method label FRSP code_regex \\_SB.PCI0.LPCB.H_EC.FANR replaceall_matched begin B1B2(\\_SB.PCI0.LPCB.H_EC.FANR,\\_SB.PCI0.LPCB.H_EC.FANP) end;
+#BDC0
+into method label GBTI code_regex BDC0 replaceall_matched begin B1B2(BDCA,BDCB) end;
+#BFC0
+into method label BTIF code_regex BFC0 replaceall_matched begin B1B2(BFCA,BFCB) end;
+into method label ITLB code_regex BFC0 replaceall_matched begin B1B2(BFCA,BFCB) end;
+into method label GBTI code_regex BFC0 replaceall_matched begin B1B2(BFCA,BFCB) end;
+#BFC1
+into method label BTIF code_regex BFC1 replaceall_matched begin B1B2(BFCC,BFCD) end;
+into method label ITLB code_regex BFC1 replaceall_matched begin B1B2(BFCC,BFCD) end;
+#BDV0
+into method label BTIF code_regex BDV0 replaceall_matched begin B1B2(BDVA,BDVB) end;
+into method label GBTI code_regex BDV0 replaceall_matched begin B1B2(BDVA,BDVB) end;
+#BDV1
+into method label BTIF code_regex BDV1 replaceall_matched begin B1B2(BDVC,BDVD) end;
+#BPR0
+into method label BTST code_regex BPR0 replaceall_matched begin B1B2(BPRA,BPRB) end;
+into method label GBTI code_regex BPR0 replaceall_matched begin B1B2(BPRA,BPRB) end;
+#BPR1
+into method label BTST code_regex BPR1 replaceall_matched begin B1B2(BPRC,BPRD) end;
+#BRC0
+into method label BTST code_regex BRC0 replaceall_matched begin B1B2(BRCA,BRCB) end;
+into method label GBTI code_regex BRC0 replaceall_matched begin B1B2(BRCA,BRCB) end;
+#BRC1
+into method label BTST code_regex BRC1 replaceall_matched begin B1B2(BRCC,BRCD) end;
+#BCC0
+into method label GBTI code_regex BCC0 replaceall_matched begin B1B2(BCCA,BCCB) end;
+#CV01
+into method label GBTI code_regex CV01 replaceall_matched begin B1B2(CV0A,CV0B) end;
+#CV02
+into method label GBTI code_regex CV02 replaceall_matched begin B1B2(CV0C,CV0D) end;
+#CV03
+into method label GBTI code_regex CV03 replaceall_matched begin B1B2(CV0E,CV0F) end;
+#CV04
+into method label GBTI code_regex CV04 replaceall_matched begin B1B2(CV0G,CV0H) end;
+#BMD0
+into method label BTIF code_regex BMD0 replaceall_matched begin B1B2(BMDA,BMDB) end;
+into method label GBTI code_regex BMD0 replaceall_matched begin B1B2(BMDA,BMDB) end;
+#BMD1
+into method label BTIF code_regex BMD1 replaceall_matched begin B1B2(BMDC,BMDD) end;
+#BPV0
+into method label BTST code_regex BPV0 replaceall_matched begin B1B2(BPVA,BPVB) end;
+into method label GBTI code_regex BPV0 replaceall_matched begin B1B2(BPVA,BPVB) end;
+#BPV1
+into method label BTST code_regex BPV1 replaceall_matched begin B1B2(BPVC,BPVD) end;
+#BSN0
+into method label BTIF code_regex BSN0 replaceall_matched begin B1B2(BSNA,BSNB) end;
+into method label GBTI code_regex BSN0 replaceall_matched begin B1B2(BSNA,BSNB) end;
+#BSN1
+into method label BTIF code_regex BSN1 replaceall_matched begin B1B2(BSNC,BSND) end;
+#BCV0
+into method label GBTI code_regex BCV0 replaceall_matched begin B1B2(BCVA,BCVB) end;
+#CRG0
+into method label GBTI code_regex CRG0 replaceall_matched begin B1B2(CRGA,CRGB) end;
+#BTY0
+into method label GBTI code_regex BTY0 replaceall_matched begin B1B4(BTYA,BTYB,BTYC,BTYD) end;
+#CBT0
+into method label GBTI code_regex CBT0 replaceall_matched begin B1B2(CBTA,CBTB) end;
+
+# ==== Data handling method 数据处理方法 ====
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label H_EC remove_entry;
+into method label RECB parent_label H_EC remove_entry;
+into device label H_EC insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+\n
+}\n
+end;
+
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;

@@ -1,0 +1,139 @@
+#Created by MR.Yang.
+#Reedited  by riverai. This patch is designed to using at Hasee K570C-i3D1,based on TWS HM86.Other computeres based on TWS HM86 should be tried this first.
+#由杨先森创建,经riverai在征求同意后整理.基于K570c i3D1(i7D1).其他相同准系统的如部分海尔笔记本,神州K610D的某款,与部分炫龙机型应当可用.
+#参考http://kfgl.hasee.com/lookup/book/bblist.asp,其中内容只做参考用途,不具有决定意义.
+#v1.0
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized) { Return(Or(Arg0, ShiftLeft(Arg1, 8))) }\n
+end;
+
+into method label B1B4 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B4, 4, NotSerialized)\n
+{\n
+    Store(Arg3, Local0)\n
+    Or(Arg2, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg1, ShiftLeft(Local0, 8), Local0)\n
+    Or(Arg0, ShiftLeft(Local0, 8), Local0)\n
+    Return(Local0)\n
+}\n
+end;
+
+# utility methods to read/write buffers from/to EC
+into method label RE1B parent_label EC0 remove_entry;
+into method label RECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (RE1B, 1, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Return(BYTE)\n
+}\n
+Method (RECB, 2, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        Store(RE1B(Arg0), Index(TEMP, Local0))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+    Return(TEMP)\n
+}\n
+end;
+
+#Write method
+into method label WE1B parent_label EC0 remove_entry;
+into method label WECB parent_label EC0 remove_entry;
+into device label EC0 insert
+begin
+Method (WE1B, 2, NotSerialized)\n
+{\n
+    OperationRegion(ERAM, EmbeddedControl, Arg0, 1)\n
+    Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }\n
+    Store(Arg1, BYTE)\n
+}\n
+Method (WECB, 3, Serialized)\n
+// Arg0 - offset in bytes from zero-based EC\n
+// Arg1 - size of buffer in bits\n
+// Arg2 - value to write\n
+{\n
+    ShiftRight(Arg1, 3, Arg1)\n
+    Name(TEMP, Buffer(Arg1) { })\n
+    Store(Arg2, TEMP)\n
+    Add(Arg0, Arg1, Arg1)\n
+    Store(0, Local0)\n
+    While (LLess(Arg0, Arg1))\n
+    {\n
+        WE1B(Arg0, DerefOf(Index(TEMP, Local0)))\n
+        Increment(Arg0)\n
+        Increment(Local0)\n
+    }\n
+}\n
+end;
+
+
+
+
+into device label EC0 code_regex DSCP,\s+16 replace_matched begin SCP0,8,SCP1,8 end;
+into device label EC0 code_regex LACP,\s+16 replace_matched begin ACP0,8, ACP1,8 end;
+into device label EC0 code_regex DSVG,\s+16 replace_matched begin SVG0,8, SVG1,8 end;
+into device label EC0 code_regex MCUR,\s+16 replace_matched begin CUR0,8, CUR1,8 end;
+into device label EC0 code_regex MBRM,\s+16 replace_matched begin BRM0,8, BRM1,8 end;
+into device label EC0 code_regex MBCV,\s+16 replace_matched begin BCV0,8, BCV1,8 end;
+into device label EC0 code_regex VERN,\s+32 replace_matched begin ERN0,8,ERN1,8,ERN2,8,ERN3,8 end;
+into device label EC0 code_regex SMW0,\s+16 replace_matched begin MW00,8, MW01,8 end;
+
+
+
+
+
+into method label SMRD code_regex \(SMW0 replaceall_matched begin (B1B2(MW00, MW01) end;
+into method label UPBI code_regex \(\^\^PCI0.LPCB.EC0.DSCP replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.SCP0,^^PCI0.LPCB.EC0.SCP1) end;
+into method label UPBS code_regex \(\^\^PCI0.LPCB.EC0.DSCP replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.SCP0,^^PCI0.LPCB.EC0.SCP1) end;
+into method label UPBI code_regex \(\^\^PCI0.LPCB.EC0.LACP replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.ACP0,^^PCI0.LPCB.EC0.ACP1) end;
+into method label UPBI code_regex \(\^\^PCI0.LPCB.EC0.DSVG replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.SVG0,^^PCI0.LPCB.EC0.SVG1) end;
+into method label UPBS code_regex \(\^\^PCI0.LPCB.EC0.MCUR replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.CUR0,^^PCI0.LPCB.EC0.CUR1) end;
+into method label UPBS code_regex \(\^\^PCI0.LPCB.EC0.MBRM replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BRM0,^^PCI0.LPCB.EC0.BRM1) end;
+into method label UPBS code_regex ,\s\^\^PCI0.LPCB.EC0.MBRM replaceall_matched begin , B1B2(^^PCI0.LPCB.EC0.BRM0,^^PCI0.LPCB.EC0.BRM1) end;
+into method label UPBS code_regex \(\^\^PCI0.LPCB.EC0.MBCV replaceall_matched begin (B1B2(^^PCI0.LPCB.EC0.BCV0,^^PCI0.LPCB.EC0.BCV1) end;
+
+
+
+into method label WMAB code_regex \(\^\^EC0.VERN replaceall_matched begin (B1B4(^^EC0.ERN0,^^EC0.ERN1,^^EC0.ERN2,^^EC0.ERN3) end;
+into method label WMBB code_regex \(\^\^EC0.VERN replaceall_matched begin (B1B4(^^EC0.ERN0,^^EC0.ERN1,^^EC0.ERN2,^^EC0.ERN3) end;
+
+
+
+into method label SMWR code_regex Store\s\(Arg3,\sSMW0\) replaceall_matched begin Store(ShiftRight(Arg3,8), MW01)\nStore(Arg3, MW00) end;
+
+
+
+
+
+
+
+into method label SMRD code_regex \(FLD0 replaceall_matched begin (RECB(0x04, 64) end;
+into method label SMRD code_regex \(FLD1 replaceall_matched begin (RECB(0x04, 128) end;
+into method label SMRD code_regex \(FLD2 replaceall_matched begin (RECB(0x04, 192) end;
+into method label SMRD code_regex \(FLD3 replaceall_matched begin (RECB(0x04, 256) end;
+into method label UPBI code_regex \(\^\^PCI0.LPCB.EC0.BANA replaceall_matched begin (^^PCI0.LPCB.EC0.RECB(0xD2,64) end;
+
+
+
+into method label SMWR code_regex Store\s\(Arg3,\sSMD0\) replaceall_matched begin WECB(0x1C,256,Arg3) end;
+into method label IVBI code_regex Store\s\(Zero,\s\^\^PCI0.LPCB.EC0.BANA\) replaceall_matched begin ^^PCI0.LPCB.EC0.WECB(0xD2,64,Zero) end;
+
+
+
+
+

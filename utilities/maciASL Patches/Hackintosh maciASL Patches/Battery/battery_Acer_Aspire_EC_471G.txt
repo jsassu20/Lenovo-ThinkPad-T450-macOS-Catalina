@@ -1,0 +1,63 @@
+#Maintained by: dxxs for: 派奇
+#battery_Acer-Aspire-EC-471.txt
+
+# version(版本): 1.0
+# Update Time(更新时间) : initial version, 初始版本
+
+# initial work by dxxs 2014-06-20, 由 dxxs 制作 
+
+# works for: 针对
+#  Acer Aspire EC-471
+
+# Tip: If you get a 0% battery status,you should also patch the Rehabman's "Fix Mutex with non-zero SyncLevel" patch.
+# You also can patch the both of your computer's battery patch and the Rehabman's patch at one time.
+
+# 注意：如果打过电量补丁后，有获取的电池状态显示为0%的情况，还需要打 Rehabman的 “Fix Mutex with non-zero SyncLevel” 补丁。
+# 你也可以，一次性打好 自己电脑的电量补丁 和 Rehabman 的那个补丁。
+
+# ==== Field devide 字段拆分 ====
+#BATD
+into device label EC0 code_regex BATD,\s+16 replace_matched begin BATC,8,BATD,8 end;
+#MCUR
+into device label EC0 code_regex MCUR,\s+16, replace_matched begin MCU0,8,MCU1,8, end;
+#MBRM
+into device label EC0 code_regex MBRM,\s+16, replace_matched begin MBRA,8,MBRB,8, end;
+#MBVG
+into device label EC0 code_regex MBVG,\s+16, replace_matched begin MBV0,8,MBV1,8, end;
+#LFCC
+into device label EC0 code_regex LFCC,\s+16, replace_matched begin LFCA,8,LFCB,8, end;
+#BTSN
+into device label EC0 code_regex BTSN,\s+16, replace_matched begin BTSA,8,BTSB,8, end;
+#BTDC
+into device label EC0 code_regex BTDC,\s+16, replace_matched begin BTDC,8,BTDD,8, end;
+#BTDV
+into device label EC0 code_regex BTDV,\s+16, replace_matched begin BTDU,8,BTDV,8, end;
+
+# ==== Replace called method 替换调用方法 ====
+#BATD
+into method label _Q20 code_regex BATD replaceall_matched begin B1B2(BATC,BATD) end;
+into method label SELE code_regex BATD replaceall_matched begin B1B2(BATC,BATD) end;
+#MCUR
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MCUR replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MCU0,^^PCI0.LPCB.EC0.MCU1) end;
+#MBRM
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MBRM replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBRA,^^PCI0.LPCB.EC0.MBRB) end;
+#MBVG
+into method label _BST code_regex \^\^PCI0.LPCB.EC0.MBVG replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.MBV0,^^PCI0.LPCB.EC0.MBV1) end;
+#LFCC
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.LFCC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.LFCA,^^PCI0.LPCB.EC0.LFCB) end;
+#BTSN
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.BTSN replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTSA,^^PCI0.LPCB.EC0.BTSB) end;
+#BTDC
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.BTDC replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDC,^^PCI0.LPCB.EC0.BTDD) end;
+#BTDV
+into method label UBIF code_regex \^\^PCI0.LPCB.EC0.BTDV replaceall_matched begin B1B2(^^PCI0.LPCB.EC0.BTDU,^^PCI0.LPCB.EC0.BTDV) end;
+
+# ==== Data handling method 数据处理方法 ====
+into method label B1B2 remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (B1B2, 2, NotSerialized)\n
+{\n
+Return(Or(Arg0, ShiftLeft(Arg1, 8)))\n
+}\n
+end;
