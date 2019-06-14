@@ -1,4 +1,0 @@
-into_all all code_regex Name\s\(_HID,\s"ABCDEFGH"\) replace_matched
-begin
-Name (_HID, "PNP0C15")
-end

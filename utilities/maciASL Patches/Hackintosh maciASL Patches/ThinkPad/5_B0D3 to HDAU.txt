@@ -1,4 +1,0 @@
-#      | Rename B0D3 to HDAU (Cosmetic, Proper macOS HDMI Device Label, Proper HDMI Audio Controller Label, Set proper Layout ID for Audio Codec)
-#
-#
-into device label B0D3 set_label begin HDAU end;

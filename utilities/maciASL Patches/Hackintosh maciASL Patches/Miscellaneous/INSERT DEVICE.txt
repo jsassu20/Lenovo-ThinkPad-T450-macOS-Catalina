@@ -1,7 +1,0 @@
-into device label RP05 insert
-begin
-Device (PEGP)\n
-                {\n
-                    Name (_ADR, Zero)  // _ADR: Address\n                    
-                }\n
-end

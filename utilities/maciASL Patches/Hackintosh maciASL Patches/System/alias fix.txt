@@ -1,2 +1,0 @@
-into_all scope label _PR code_regex Alias\s\([^\n]+\n removeall_matched;
-into_all scope label \_PR code_regex Alias\s\([^\n]+\n removeall_matched

@@ -1,3 +1,0 @@
-#     | Rename LPCB.KBD to LPCB.PS2K (Cosmetic, PS2 Bus Location (Not In Macs), Enables Synaptic TrackPoint Functionality, and Permanently Activates Magic Trackpad Settings with RHM’s SSDT-PS2K.aml)
-#
-into device label KBD set_label begin PS2K end;

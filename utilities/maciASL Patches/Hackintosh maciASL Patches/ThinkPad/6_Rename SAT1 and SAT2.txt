@@ -1,8 +1,0 @@
-#      | Rename SAT1 and SAT2 to SATA and SATB (Cosmetic, Proper macOS AHCI and M.2 SATA Bus Labels, Helps with Machine Stability)
-#
-#
-into device label SAT1 set_label begin SATA end;
-into device label SAT2 set_label begin SATB end;
-into_all all code_regex SAT1 replaceall_matched begin SATA end;
-#
-# DONE
