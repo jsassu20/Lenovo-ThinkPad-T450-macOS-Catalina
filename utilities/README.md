@@ -2,19 +2,19 @@
 
 This folder contains a number of different useful tools I find helpful with setting up the full macOS system on the Lenovo ThinkPad T450 Ultrabook. You may not find them useful but they're here for anyone to checkout and use if they want.
 
-- ### AirPort Windows Drivers
+- AirPort Windows Drivers
 
   - Apple AirPort Extreme (Broadcom BCM94360CSAX WiFi Card) Microsoft Windows 7-10 drivers for the proper functionality of the Apple AirPort card if you choose to swap out the original Intel WiFi card and still need to use Windows. This maintains proper functionality of both the WiFi and Bluetooth 4.0 devices in Windows.
 
-- ### Audio Configuration
+- Audio Configuration
 
   - Contains 2 separate methods for successfully getting proper system audio functionality with with this configuration. (Credit JCSNIDER for ALC3232 Method and ACIDANTHERA for AppleALC Lilu Plugin)
 
-- ### BIOS Settings
+- BIOS Settings
 
   - Collection of pictures which show the required settings for being able to successfully boot macOS Mojave on the Lenovo ThinkPad T450 Ultrabook. These settings should also work with most Hackintosh machines.
 
-- ### EFI (ESP Folder)
+- EFI (ESP Folder)
 
   - This folder is just a representation of the EFI folder that resides in the ESP directory which is where the CLOVER directory is located. This folder does nothing its just a way for people to understand where the files in this archive go in order to utilize Clover to boot macOS.
 
