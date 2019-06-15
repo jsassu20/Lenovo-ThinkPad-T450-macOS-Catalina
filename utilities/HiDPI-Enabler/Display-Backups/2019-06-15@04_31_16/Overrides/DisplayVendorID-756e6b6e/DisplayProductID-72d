@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>1837</integer>
+	<key>DisplayVendorID</key>
+	<integer>1970170734</integer>
+	<key>tinf</key>
+	<dict>
+		<key>170</key>
+		<data>
+		AAAAAAAAAAAAAACAAAAAAA==
+		</data>
+	</dict>
+	<key>tovr</key>
+	<dict>
+		<key>170</key>
+		<data>
+		AAAAAAAAAAAAAAIDAAAAAA==
+		</data>
+	</dict>
+</dict>
+</plist>

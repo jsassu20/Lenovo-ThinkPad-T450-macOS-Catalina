@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    
+    
+    <key>DisplayVendorID</key>
+    <integer>7789</integer>
+    
+    
+    
+    <key>DisplayProductID</key>
+    <integer>23412</integer>
+    
+	<key>DisplayPort</key>
+	<dict>
+		<key>PowerValue</key>
+		<integer>5</integer>
+	</dict>
+	<key>DisplayHasHardwareBrightnessSmoothing</key>
+	<real>1.0</real>
+	<key>target-default-ppmm</key>
+	<real>8.533</real>
+	<key>edid-patches</key>
+	<array>
+		<dict>
+			<key>offset</key>
+			<integer>261</integer>
+			<key>data</key>
+			<data>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==</data>
+		</dict>
+		<dict>
+			<key>offset</key>
+			<integer>382</integer>
+			<key>data</key>
+			<data>cg==</data>
+		</dict>
+	</array>
+</dict>
+</plist>

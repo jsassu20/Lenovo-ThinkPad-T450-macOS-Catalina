@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>44547</integer>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayProductName</key>
+	<string>iMac</string>
+	<key>DisplayHasHardwareBrightnessSmoothing</key>
+	<real>1.0</real>
+	<key>DisplayLeakage</key> 
+	<real>0.5316</real> 
+	<key>DisplayLowestLevel</key> 
+	<real>1</real> 
+	<key>DisplayLowestMeasured</key>
+	<real>0.5671</real> 
+	<key>DisplayBacklight</key> 
+	<real>526.000</real> 
+	<key>DisplayDarkReflection</key>
+	<real>2.054</real> 
+	<key>DisplayBrightReflection</key>
+	<real>530.000</real>
+	<key>IOGFlags</key>
+	<integer>4</integer>				
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAAZAAAADhAAAAAB</data>		
+		<data>AAAWgAAADKgAAAAB</data>		
+		<data>AAAQAAAACQAAAAAB</data>		
+		<data>AAAMgAAABwgAAAAB</data>		
+		<data>AAAQAAAACHAAAAABACAAAA==</data>	
+		<data>AAAPAAAACHAAAAABACAAAA==</data>	
+		<data>AAAKAAAABkAAAAABACAAAA==</data>	
+		<data>AAAHgAAABLAAAAABACAAAA==</data>	
+		<data>AAAGkAAABBoAAAABACAAAA==</data>	
+		<data>AAAFAAAAAyAAAAABACAAAA==</data>	
+		<data>AAALQAAABlQAAAAB</data>		
+		<data>AAAKAAAABaAAAAAB</data>		
+		<data>AAAIAAAABIAAAAAB</data>		
+		<data>AAAHgAAABDgAAAAB</data>		
+		<data>AAAGQAAABLAAAAAB</data>		
+		<data>AAAGQAAAA4QAAAAB</data>		
+		<data>AAAFoAAAAyoAAAAB</data>		
+		<data>AAAFQAAAAvQAAAAB</data>		
+		<data>AAAFAAAABAAAAAAB</data>		
+		<data>AAAFAAAAAtAAAAAB</data>		
+		<data>AAAEAAAAAwAAAAAB</data>		
+		<data>AAAEAAAAAkAAAAAB</data>		
+		<data>AAADwAAAAlgAAAAB</data>		
+		<data>AAADwAAAAhwAAAAB</data>		
+		<data>AAADSAAAAgwAAAAB</data>		
+		<data>AAADIAAAAlgAAAAB</data>		
+		<data>AAACgAAAAeAAAAAB</data>		
+		<data>AAAZAAAADhAAAAAJAKAAAA==</data>	
+		<data>AAAWgAAADKgAAAAJAKAAAA==</data>	
+		<data>AAAUAAAAC0AAAAAJAKAAAA==</data>	
+		<data>AAAQAAAACQAAAAAJAKAAAA==</data>	
+		<data>AAAMgAAABwgAAAAJAKAAAA==</data>	
+	</array>
+</dict>
+</plist>

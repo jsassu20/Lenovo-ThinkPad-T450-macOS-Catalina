@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>51457</integer>
+	<key>DisplayVendorID</key>
+	<integer>19929</integer>
+	<key>IODisplayEDID</key>
+	<data>
+		AP///////wBN2QHJAQEBAQETAQOAoFp4Cg3JoFdHmCcSSEwhCACBgAEBAQEBAQEBAQEBAQEBAjqAGHE4LUBYLEUAQIRjAAAeAR0AclHQHiBuKFUAQIRjAAAeAAAA/ABTT05ZIFRWCiAgICAgAAAA/QAwPg5GDwAKICAgICAgAeQCAzVAUh8QICEiFAUTBBIRAwIWFQcGASkJBwcVB1BVBwCDAQAAbAMMACAAgADACAgREeIAOQI6gNByOC1AECxFgECEYwAAHgEdALxS0B4guChVQECEYwAAHgEdgBhxHBYgWCwlAECEYwAAngEdgNByHBYgECwlgECEYwAAngAAwQ==
+	</data>
+</dict>
+</plist>

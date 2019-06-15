@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayBlueGamma</key>
+	<real>1.459991455078125</real>
+	<key>DisplayBluePointX</key>
+	<real>0.1454925537109375</real>
+	<key>DisplayBluePointY</key>
+	<real>0.05389404296875</real>
+	<key>DisplayGammaChannels</key>
+	<integer>3</integer>
+	<key>DisplayGammaEntryCount</key>
+	<integer>256</integer>
+	<key>DisplayGammaEntrySize</key>
+	<integer>2</integer>
+	<key>DisplayGammaTable</key>
+	<data>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</data>
+	<key>DisplayGreenGamma</key>
+	<real>2.069992065429688</real>
+	<key>DisplayGreenPointX</key>
+	<real>0.3337860107421875</real>
+	<key>DisplayGreenPointY</key>
+	<real>0.640899658203125</real>
+	<key>DisplayProductID</key>
+	<integer>40136</integer>
+	<key>DisplayProductName</key>
+	<string>Color LCD</string>
+	<key>DisplayRedGamma</key>
+	<real>2.589996337890625</real>
+	<key>DisplayRedPointX</key>
+	<real>0.640899658203125</real>
+	<key>DisplayRedPointY</key>
+	<real>0.3391876220703125</real>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayWhitePointX</key>
+	<real>0.3126983642578125</real>
+	<key>DisplayWhitePointY</key>
+	<real>0.3289947509765625</real>
+	<key>dmdg</key>
+	<data>AAAAAg==</data>
+	<key>IOGFlags</key>
+	<integer>4</integer>
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAAFoAAAA1QAAAAB</data>
+		<data>AAAFAAAABAAAAAAB</data>
+		<data>AAAEgAAAAtAAAAAB</data>
+		<data>AAAEAAAAAwAAAAAB</data>
+		<data>AAAEAAAAAoAAAAAB</data>
+		<data>AAADIAAAAlgAAAAB</data>
+		<data>AAADIAAAAfQAAAAB</data>
+		<data>AAACgAAAAeAAAAAB</data>
+		<data>AAAC0AAAAeAAAAAB</data>
+	</array>
+</dict>
+</plist>

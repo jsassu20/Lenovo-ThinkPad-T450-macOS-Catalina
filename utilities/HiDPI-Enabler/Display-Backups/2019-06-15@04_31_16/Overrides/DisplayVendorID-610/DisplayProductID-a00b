@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IOGFlags</key>
+	<integer>4</integer>
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAACgAAAAeAAAAAC</data>
+		<data>AAADIAAAAlgAAAAC</data>
+		<data>AAAEAAAAAwAAAAAB</data>
+		<data>AAAFAAAABAAAAAAB</data>
+		<data>AAAFQAAAAvQAAAAC</data>
+		<data>AAAGQAAAA4QAAAAC</data>
+		<data>AAAGkAAABBoAAAAC</data>
+		<data>AAAHgAAABDgAAAAC</data>
+		<data>AAAGQAAABLAAAAAC</data>
+		<data>AAAHgAAABLAAAAAC</data>
+	</array>
+</dict>
+</plist>

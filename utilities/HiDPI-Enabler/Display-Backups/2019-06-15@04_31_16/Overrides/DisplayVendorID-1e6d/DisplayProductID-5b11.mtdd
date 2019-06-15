@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>display</key>
+	<dict>
+		<key>backendtiming</key>
+		<string>2560x2880@60</string>
+		<key>frontendtiming</key>
+		<string>5120x2880@60</string>
+		<key>linkmode</key>
+		<string>multi-cable</string>
+		<key>overlay</key>
+		<data>
+		AP///////wAebRFbAAAAAAAAAQS1PCJ4IAAAAAAAAAAAAAAAAAABAQEBAQEB
+		AQEBAQEBAQEBAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAA
+		AAAA/ABMRyBVbHRyYUZpbmUKAAAAEAAAAAAAAAAAAAAAAAAAAdtwEnkAAAMA
+		FIBuAYT/E58AL4AfAD8LUQACAAQAKQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+		AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACSkA==
+		</data>
+		<key>streamcount</key>
+		<integer>2</integer>
+		<key>tileinfo</key>
+		<string>(2,1)</string>
+	</dict>
+	<key>productid</key>
+	<string>0x5b11</string>
+	<key>serial</key>
+	<integer>1</integer>
+	<key>vendorid</key>
+	<string>0x1e6d</string>
+	<key>version</key>
+	<string>1.3</string>
+</dict>
+</plist>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayBlueGamma</key>
+	<real>1.8999999999999999</real>
+	<key>DisplayBluePointX</key>
+	<real>0.15720000000000001</real>
+	<key>DisplayBluePointY</key>
+	<real>0.15629999999999999</real>
+	<key>DisplayGammaChannels</key>
+	<integer>1</integer>
+	<key>DisplayGammaEntryCount</key>
+	<integer>32</integer>
+	<key>DisplayGammaEntrySize</key>
+	<integer>2</integer>
+	<key>DisplayGammaTable</key>
+	<data>
+	AAAABwAYAHoBeAJ1A+8FkwepCrcNxBG8FyIdjCU3LqM42EXVVH5nhXzBk3Wox79e0kDi
+	quys9M/5lvu3/dr//w==
+	</data>
+	<key>DisplayGreenGamma</key>
+	<real>1.8999999999999999</real>
+	<key>DisplayGreenPointX</key>
+	<real>0.30959999999999999</real>
+	<key>DisplayGreenPointY</key>
+	<real>0.5625</real>
+	<key>DisplayProductID</key>
+	<integer>39943</integer>
+	<key>DisplayProductName</key>
+	<string>iBook</string>
+	<key>DisplayRedGamma</key>
+	<real>1.8999999999999999</real>
+	<key>DisplayRedPointX</key>
+	<real>0.57620000000000005</real>
+	<key>DisplayRedPointY</key>
+	<real>0.33789999999999998</real>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayWhitePointX</key>
+	<real>0.30959999999999999</real>
+	<key>DisplayWhitePointY</key>
+	<real>0.34570000000000001</real>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+</dict>
+</plist>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>45061</integer>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayHasHardwareBrightnessSmoothing</key>
+	<real>1.0</real>
+	<key>DisplayLeakage</key> 
+	<real>0.5521</real> 
+	<key>DisplayLowestLevel</key> 
+	<real>1</real> 
+	<key>DisplayLowestMeasured</key>
+	<real>0.5812</real> 
+	<key>DisplayBacklight</key> 
+	<real>397.4</real> 
+	<key>DisplayDarkReflection</key>
+	<real>1.243</real> 
+	<key>DisplayBrightReflection</key>
+	<real>405.3</real>
+</dict>
+</plist>

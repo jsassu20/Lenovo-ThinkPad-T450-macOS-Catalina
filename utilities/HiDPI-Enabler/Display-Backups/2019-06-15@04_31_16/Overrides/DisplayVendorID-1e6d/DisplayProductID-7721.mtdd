@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>display</key>
+	<dict>
+		<key>backendtiming</key>
+		<string>2560x2160@60</string>
+		<key>frontendtiming</key>
+		<string>5120x2160@60</string>
+		<key>linkmode</key>
+		<string>multi-cable</string>
+		<key>overlay</key>
+		<data>AP///////wAebSF3AAAAAAAAAQS1UCF4gAAAAAAAAAAAAAAAAAABAQEBAQEBAQEBAQEBAQEBAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA/QAwPR6HTAAKICAgICAgAAAA/ABMRyBIRFIgNUsKICAgAtICAxRBIwkHB4MBAADjBcAA4wYFAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUXASeQAAAQAMPhcWDQAUcAiQeImZAwAU5hIBhv8TnwAvgB8Abwg9AAIACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGaQ</data>
+		<key>streamcount</key>
+		<integer>2</integer>
+		<key>tileinfo</key>
+		<string>(2,1)</string>
+		<key>audio</key>
+		<string>(1,1)</string>
+	</dict>
+	<key>productid</key>
+	<string>0x7721</string>
+	<key>serial</key>
+	<integer>1</integer>
+	<key>vendorid</key>
+	<string>0x1e6d</string>
+	<key>version</key>
+	<string>1.3</string>
+</dict>
+</plist>

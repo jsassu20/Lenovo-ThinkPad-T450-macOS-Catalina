@@ -1,0 +1,200 @@
+#!/bin/bash
+
+# Get the command line options
+opt_nocolor=f
+opt_force_color=f
+opt_offline=f
+for arg in "$@"
+do
+  case "${arg}" in
+    -b|--nocolor)
+      opt_nocolor=t
+      ;;
+    -c|--color)
+      opt_nocolor=f
+      opt_force_color=t
+      ;;
+    -o|--offline)
+        opt_offline=t
+      ;;
+    -h|--help)
+      echo "Archey For macOS"
+      echo
+      echo "Usage: $0 [options]"
+      echo
+      echo "  -b --nocolor   Turn color off."
+      echo "  -c --color     Force the color on (overrides --nocolor)."
+      echo "  -o --offline   Disable the IP address check."
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $1" 1>&2
+      echo "For help, use: $0 --help" 1>&2
+      exit 1
+      ;;
+  esac
+done
+
+osx_version="$(sw_vers -productVersion)"
+osx_build="$(sw_vers -buildVersion)"
+
+# define OS Short Version 
+codename=$(xxd -ps /Applications/Utilities/System\ Information.app/Contents/MacOS/System\ Information | tr -d '\n' | perl -nle "print $& if m{00$(sw_vers -productVersion | awk -F '.' '{printf $1"."$2}' | xxd -ps)00\K.*?00}" | xxd -r -p)
+
+mem_total="$(($(sysctl -n hw.memsize) / 1024 / 1024))"
+mem_wired="$(vm_stat | awk '/wired/ { print $4 }')"
+mem_active="$(vm_stat | awk '/active / { printf $3 }')"
+mem_compressed="$(vm_stat | awk '/occupied/ { printf $5 }')"
+mem_used="$(((${mem_wired//.} + ${mem_active//.} + ${mem_compressed//.}) * 4 / 1024))"
+
+cores="$(sysctl -n hw.logicalcpu_max)"
+
+# Uptime
+boot="$(sysctl -n kern.boottime)"
+boot="${boot/'{ sec = '}"
+boot="${boot/,*}"
+now="$(date +%s)"
+seconds="$((now - boot))"
+days="$((seconds / 60 / 60 / 24)) days"
+hours="$((seconds / 60 / 60 % 24)) hours"
+mins="$((seconds / 60 % 60)) minutes"
+
+# Format the days, hours and minutes.
+strip_date() {
+  case "$1" in
+    "0 "*) unset "${1/* }" ;;
+    "1 "*) printf "%s" "${1/s}" ;;
+    *)     printf "%s" "$1" ;;
+  esac
+}
+
+days="$(strip_date "$days")"
+hours="$(strip_date "$hours")"
+mins="$(strip_date "$mins")"
+
+uptime="${days:+$days, }${hours:+$hours, }${mins}"
+uptime="${uptime%', '}"
+uptime="${uptime:-${seconds} seconds}"
+
+# model
+if [[ "$(kextstat | grep "FakeSMC")" != "" ]] ; then
+  model="Hackintosh (SMBIOS: $(sysctl -n hw.model))"
+else
+  model="$(sysctl -n hw.model)"
+fi
+
+# System Variables
+User=$(echo -e $(whoami)\'s $(osascript -e "computer name of (system info)"))
+Date=$(date | sed 's/CST//g')
+# Intranet=$(osascript -e "IPv4 address of (system info)")
+Intranet=`echo $(ifconfig | grep 'inet.*netmask.*broadcast') | awk '{print $2}'`
+Public=$(dig +short myip.opendns.com @resolver1.opendns.com)
+System_version="$codename $osx_version $osx_build"
+Kernel_version="$(uname) $(uname -r)"
+Uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
+Shell="$SHELL"
+Terminal="$TERM by ${TERM_PROGRAM//_/ }" 
+Cpu="$(sysctl -n machdep.cpu.brand_string | sed 's/(R)//g' | sed 's/(TM)//g' | sed 's/CPU @ //g') x (${cores})"
+Battery=$(ioreg -c AppleSmartBattery -r | awk '$1~/Capacity/{c[$1]=$3} END{OFMT="%.2f%"; max=c["\"MaxCapacity\""]; if (max>0) { print 100*c["\"CurrentCapacity\""]/max;} }')
+batterystatus=$(pmset -g batt | sed -n '2p' | awk '{print $4}' | sed 's/;//g')
+memory="${mem_used}MB(Avai) / ${mem_total}MB(Total)"
+
+# disk
+disk_total="$(df -h | head -2 | tail -1 | awk '{print $2}' | sed 's/i/B/g')(Total)"
+disk_used="$(df -h | head -2 | tail -1 | awk '{print $4}' | sed 's/i/B/g')(Avai)"
+Disk="$disk_used / $disk_total"
+
+# GPU
+# main resolution
+resolution="$(system_profiler SPDisplaysDataType | grep Resolution | awk 'NF+=1' | sed 's/Resolution://g' | cut -b 2- | sed -e 's/, /\n/g' | sed -n 1p | sed 's/          //g')"
+gpu="$(system_profiler SPDisplaysDataType | awk -F': ' '/^\ *Chipset Model:/ {printf $2 ", "}') ${resolution}"
+
+# extension resolution
+displayext="$(system_profiler SPDisplaysDataType | grep Resolution | awk 'NF+=1' | sed 's/Resolution://g' | cut -b 2- | sed -e 's/, /\n/g' | sed -n 2p | sed 's/          //g')"
+if [[ -z $displayext ]] ; then 
+  displayext=$resolution
+fi
+
+case "$term" in
+    "Apple_Terminal")
+      term_font="$(osascript <<END
+             tell application "Terminal" to font name of window frontmost
+END
+)"
+    ;;
+
+    "iTerm2")
+      # Unfortunately the profile name is not unique, but it seems to be the only thing
+      # that identifies an active profile. There is the "id of current session of current win-
+      # dow" though, but that does not match to a guid in the plist.
+      # So, be warned, collisions may occur!
+      # See: https://groups.google.com/forum/#!topic/iterm2-discuss/0tO3xZ4Zlwg
+      local current_profile_name profiles_count profile_name diff_font none_ascii
+
+      current_profile_name="$(osascript <<END
+                  tell application "iTerm2" to profile name \
+                  of current session of current window
+END
+)"
+    ;;
+esac
+
+# Set up colors if:
+# * stdout is a tty
+# * the user hasn't turned it off
+# * or if we're forcing color
+if [[ ( -t 1  && "${opt_nocolor}" = f) || "${opt_force_color}" = t ]]
+then
+  RED=$(tput       setaf 1 2>/dev/null)
+  GREEN=$(tput     setaf 2 2>/dev/null)
+  YELLOW=$(tput    setaf 3 2>/dev/null)
+  BLUE=$(tput      setaf 4 2>/dev/null)
+  PURPLE=$(tput    setaf 5 2>/dev/null)
+  textColor=$(tput setaf 6 2>/dev/null)
+  normal=$(tput    sgr0 2>/dev/null)
+fi
+
+fieldlist[${#fieldlist[@]}]="${textColor}Model   :${normal} ${model}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}OS      :${normal} ${System_version}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Kernel  :${normal} ${Kernel_version}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Uptime  :${normal} ${uptime}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Shell   :${normal} ${Shell}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Time    :${normal} ${Date}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}CPU     :${normal} ${Cpu}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Memory  :${normal} ${memory}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Disk    :${normal} ${Disk}${normal}"
+if [[ ! -z $Battery ]]; then
+    fieldlist[${#fieldlist[@]}]="${textColor}Battery :${normal} ${Battery}%  /  ${batterystatus}${normal}"
+fi
+fieldlist[${#fieldlist[@]}]="${textColor}IP Addr :${normal} Public ${Public} / Intranet ${Intranet}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Terminal:${normal} ${Terminal}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Graphics:${normal} ${gpu}${normal}"
+fieldlist[${#fieldlist[@]}]="${textColor}Display :${normal} ${displayext}${normal}"
+
+logofile=${ARCHEY_LOGO_FILE:-"${HOME}/.config/archey-logo"}
+if [ -a "$logofile" ]
+  then
+  source "$logofile"
+else
+# The ${foo#  } is a cheat so that it lines up here as well
+# as when run.
+  echo -e "
+${normal# }                                      ${User}
+${normal# }                                      ----------------------------------------------
+${GREEN#  }                                      ${fieldlist[0]}
+${GREEN#  }                 ###                  ${fieldlist[1]}
+${GREEN#  }               ####                   ${fieldlist[2]}
+${GREEN#  }               ###                    ${fieldlist[3]}
+${GREEN#  }       #######    #######             ${fieldlist[4]}
+${YELLOW# }     ######################           ${fieldlist[5]}
+${YELLOW# }    #####################             ${fieldlist[6]}
+${RED#    }    ####################              ${fieldlist[7]}
+${RED#    }    ####################              ${fieldlist[8]}
+${RED#    }    #####################             ${fieldlist[9]}
+${PURPLE# }     ######################           ${fieldlist[10]}
+${PURPLE# }      ####################            ${fieldlist[11]}
+${BLUE#   }        ################              ${fieldlist[12]}
+${BLUE#   }         ####     #####               ${fieldlist[13]}
+${normal}                                      
+"
+fi

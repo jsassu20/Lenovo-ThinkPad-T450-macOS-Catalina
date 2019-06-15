@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>16540</integer>
+	<key>DisplayVendorID</key>
+	<integer>4268</integer>
+        
+             
+	<key>IODisplayEDID</key>
+	<data>AP///////wAQrJxAAAAAAP8XAQS1NR54Oh31rk81syUNUFSlSwCBALMA0QBxT6lAgYDRwAEBo2YAoPBwH4AwIDUADyghAAAaAAAA/wAgICAgICAgICAgICAgAAAA/ABERUxMIFVQMjQxNFEKAAAA/QAdSx+MHgAKICAgICAgAVsCAxWxUBAFBAMCBxYBBhESFRMUHyCjZgCg8HAfgDAgNQAPKCEAABoCOoAYcTgtQFgsJQAPKCEAAB4BHYAYcRwWIFgsJQAPKCEAAJ4BHQByUdAeIG4oVQAPKCEAAB6MCtCKIOAtEBA+lgAPKCEAABgAAAAAAAAAAAAAAAAAAAAAdA==</data>
+</dict>
+</plist>

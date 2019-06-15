@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayVendorID</key>
+	<integer>1138</integer>
+	<key>DisplayProductID</key>
+	<integer>1312</integer>
+	<key>hdcp-restrictions</key>        
+        <data>AAAAAAAAAAY=</data>
+        
+</dict>
+</plist>

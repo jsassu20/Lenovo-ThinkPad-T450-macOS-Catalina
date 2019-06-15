@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayVendorID</key>
+        <integer>1552</integer>
+        <key>DisplayProductID</key>
+        <integer>40981</integer>
+	<key>IOGFlags</key>
+	<integer>4</integer>
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAANIAAACDQAAAAB</data>				
+		<data>AAALQAAABwgAAAAB</data>				
+		<data>AAAIAAAABQAAAAAB</data>				
+		<data>AAAGcgAABBoAAAAB</data>				
+		<data>AAAKAAAABkAAAAABACAAAA==</data>		
+		<data>AAAKAAAABaAAAAABACAAAA==</data>		
+		<data>AAAHgAAABLAAAAABACAAAA==</data>		
+		<data>AAAHgAAABDgAAAABACAAAA==</data>		
+		<data>AAAFAAAAAtAAAAABACAAAA==</data>		
+                <data>AAAFoAAAA4QAAAAB</data>                           
+		<data>AAAFAAAAAyAAAAAB</data>				
+		<data>AAAEgAAAAtAAAAAB</data>				
+		<data>AAADSAAAAg0AAAAB</data>				
+		<data>AAAEAAAAAwAAAAAB</data>				
+		<data>AAADIAAAAlgAAAAB</data>				
+		<data>AAACgAAAAeAAAAAB</data>				
+		<data>AAANIAAACDQAAAAJAKAAAA==</data>		
+		<data>AAALQAAABwgAAAAJAKAAAA==</data>           
+		<data>AAAKAAAABkAAAAAJAKAAAA==</data>		
+		<data>AAAKAAAABaAAAAAJAKAAAA==</data>		
+		<data>AAAIAAAABQAAAAAJAKAAAA==</data>		
+		<data>AAAGcgAABBoAAAAJAKAAAA==</data>		
+		<data>AAAHgAAABLAAAAAJAKAAAA==</data>		
+		<data>AAAHgAAABDgAAAAJACAAAA==</data>		
+		<data>AAAFAAAAAtAAAAAJACAAAA==</data>		
+	</array>
+</dict>
+</plist>

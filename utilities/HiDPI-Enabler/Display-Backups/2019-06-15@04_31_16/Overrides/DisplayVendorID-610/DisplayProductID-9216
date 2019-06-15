@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>37398</integer>
+	<key>DisplayProductName</key>
+	<string>Apple Cinema Display</string>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>IOGFlags</key>
+	<integer>65536</integer>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+	<key>scale-resolutions</key>
+	<array>
+		<integer>32768800</integer>
+		<integer>67110144</integer>
+	</array>
+</dict>
+</plist>

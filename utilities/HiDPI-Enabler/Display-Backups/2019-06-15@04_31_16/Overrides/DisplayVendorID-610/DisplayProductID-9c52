@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>40018</integer>
+	<key>DisplayProductName</key>
+	<string>iMac</string>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>IOGFlags</key>
+	<integer>262148</integer>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+	<key>scale-resolutions</key>
+	<array>
+		<data>
+		AAAFQAAAA0gAAAAB
+		</data>
+		<data>
+		AAAFAAAAAyAAAAAB
+		</data>
+		<data>
+		AAAEAAAAAwAAAAAB
+		</data>
+		<data>
+		AAAEAAAAAoAAAAAB
+		</data>
+		<data>
+		AAADSAAAAgwAAAAB
+		</data>
+		<data>
+		AAADIAAAAlgAAAAB
+		</data>
+		<data>
+		AAADIAAAAfQAAAAB
+		</data>
+		<data>
+		AAACgAAAAeAAAAAB
+		</data>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>30424</integer>
+	<key>DisplayVendorID</key>
+	<integer>7789</integer>
+        <key>DisplayProductName</key>
+        <string>LG ULTRAWIDE</string>
+	<key>IODisplayEDID</key>
+	<data>AP///////wAebdh2AQEBATIXAQSlUCJ4nsqVplVOoSYPUFQhCABxQIGAgcCpwLMA0cCBAAEB53xwoNCgKVAwIDoAIE8xAAAaAAAA/QA4PR5aKwAKICAgICAgAAAA/AAzNFVNOTUKICAgICAgAAAA/wAKICAgICAgICAgICAgAfoCAxFxIwkGB0QQBAMBgwEAAAI6gBhxOC1AWCxFACBPMQAAHn5IAOCgOB9AQEA6ACBPMQAAGAEdAHJR0B4gbihVACBPMQAAHowK0Iog4C0QED6WACBPMQAAGGs+uFBgoClQCCC4BCBPMQAAGgAAAAAAAAAAAAAAAAAAAAAAAAAAdw==</data>
+</dict>
+</plist>

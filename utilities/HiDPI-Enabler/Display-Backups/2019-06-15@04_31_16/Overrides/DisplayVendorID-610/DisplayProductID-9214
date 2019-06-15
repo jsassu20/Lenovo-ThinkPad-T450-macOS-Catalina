@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>37396</integer>
+	<key>DisplayProductName</key>
+	<string>Apple Studio Display</string>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>IOGFlags</key>
+	<integer>0</integer>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+</dict>
+</plist>

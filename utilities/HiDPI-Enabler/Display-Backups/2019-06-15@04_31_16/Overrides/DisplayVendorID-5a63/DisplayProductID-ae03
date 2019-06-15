@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>IODisplayOverrideMatching</key>
+		<dict>
+			<key>IODisplayIsDigital</key>
+			<true/>
+		</dict>
+		<key>default-resolution</key>
+		<data>
+		AAAFAAAABAAAPP//
+		</data>
+		<key>tovr</key>
+		<dict>
+			<key>250</key>
+			<data>
+			AAAAAAAAAAAAAAAAAAAABw==
+			</data>
+			<key>252</key>
+			<data>
+			AAAAAAAAAAAAAAAAAAAABw==
+			</data>
+			<key>254</key>
+			<data>
+			AAAAAAAAAAAAAAAAAAAABw==
+			</data>
+		</dict>
+	</dict>
+</array>
+</plist>

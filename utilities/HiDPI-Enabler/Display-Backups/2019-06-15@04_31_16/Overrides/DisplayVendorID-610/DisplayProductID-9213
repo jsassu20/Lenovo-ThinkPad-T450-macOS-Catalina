@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>37395</integer>
+	<key>DisplayProductName</key>
+	<string>Apple Studio Display</string>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>IOGFlags</key>
+	<integer>196608</integer>
+	<key>dmdg</key>
+	<data>
+	AAAAAA==
+	</data>
+	<key>dspc</key>
+	<array>
+		<data>
+		MCoASEEAKjAQcBMAOOoQAAAe
+		</data>
+		<data>
+		9yAgADFYKiAQWBMAOOoQAAAe
+		</data>
+		<data>
+		LyJACDFwKiAQYBMAOOoQAAAe
+		</data>
+		<data>
+		iSsgUEEYKjAQgBMAOOoQAAAe
+		</data>
+		<data>
+		kBqA0CDgKhAISBMAOOoQAAAe
+		</data>
+	</array>
+	<key>sync</key>
+	<integer>16843009</integer>
+	<key>tinf</key>
+	<dict>
+		<key>262</key>
+		<data>
+		AAAAAAAAAAAAAAD/AAAAAA==
+		</data>
+	</dict>
+</dict>
+</plist>

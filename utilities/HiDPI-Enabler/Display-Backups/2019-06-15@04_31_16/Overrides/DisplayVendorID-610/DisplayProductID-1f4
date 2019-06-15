@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayProductID</key>
+	<integer>500</integer>
+	<key>DisplayProductName</key>
+	<string>Apple Studio Display</string>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+	<key>tinf</key>
+	<dict>
+		<key>150</key>
+		<data>
+		AAAAAAAAAAAAAAD/AAAAAA==
+		</data>
+		<key>182</key>
+		<data>
+		AAAAAAAAAAAAAAD/AAAAAA==
+		</data>
+		<key>186</key>
+		<data>
+		AAAAAAAAAAAAAACAAAAAAA==
+		</data>
+		<key>190</key>
+		<data>
+		AAAAAAAAAAAAAAD/AAAA/w==
+		</data>
+	</dict>
+	<key>tovr</key>
+	<dict>
+		<key>140</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>150</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>170</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>180</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>182</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>190</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>200</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>204</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+		<key>210</key>
+		<data>
+		AAAAAAAAAAAAAAADAAACAA==
+		</data>
+	</dict>
+</dict>
+</plist>

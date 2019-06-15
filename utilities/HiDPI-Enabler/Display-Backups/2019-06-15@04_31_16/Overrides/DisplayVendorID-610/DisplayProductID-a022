@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+        <key>DisplayVendorID</key>
+        <integer>1552</integer>
+        <key>DisplayProductID</key>
+        <integer>40994</integer>
+        
+	<key>DisplayLeakage</key> 
+	<real>0.4919</real> 
+	<key>DisplayLowestLevel</key> 
+	<real>4</real> 
+	<key>DisplayLowestMeasured</key>
+	<real>0.5128</real> 
+	<key>DisplayBacklight</key> 
+	<real>345.2000</real> 
+	<key>DisplayDarkReflection</key>
+	<real>2.2740</real> 
+	<key>DisplayBrightReflection</key>
+	<real>348.5000</real>
+        <key>IOGFlags</key>
+	<integer>4</integer>
+	<key>scale-resolutions</key>
+	<array>
+		<data>AAAPAAAACWAAAAAB</data>				
+		<data>AAANIAAACDQAAAAB</data>				
+		<data>AAAKAAAABkAAAAAB</data>				
+		<data>AAAIAAAABQAAAAAB</data>				
+		<data>AAAEAAAAAwAAAAAB</data>				
+		<data>AAADIAAAAlgAAAAB</data>				
+		<data>AAACgAAAAeAAAAAB</data>				
+		<data>AAAKAAAABaAAAAABACAAAA==</data>		
+		<data>AAAHgAAABLAAAAABACAAAA==</data>		
+		<data>AAAHgAAABDgAAAABACAAAA==</data>		
+		<data>AAAFAAAAAtAAAAABACAAAA==</data>		
+		<data>AAAGkAAABBoAAAAB</data>				
+		<data>AAAFoAAAA4QAAAAB</data>				
+		<data>AAAFAAAAAyAAAAAB</data>				
+		<data>AAAPAAAACWAAAAAJAKAAAA==</data>		
+		<data>AAANIAAACDQAAAAJAKAAAA==</data>		
+		<data>AAALQAAABwgAAAAJAKAAAA==</data>		
+		<data>AAAKAAAABkAAAAAJAKAAAA==</data>		
+		<data>AAAIAAAABQAAAAAJAKAAAA==</data>           
+		<data>AAAHgAAABLAAAAAJAKAAAA==</data>			
+		<data>AAAHgAAABDgAAAAJACAAAA==</data>		
+		<data>AAAFAAAAAtAAAAAJACAAAA==</data>		
+	</array>
+</dict>
+</plist>

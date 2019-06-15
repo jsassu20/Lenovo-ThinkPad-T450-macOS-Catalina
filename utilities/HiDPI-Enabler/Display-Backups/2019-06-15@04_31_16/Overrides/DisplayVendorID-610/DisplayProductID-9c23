@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayBlueGamma</key>
+	<real>2.250000000000000e+00</real>
+	<key>DisplayBluePointX</key>
+	<real>1.451874000000000e-01</real>
+	<key>DisplayBluePointY</key>
+	<real>1.024933000000000e-01</real>
+	<key>DisplayGammaChannels</key>
+	<integer>3</integer>
+	<key>DisplayGammaEntryCount</key>
+	<integer>64</integer>
+	<key>DisplayGammaEntrySize</key>
+	<integer>2</integer>
+	<key>DisplayGammaTable</key>
+	<data>
+	AAAAHgA8AF4AhgC2APEBOQGPAfkCeAMQA8MEkAV3BnkHlgjQCikLpw1JDxIQ/xMRFUYX
+	nxocHMAfiyKAJaMo9yyBMEU0RjiHPQxB2Ub0TGVSMFhVXtFln2y7dCN714PYjCKUsp2A
+	poGvprjewhDLHNPf3DLj7Oru8Sf2nvt6//8AAAAZADMAUQB1AKEA1gEXAWYBxwI8AskD
+	bwQvBQgF+wcICDIJewrmDHcOLRAIEgcUKhZwGNsbbR4nIQskHSdhKtsukDKENrg7MD/z
+	RQVKb1AzVlVcz2Oear5yLXnrgfiKU5L3m9yk9647t5TA6MoZ0wPbe+Nb6n/w2PZr+2H/
+	/wAAAC0AVwCFALsA+gFGAaECDgKQAywD4wS4BasGugfkCSsKkQwXDcMPlRGOE6wV7hhT
+	GtsdhyBYI08mbym7LTcw5zTPOPE9UkHyRthMCFGKV2Bdi2QHas9x3XkwgMiIpJDCmRyh
+	rapos0C8I8T6zajWC9395VvsBfHu9x37uP//
+	</data>
+	<key>DisplayGreenGamma</key>
+	<real>2.409988000000000e+00</real>
+	<key>DisplayGreenPointX</key>
+	<real>3.106995000000000e-01</real>
+	<key>DisplayGreenPointY</key>
+	<real>5.860900999999999e-01</real>
+	<key>DisplayProductID</key>
+	<integer>39971</integer>
+	<key>DisplayProductName</key>
+	<string>iMac</string>
+	<key>DisplayRedGamma</key>
+	<real>2.369995000000000e+00</real>
+	<key>DisplayRedPointX</key>
+	<real>6.288910000000000e-01</real>
+	<key>DisplayRedPointY</key>
+	<real>3.491974000000000e-01</real>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayWhitePointX</key>
+	<real>3.126984000000000e-01</real>
+	<key>DisplayWhitePointY</key>
+	<real>3.289948000000000e-01</real>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+</dict>
+</plist>

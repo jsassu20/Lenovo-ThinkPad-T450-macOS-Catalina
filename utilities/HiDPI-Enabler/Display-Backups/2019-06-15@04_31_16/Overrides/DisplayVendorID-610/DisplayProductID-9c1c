@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>DisplayBlueGamma</key>
+	<real>1.869995000000000e+00</real>
+	<key>DisplayBluePointX</key>
+	<real>1.569977000000000e-01</real>
+	<key>DisplayBluePointY</key>
+	<real>1.391907000000000e-01</real>
+	<key>DisplayGammaChannels</key>
+	<integer>3</integer>
+	<key>DisplayGammaEntryCount</key>
+	<integer>64</integer>
+	<key>DisplayGammaEntrySize</key>
+	<integer>2</integer>
+	<key>DisplayGammaTable</key>
+	<data>
+	AAAADgAnAFEAjQDYATEBlwIRAqMDVAQlBRUGJAdOCJIJ6AtODMUOVhAMEe0T+xY4GKMb
+	Ox32IMMjlCZjKTcsIC8xMnk2ADnFPcVB+kZiSwBP2VTtWjJfnGUjasNwfHZMfC+CIYgm
+	jlCUw5ugoviqvrLSuyjD180v16jjr/FS//8AAAAKAB0APgBuAKsA9QFLAbICMALKA4EE
+	VQVGBlEHdgitCfQLTAy/DlUQFRICFBwWZRjaG3MeICDTI4YmQSkSLAsvPDKtNl06Sj5t
+	QsVHVUwkUS9Wb1vYYWBnBGzFcqB4kn6VhK+K8pGAmH+f/qfxsDm4x8G2y1fWJ+KZ8L7/
+	/wAhAAAAFQB7AQ8ByAKYA3cEbQWEBssIRQnwC8UNvw/WEf8UMhZ0GNsbeR5VIWoksSgo
+	K84vlzNuNz87BD7JQqBGoUrXT0lT81jTXedjLWijbkZ0Dnnzf+mF54vnkeaX5J3ho9qp
+	za/Btc+8DsKHySnP1NZw3P7jlOpS8VD4k///
+	</data>
+	<key>DisplayGreenGamma</key>
+	<real>2.729996000000000e+00</real>
+	<key>DisplayGreenPointX</key>
+	<real>3.199921000000000e-01</real>
+	<key>DisplayGreenPointY</key>
+	<real>5.363922000000000e-01</real>
+	<key>DisplayProductID</key>
+	<integer>39964</integer>
+	<key>DisplayProductName</key>
+	<string>Color LCD</string>
+	<key>DisplayRedGamma</key>
+	<real>2.609985000000000e+00</real>
+	<key>DisplayRedPointX</key>
+	<real>5.650940000000000e-01</real>
+	<key>DisplayRedPointY</key>
+	<real>3.291931000000000e-01</real>
+	<key>DisplayVendorID</key>
+	<integer>1552</integer>
+	<key>DisplayWhitePointX</key>
+	<real>3.126984000000000e-01</real>
+	<key>DisplayWhitePointY</key>
+	<real>3.289948000000000e-01</real>
+	<key>dmdg</key>
+	<data>
+	AAAAAg==
+	</data>
+</dict>
+</plist>
