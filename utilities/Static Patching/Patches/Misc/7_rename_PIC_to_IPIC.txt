@@ -1,0 +1,9 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the PIC Controller in the DSDT configuration file...
+#
+# SB.PCI0.LPC(B).PIC | will be renamed to | SB.PCI0.LPC(B).IPIC 
+#
+# LPC(B) refers to the possible name of your LPC device, it may be LPC or LPCB
+#
+into device label PIC set_label begin IPIC end;

@@ -1,0 +1,35 @@
+// Lenovo ThinkPad T450 Ultrabook | Hackintosh Build (macOS Mojave)
+//
+// Clover UEFI Hotpatch | SSDT-GPWR...
+//
+// For Solving Instant Wake By Hooking GPRW or UPRW
+//
+#ifndef NO_DEFINITIONBLOCK
+DefinitionBlock("", "SSDT", 2, "LENOVO", "TP-GPRW", 0)
+{
+#endif
+    External(XPRW, MethodObj)
+    External(RMCF.DWOU, IntObj)
+
+    // In DSDT, native GPRW is renamed to XPRW with Clover binpatch.
+    // As a result, calls to GPRW land here.
+    // The purpose of this implementation is to avoid "instant wake"
+    // by returning 0 in the second position (sleep state supported)
+    // of the return package.
+    Method(GPRW, 2)
+    {
+        For (,,)
+        {
+            // when RMCF.DWOU is provided and is zero, patch disabled
+            If (CondRefOf(\RMCF.DWOU)) { If (!\RMCF.DWOU) { Break }}
+            // either RMCF.DWOU not provided, or is non-zero, patch is enabled
+            If (0x6d == Arg0) { Return (Package() { 0x6d, 0, }) }
+            If (0x0d == Arg0) { Return (Package() { 0x0d, 0, }) }
+            Break
+        }
+        Return (XPRW(Arg0, Arg1))
+    }
+#ifndef NO_DEFINITIONBLOCK
+}
+#endif
+//EOF

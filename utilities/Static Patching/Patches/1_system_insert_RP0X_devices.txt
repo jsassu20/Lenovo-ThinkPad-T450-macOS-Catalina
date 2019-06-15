@@ -1,0 +1,92 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch adds the SDXC, ARPT, and DTGP devices in to the DSDT configuration file and adds some _DSM information for each...
+#
+# Creates the following devices 
+#
+# SB.PCI0.RP01.SDXC
+# SB.PCI0.RP02.ARPT 
+#
+# Insert device SDXC into RP01 (_ADR 0x001C0000)
+into device name_adr Zero parent_adr 0x001C0000 remove_entry;
+into device name_adr 0x001C0000 insert begin
+Device (SDXC)\n
+{\n
+	Name (_ADR, Zero)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+		Store (Package () {\n
+			"AAPL,slot-name", Buffer() {"Internal"},\n
+			"name", Buffer() {"Apple SDHC Memory Card Reader"},\n
+			"model", Buffer() {"Realtek RTS5227 PCI Express Card Reader"},\n
+			"device_type", Buffer() {"Card Reader"},\n
+			"device-id", Buffer() {0x27, 0x52, 0x00, 0x00},\n
+			"vendor-id", Buffer() {0xEC, 0x10, 0x00, 0x00},\n
+			"compatible", Buffer() {"pci10ec,5227"},\n
+			"built-in", Buffer() {0x01}\n
+		}, Local0)\n
+		DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+		Return (Local0)\n
+	}\n
+}
+end;
+#
+# Insert device ARPT into RP02 (_ADR 0x001C0001)
+into device name_adr Zero parent_adr 0x001C0001 remove_entry;
+into device name_adr 0x001C0001 insert begin
+Device (ARPT)\n
+{\n
+	Name (_ADR, Zero)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+		Store (Package () {\n
+			"AAPL,slot-name", Buffer() {"NGFF Slot-1"},\n
+			"name", Buffer() {"Apple AirPort Extreme Wireless Network Adapter"},\n
+			"model", Buffer() {"Broadcom BCM94360CSAX 802.11 a/b/g/n/ac Wireless Network Adapter"},\n
+			"device_type", Buffer() {"AirPort Extreme"},\n
+			"device-id", Buffer() {0xA0, 0x43, 0x00, 0x00},\n
+			"vendor-id", Buffer() {0xE4, 0x14, 0x00, 0x00},\n
+			"compatible", Buffer() {"pci14e4,43a0"},\n
+			"built-in", Buffer() {0x01}\n
+		}, Local0)\n
+		DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+		Return (Local0)\n
+	}\n
+}
+end;
+#
+# Insert DTGP device into DSDT
+into method label DTGP remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (DTGP, 5, NotSerialized)\n
+{\n
+    If (LEqual (Arg0, Buffer (0x10)\n
+            {\n
+                /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, \n
+                /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
+            }))\n
+    {\n
+        If (LEqual (Arg1, One))\n
+        {\n
+            If (LEqual (Arg2, Zero))\n
+            {\n
+                Store (Buffer (One)\n
+                    {\n
+                        0x03\n
+                    }, Arg4)\n
+                Return (One)\n
+            }\n
+            If (LEqual (Arg2, One))\n
+            {\n
+                Return (One)\n
+            }\n
+        }\n
+    }\n
+    Store (Buffer (One)\n
+        {\n
+            0x00\n
+        }, Arg4)\n
+    Return (Zero)\n
+}
+end;

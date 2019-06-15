@@ -1,0 +1,72 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the ethernet controller and adds proper settings for it in the DSDT configuration file...
+#
+# SB.PCI0.IGBE | will be renamed to | SB.PCI0.LAN0.GIGE 
+#
+# Change IGBE to LAN0
+#
+into device label IGBE set_label begin LAN0 end;
+#
+# Insert device GIGE into LAN0 (_ADR 0x00190000)
+#
+into device name_adr Zero parent_adr 0x00190000 remove_entry;
+into device name_adr 0x00190000 insert begin
+Device (GIGE)\n
+{\n
+	Name (_ADR, Zero)\n
+	Method (_DSM, 4, NotSerialized)\n
+	{\n
+		Store (Package () {\n
+			"AAPL,slot-name", Buffer() {"Built In"},\n
+			"name", Buffer() {"Intel I218-LM Ethernet Controller"},\n
+			"model", Buffer() {"Intel Gigabit Local Area Network Ethernet Connection (3) I218-LM"},\n
+			"device_type", Buffer() {"Ethernet Card"},\n
+			"device-id", Buffer() {0xA2, 0x15, 0x00, 0x00},\n
+			"vendor-id", Buffer() {0x86, 0x80, 0x00, 0x00},\n
+			"compatible", Buffer() {"pci8086,15a2"},\n
+			"built-in", Buffer() {0x01},\n
+			"location", Buffer() {"1"}\n
+		}, Local0)\n
+		DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+		Return (Local0)\n
+	}\n
+}
+end;
+#
+# Insert DTGP (Specific to Apple authentic hardware, helps legitimize code present in DSDT)
+#
+into method label DTGP remove_entry;
+into definitionblock code_regex . insert
+begin
+Method (DTGP, 5, NotSerialized)\n
+{\n
+    If (LEqual (Arg0, Buffer (0x10)\n
+            {\n
+                /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, \n
+                /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B\n
+            }))\n
+    {\n
+        If (LEqual (Arg1, One))\n
+        {\n
+            If (LEqual (Arg2, Zero))\n
+            {\n
+                Store (Buffer (One)\n
+                    {\n
+                        0x03\n
+                    }, Arg4)\n
+                Return (One)\n
+            }\n
+            If (LEqual (Arg2, One))\n
+            {\n
+                Return (One)\n
+            }\n
+        }\n
+    }\n
+    Store (Buffer (One)\n
+        {\n
+            0x00\n
+        }, Arg4)\n
+    Return (Zero)\n
+}
+end;

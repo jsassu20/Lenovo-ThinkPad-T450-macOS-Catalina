@@ -1,0 +1,12 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the Keyboard and Mouse devices in the DSDT configuration file...
+#
+# SB.PCI0.LPC(B).KBD | will be renamed to | SB.PCI0.LPC(B).PS2K
+# SB.PCI0.LPC(B).MOU | will be renamed to | SB.PCI0.LPC(B).PS2M 
+#
+# LPC(B) refers to the possible name of your LPC device, it may be LPC or LPCB
+#
+into device label KBD set_label begin PS2K end;
+into device label MOU set_label begin PS2M end;
+into_all all code_regex MOU replaceall_matched begin PS2M end;

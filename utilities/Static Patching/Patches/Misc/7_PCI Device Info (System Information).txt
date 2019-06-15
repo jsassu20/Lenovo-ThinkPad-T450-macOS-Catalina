@@ -1,0 +1,261 @@
+#        | Insert DSM Methods (Fill out information in the System Info app for PCI Devices)
+#
+#
+#      | Rename _DSM Methods to XDSM (Prevents conflicts with PCIe Info Injections)
+#
+#
+into_all method label _DSM set_label begin XDSM end;
+into_all method code_regex _DSM replaceall_matched begin XDSM end;
+#
+#
+# DONE
+into method label _DSM parent_label IGPU remove_entry;
+into device label IGPU insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0x16, 0x16, 0x00, 0x00 },\n
+        "vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "model", Buffer() { "Apple HD Graphics, (Intel HD 5500)" },\n
+        "name", Buffer() { "Apple High Definition Graphics Controller" },\n
+        "device_type", Buffer() { "Graphics Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label GIGE remove_entry;
+into device label GIGE insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0xA2, 0x15, 0x00, 0x00 },\n
+        "vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "model", Buffer() { "Apple Computers, Gigabit Ethernet Controller, (Intel Broadwell I218-LM Gigabit Ethernet Controller)" },\n
+        "name", Buffer() { "Apple Computers, Gigabit Ethernet Controller" },\n
+        "device_type", Buffer() { "Ethernet Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label IGFX remove_entry;
+into device label IGFX insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0x0C, 0x16, 0x00, 0x00 },\n
+        "vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "model", Buffer() { "Apple Computers, HDMI Controller, (Intel Broadwell-U HD Audio Controller)" },\n
+        "name", Buffer() { "Apple Computers, HDMI Controller" },\n
+        "device_type", Buffer() { "HDMI Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label HDAU remove_entry;
+into device label HDAU insert
+begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0xA0, 0x16, 0x00, 0x00 },\n
+        "vendor-id", Buffer() { 0x86, 0x80, 0x00, 0x00 },\n
+        "model", Buffer() { "Apple Computers, ALC High Definition Audio Controller, (Intel Broadwell HD Audio, Realtek ALC292)" },\n
+        "name", Buffer() { "Apple Computers, HD Audio Controller" },\n
+        "device_type", Buffer() { "Audio Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label SMBU remove_entry;
+into device label SMBU insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers SMBUS Controller" },\n
+	"model", Buffer() { "Apple Computers, SMBUS Controller, (Intel Broadwell Wildcat Point-LP SMBUS Controller)" },\n
+	"device_type", Buffer() { "SMBUS Controller" },\n
+	"device-id", Buffer() { 0xA2,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label SBUS remove_entry;
+into device label SBUS insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers SMBUS Controller" },\n
+	"model", Buffer() { "Apple Computers, SMBUS Controller, (Intel Broadwell Wildcat Point-LP SMBUS Controller)" },\n
+	"device_type", Buffer() { "SMBUS Controller" },\n
+	"device-id", Buffer() { 0xA2,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label XHCI remove_entry;
+into device label XHCI insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers xHCI Controller" },\n
+	"model", Buffer() { "Apple Computers, xHCI Controller, (Intel Broadwell Wildcat Point-LP xHCI Controller)" },\n
+	"device_type", Buffer() { "xHCI Controller" },\n
+	"device-id", Buffer() { 0xB1,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label EH01 remove_entry;
+into device label EH01 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers EHCI Controller" },\n
+	"model", Buffer() { "Apple Computers, EHCI Controller, (Intel Broadwell Wildcat Point-LP EHCI Controller)" },\n
+	"device_type", Buffer() { "EHCI Controller" },\n
+	"device-id", Buffer() { 0xA6,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label IMEI remove_entry;
+into device label IMEI insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers IMEI Controller" },\n
+	"model", Buffer() { "Apple Computers, IMEI Controller, (Intel Broadwell Wildcat Point-LP IMEI Controller)" },\n
+	"device_type", Buffer() { "IMEI Controller" },\n
+	"device-id", Buffer() { 0xBA,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label MCHC remove_entry;
+into device label MCHC insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers Thermal Controller" },\n
+	"model", Buffer() { "Apple Computers, Thermal Controller, (Intel Broadwell Wildcat Point-LP MCHC Controller)" },\n
+	"device_type", Buffer() { "Thermal Controller" },\n
+	"device-id", Buffer() { 0xA4,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label LPCB remove_entry;
+into device label LPCB insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers LPC Bus Controller" },\n
+	"model", Buffer() { "Apple Computers, LPC Bus Controller, (Intel Broadwell Wildcat Point-LP LPC Controller)" },\n
+	"device_type", Buffer() { "LPC Controller" },\n
+	"device-id", Buffer() { 0xC3,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label SATA remove_entry;
+into device label SATA insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built In" },\n
+        "name", Buffer() { "Apple Computers AHCI Controller" },\n
+	"model", Buffer() { "Apple Computers, SATA Controller, (Intel Broadwell Wildcat Point-LP AHCI Controller)" },\n
+	"device_type", Buffer() { "AHCI Controller" },\n
+	"device-id", Buffer() { 0x83,0x9C,0x86,0x80 },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label _DSM parent_label SATB remove_entry;
+into device label SATB insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+	"AAPL,slot-name", "Built In",\n
+	"name", Buffer() { "Apple Macbook Pro M.2 Solid State Drive" },\n
+	"model", Buffer() { "Apple Macbook Pro M.2 Solid State Drive, (Intel Broadwell Wildcat Point-LP M.2 Controller)" },\n
+	"device_type", Buffer() { "M.2 Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+    })\n
+}\n
+end;
+
+into method label XDSM parent_label HDEF remove_entry;
+into device label HDEF insert
+begin
+Method (ZDSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Built in" },\n
+        "device-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
+        "layout-id", Buffer() { 7, 0x00, 0x00, 0x00 },\n
+        "codec-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
+        "model", Buffer() { "Apple Macbook Pro ALC High Definition Audio Controller, (Realtek ALC292)" },\n
+        "name", Buffer() { "Apple Macbook Pro ALC High Definition Audio, (Realtek ALC292)" },\n
+        "device_type", Buffer() { "Audio Controller" },\n
+        "built-in", Buffer() { 0x00 },\n
+        "PinConfigurations", Buffer() { },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        //"MaximumBootBeepVolume", 77,\n
+    })\n
+}\n
+end;

@@ -1,0 +1,14 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the Low Input Power Controller Bus in the DSDT configuration file...
+#
+# SB.PCI0.LPC | will be renamed to | SB.PCI0.LPCB 
+#
+into_all scope label _SB.PCI0.LPC.EC.HKEY set_label begin _SB.PCI0.LPCB.EC.HKEY end;
+into_all scope label _SB.PCI0.LPC.EC set_label begin _SB.PCI0.LPCB.EC end;
+into device label LPC set_label begin LPCB end;
+into_all all code_regex LPC\. replaceall_matched begin LPCB. end;
+into_all all code_regex LPC_\. replaceall_matched begin LPCB. end;
+into_all scope label _SB.PCI0.LPC.EC set_label begin _SB.PCI0.LPCB.EC end;
+into_all scope label \_SB.PCI0.LPC.EC.HKEY set_label begin \_SB.PCI0.LPCB.EC.HKEY end;
+into_all scope label \_SB.PCI0.LPC.EC set_label begin \_SB.PCI0.LPCB.EC end;

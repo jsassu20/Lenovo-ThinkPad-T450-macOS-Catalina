@@ -1,0 +1,14 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the PCI Express Expansion Controllers in the DSDT configuration file...
+#
+# SB.PCI0.EXP1 | will be renamed to | SB.PCI0.RP01
+# SB.PCI0.EXP2 | will be renamed to | SB.PCI0.RP02 
+# SB.PCI0.EXP3 | will be renamed to | SB.PCI0.RP03  
+#
+into device label EXP1 set_label begin RP01 end;
+into device label EXP2 set_label begin RP02 end;
+into device label EXP3 set_label begin RP03 end;
+into_all all code_regex EXP1 replaceall_matched begin RP01 end;
+into_all all code_regex EXP2 replaceall_matched begin RP02 end;
+into_all all code_regex EXP3 replaceall_matched begin RP03 end;

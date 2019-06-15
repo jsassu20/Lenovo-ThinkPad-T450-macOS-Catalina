@@ -1,0 +1,10 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the SATA devices in the DSDT configuration file...
+#
+# SB.PCI0.SAT1 | will be renamed to | SB.PCI0.SATA
+# SB.PCI0.SAT2 | will be renamed to | SB.PCI0.SATB 
+#
+into device label SAT1 set_label begin SATA end;
+into device label SAT2 set_label begin SATB end;
+into_all all code_regex SAT1 replaceall_matched begin SATA end;

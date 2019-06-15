@@ -1,0 +1,51 @@
+# Lenovo T450 USB PWR Fix (Intel Series 9 Chipset)
+# Make Sure:
+#                   Device EHC1 is renamed EH01
+#                   Device XHCI is renamed XHC
+
+#Fix EH01
+into method label _DSM parent_label EH01 remove_entry;
+into device label EH01 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+	Store (Package (0x15) {\n
+		"AAPL,slot-name", "Built In",\n
+		"name", "Intel EHCI USB Controller",\n
+		"model", Buffer(0x3E) {"Intel 9 Series Chipset Family USB Enhanced Host Controller"},\n
+		"device_type", Buffer (0x0E) {"USB Controller"},\n
+		"AAPL,current-available", 0x0834,\n
+		"AAPL,current-extra", 0x0A8C,\n    
+		"AAPL,current-in-sleep", 0x03E8,\n
+		"AAPL,current-extra-in-sleep", 0x0834,\n
+		"AAPL,max-port-current-in-sleep", 0x0A8C,\n
+		"AAPL,device-internal", 0x02,\n
+		Buffer (One) {0x00}\n
+	}, Local0)\n
+	DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+	Return (Local0)\n
+
+end;
+
+#Fix XHC
+into method label _DSM parent_label XHC remove_entry;
+into device label XHC insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+	Store (Package (0x15) {\n
+		"AAPL,slot-name", "Built In",\n
+		"name", "Intel XHCI USB Controller",\n
+		"model", Buffer (0x37) {"Intel 9 Series Chipset Family USB xHCI Host Controller"},\n
+		"device_type", Buffer (0x0E) {"USB Controller"},\n
+		"AAPL,current-available", 0x0834,\n
+		"AAPL,current-extra", 0x0A8C,\n
+		"AAPL,current-in-sleep", 0x03E8,\n
+		"AAPL,current-extra-in-sleep", 0x0834,\n
+		"AAPL,max-port-current-in-sleep", 0x0A8C,\n
+		"AAPL,device-internal", 0x02,\n
+		Buffer (One) {0x00}\n
+	}, Local0)\n
+	DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))\n
+	Return (Local0)\n
+}
+end;
+

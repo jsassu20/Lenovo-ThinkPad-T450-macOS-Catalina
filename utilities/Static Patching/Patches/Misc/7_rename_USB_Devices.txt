@@ -1,0 +1,12 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the USB 3.1 (XHCI) and USB 2.0 (EHC1) Controllers in the DSDT configuration file...
+#
+# SB.PCI0.EHC1 | will be renamed to | SB.PCI0.EH01 
+# SB.PCI0.XHCI | will be renamed to | SB.PCI0.XHC
+#
+into device label EHC1 set_label begin EH01 end;
+into_all all code_regex EHC1 replaceall_matched begin EH01 end;
+#
+into device label XHCI set_label begin XHC end;
+into_all all code_regex XHCI replaceall_matched begin XHC end;

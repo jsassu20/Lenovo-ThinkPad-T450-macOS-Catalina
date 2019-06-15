@@ -1,24 +1,30 @@
-#Maintained by: shmilee for: T450 ALC3232
-#audio_HDEF-layout1.txt
-
-# Note: Change your layout-id if you need something different
-
-# Inject Audio info
-into method label _DSM parent_label HDEF remove_entry;
-into device label HDEF insert
-begin
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch adds the proper settings for the system audio devices in the DSDT configuration file...
+#
+# SB.PCI0.B0D3 | will be renamed to | SB.PCI0.HDAU
+#
+# Rename B0D3 to HDAU (HDMI Device)
+#
+into device label B0D3 set_label begin HDAU end;
+#
+# Configure HDEF settings (layout-id is 28)
+#
+into device name_adr Zero parent_adr 0x001B0000 remove_entry;
+into device name_adr 0x001B0000 insert begin
 Method (_DSM, 4, NotSerialized)\n
 {\n
     If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
     Return (Package()\n
     {\n
-        "AAPL,slot-name", Buffer() { "Built in" },\n
-        "device-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
-        "layout-id", Buffer() { 1, 0x00, 0x00, 0x00 },\n
+        "AAPL,slot-name", Buffer() { "Slot-1" },\n
+        "layout-id", Buffer() { 28, 0x00, 0x00, 0x00 },\n
         "codec-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
-        "model", Buffer() { "Realtek ALC3232 HD Audio" },\n
-        "name", Buffer() { "Realtek ALC3232" },\n
-        "device_type", Buffer() { "Audio Controller" },\n
+        "model", Buffer() { "Realtek ALC3232 HD Audio (Intel Broadwell-U Wildcat Point-LP HD Audio Controller)" },\n
+        "name", Buffer() { "Realtek ALC3232 HD Audio" },\n
+        "device_type", Buffer() { "Audio Device" },\n
+		"device-id", Buffer() {0x92, 0x02, 0x00, 0x00},\n
+		"vendor-id", Buffer() {0xEC, 0x10, 0x00, 0x00},\n
         "built-in", Buffer() { 0x00 },\n
         "PinConfigurations", Buffer() { },\n
         "hda-gfx", Buffer() { "onboard-1" },\n
@@ -26,4 +32,76 @@ Method (_DSM, 4, NotSerialized)\n
     })\n
 }\n
 end;
-
+#
+# Configure HDAU settings (layout-id is 28)
+#
+into device name_adr Zero parent_adr 0x00030000 remove_entry;
+into device name_adr 0x00030000 insert begin
+Method (_DSM, 4, NotSerialized)\n
+{\n
+    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+    Return (Package()\n
+    {\n
+        "AAPL,slot-name", Buffer() { "Slot-2" },\n
+        "layout-id", Buffer() { 28, 0x00, 0x00, 0x00 },\n
+        "model", Buffer() { "Intel Broadwell-U HDMI Audio Controller" },\n
+        "name", Buffer() { "HDMI Output Controller" },\n
+        "device_type", Buffer() { "Audio Device" },\n
+		"device-id", Buffer() {0x0C, 0x16, 0x00, 0x00},\n
+		"vendor-id", Buffer() {0x86, 0x80, 0x00, 0x00},\n
+        "built-in", Buffer() { 0x00 },\n
+        "PinConfigurations", Buffer() { },\n
+        "hda-gfx", Buffer() { "onboard-1" },\n
+        //"MaximumBootBeepVolume", 77,\n
+    })\n
+}\n
+end;
+#
+# Configure HDEF settings (layout-id is 2)
+#
+#into device name_adr Zero parent_adr 0x001B0000 remove_entry;
+#into device name_adr 0x001B0000 insert begin
+#Method (_DSM, 4, NotSerialized)\n
+#{\n
+#    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+#    Return (Package()\n
+#    {\n
+#        "AAPL,slot-name", Buffer() { "Slot-1" },\n
+#        "layout-id", Buffer() { 2, 0x00, 0x00, 0x00 },\n
+#        "codec-id", Buffer() { 0x92, 0x02, 0xEC, 0x10 },\n
+#        "model", Buffer() { "Realtek ALC3232 HD Audio (Intel Broadwell-U Wildcat Point-LP HD Audio Controller)" },\n
+#        "name", Buffer() { "Realtek ALC3232 HD Audio" },\n
+#        "device_type", Buffer() { "Audio Device" },\n
+#		 "device-id", Buffer() {0x92, 0x02, 0x00, 0x00},\n
+#		 "vendor-id", Buffer() {0xEC, 0x10, 0x00, 0x00},\n
+#        "built-in", Buffer() { 0x00 },\n
+#        "PinConfigurations", Buffer() { },\n
+#        "hda-gfx", Buffer() { "onboard-1" },\n
+#        //"MaximumBootBeepVolume", 77,\n
+#    })\n
+#}\n
+#end;
+#
+# Configure HDAU settings (layout-id is 2)
+#
+#into device name_adr Zero parent_adr 0x00030000 remove_entry;
+#into device name_adr 0x00030000 insert begin
+#Method (_DSM, 4, NotSerialized)\n
+#{\n
+#    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }\n
+#    Return (Package()\n
+#    {\n
+#        "AAPL,slot-name", Buffer() { "Slot-2" },\n
+#        "layout-id", Buffer() { 2, 0x00, 0x00, 0x00 },\n
+#        "model", Buffer() { "Intel Broadwell-U HDMI Audio Controller" },\n
+#        "name", Buffer() { "HDMI Output Controller" },\n
+#        "device_type", Buffer() { "Audio Device" },\n
+#		 "device-id", Buffer() {0x0C, 0x16, 0x00, 0x00},\n
+#		 "vendor-id", Buffer() {0x86, 0x80, 0x00, 0x00},\n
+#        "built-in", Buffer() { 0x00 },\n
+#        "PinConfigurations", Buffer() { },\n
+#        "hda-gfx", Buffer() { "onboard-1" },\n
+#        //"MaximumBootBeepVolume", 77,\n
+#    })\n
+#}\n
+#end;

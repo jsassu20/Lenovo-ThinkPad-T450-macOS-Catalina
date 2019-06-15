@@ -1,0 +1,11 @@
+# Lenovo ThinkPad T450 macOS Mojave (Hackintosh Build By James Sassu)
+#
+# This patch renames the external graphics controller in the DSDT configuration file...
+#
+# SB.PCI0.PEG | will be renamed to | SB.PCI0.PEGP 
+#
+into device label PEG set_label begin PEGP end;
+into_all all code_regex \.PEG\. replaceall_matched begin .PEGP. end;
+into_all all code_regex PEG\. replaceall_matched begin PEGP. end;
+into_all scope label \_SB.PCI0.PEG.VID set_label begin \_SB.PCI0.PEGP.VID end;
+into_all scope label \_SB.PCI0.PEG.IGPU set_label begin \_SB.PCI0.PEGP.IGPU end;

@@ -1,0 +1,20 @@
+#     | Rename PCI0.VID to PCI0.IGPU(Cosmetic, Proper macOS Graphics Controller Label, and Enabled graphics power management)
+#
+#
+into device label VID parent_label PCI0 set_label begin IGPU end;
+into_all all code_regex PCI0\.VID_ replaceall_matched begin PCI0.IGPU end;
+into_all all code_regex PCI0\.VID replaceall_matched begin PCI0.IGPU end;
+into_all scope label \_SB.PCI0.VID.LCD0 set_label begin \_SB.PCI0.IGPU.LCD0 end;
+into_all scope label \_SB.PCI0.VID set_label begin \_SB.PCI0.IGPU end;
+#
+# DONE
+#
+#
+#     | Rename PCIO.PEG.VID to PCI0.PEG.IGFX (Consmetic, Give externeal display device its own proper identity)
+
+into device label VID parent_label PEG set_label begin IGFX end;
+into_all all code_regex PEG\.VID replaceall_matched begin PEG.IGFX end;
+into_all scope label \_SB.PCI0.PEG.VID set_label begin \_SB.PCI0.PEG.IGFX end;
+into_all all code_regex VID\. replaceall_matched begin IGFX. end;
+into_all all code_regex \(VID replaceall_matched begin (IGFX end;
+into_all all label VID parent_label PEG set_label begin IGFX end;
