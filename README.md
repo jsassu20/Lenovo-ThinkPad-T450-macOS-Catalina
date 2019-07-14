@@ -16,7 +16,7 @@
 
 ### PayPal
 
-- If you like my work then please feel free to donate. Every little bit helps! Sassuajames@gmail.com | Paypal.me/Sass86oh
+- If you like my work then please feel free to donate. Every little bit helps! jsa55u@icloud.com | Paypal.me/Sass86oh
 
 #
 
