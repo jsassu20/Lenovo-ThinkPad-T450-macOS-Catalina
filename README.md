@@ -22,7 +22,7 @@
 
 ### iMessage (Contact me whenever for help)
 
-- Jsass20@gmail.com (or Jsassu20@me.com)
+- Jsassu20@gmail.com (or Jsassu20@me.com)
 
 #
 
