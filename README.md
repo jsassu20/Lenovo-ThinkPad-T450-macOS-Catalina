@@ -1,3 +1,5 @@
+I will no longer be updating these repos. They are currently fully functional in the state I have made available. I went back to an actual Macbook. I had a great time learning all about this stuff and I'll keep this repo live for anyone to do with it as they wish! I hope it helps anyone who is interested in installing macOS on their ThinkPads!
+
 ![Screenshot](misc/logo/screenshot.png)
 
 # macOS Mojave (Lenovo ThinkPad T450)
