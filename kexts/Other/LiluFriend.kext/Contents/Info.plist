@@ -66,9 +66,9 @@
 	<dict>
 		<key>as.lvs1974.AirportBrcmFixup</key>
 		<string>1.0</string>
-		<key>as.lvs1974.HibernationFixup</key>
+		<key>as.lvs1974.BT4LEContinuityFixup</key>
 		<string>1.0</string>
-		<key>as.lvs1974.RTCMemoryFixup</key>
+		<key>as.lvs1974.HibernationFixup</key>
 		<string>1.0</string>
 		<key>as.vit9696.AppleALC</key>
 		<string>1.0</string>
@@ -92,8 +92,6 @@
 		<string>12.0.0</string>
 		<key>org.vanilla.driver.CPUFriend</key>
 		<string>1.0</string>
-		<key>org.vulgo.NoVPAJpeg</key>
-		<string>1.0.0</string>
 		<key>ru.joedm.SMCSuperIO</key>
 		<string>1.0</string>
 		<key>ru.usrsse2.SMCBatteryManager</key>
