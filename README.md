@@ -5,6 +5,7 @@
 ```  
 - Intel 5th Generation Architecture (Broadwell)
 - Intel HD Graphics 5500
+- Realtek ALC3232/ALC292 Audio Codec
 - Intel Series 9 Chipset Family
 - macOS Catalina Catalina.x
 - Hot Patched Clover Configuration
