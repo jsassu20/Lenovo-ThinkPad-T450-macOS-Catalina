@@ -1,10 +1,12 @@
-![Screenshot](misc/logo/screenshot.png)
-
-# macOS Catalina (Lenovo ThinkPad T450)
-
 # OpenCore build is live! Try it out and report back!
 
 - https://github.com/jsassu20/Lenovo-T450-Catalina-OpenCore
+
+#
+
+![Screenshot](misc/logo/screenshot.png)
+
+# macOS Catalina (Lenovo ThinkPad T450)
 
 ```  
 - Intel 5th Generation Architecture (Broadwell)
