@@ -4,7 +4,7 @@
 
 #
 
-![Screenshot](misc/logo/screenshot.png)
+![Screenshot](EFI/CLOVER/misc/logo/screenshot.png)
 
 # macOS Catalina (Lenovo ThinkPad T450)
 
@@ -14,7 +14,7 @@
 - Realtek ALC3232/ALC292 Audio Codec
 - Intel Series 9 Chipset Family
 - macOS Catalina Catalina.x
-- Hot Patched Clover Configuration
+- OpenCore Configuration
 - AirPort Extreme (Broadcom BCM94360CSAX & NGFF A/E Adapter) * Recommended Upgrade
 - All native macOS Catalina features work as long as you upgrade the WiFi card to a supported configuration
 ```
