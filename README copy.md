@@ -1,51 +1,51 @@
-# OpenCore build is live! Try it out and report back!
+# OpenCore Build Is live! Try It Out...
 
-- https://github.com/jsassu20/Lenovo-T450-Catalina-OpenCore
+* OpenCore is an entirely new method for installing macOS on PC hardware! It replaces Clover as the EFI emulation method which can perform a number of needed functions that are required for running macOS on hardware that is not made by Apple. It has been designed to offer the closest possible emulation of true Apple hardware and allows for a number of features which make it a much better option for the future such as...
 
-#
+ * Increased system performance
+ * Better kext injection which doesn't break system integrity protection
+ * Mac based function keys on boot up for real Apple Recovery and Diagnostic Mode capability
+ * Use of NVRAM functions which exist in Apple devices
+
+ * https://github.com/jsassu20/Lenovo-T450-Catalina-OpenCore
+* 
+
 
 ![Screenshot](EFI/CLOVER/misc/logo/screenshot.png)
 
-# macOS Catalina (Lenovo ThinkPad T450)
+# macOS Catalina Clover Based Hackintosh Configuration
+  
+	* Intel 5th Generation Architecture (Broadwell)
+	* Intel HD Graphics 5500
+	* Realtek ALC3232/ALC292 Audio Codec
+	* Intel Series 9 Chipset Family
+	* Hot Patched Configuration
+	* AirPort Extreme (Broadcom BCM94360CSAX & NGFF A/E Adapter) * **Recommended Upgrade**
 
-```  
-- Intel 5th Generation Architecture (Broadwell)
-- Intel HD Graphics 5500
-- Realtek ALC3232/ALC292 Audio Codec
-- Intel Series 9 Chipset Family
-- macOS Catalina Catalina.x
-- OpenCore Configuration
-- AirPort Extreme (Broadcom BCM94360CSAX & NGFF A/E Adapter) * Recommended Upgrade
-- All native macOS Catalina features work as long as you upgrade the WiFi card to a supported configuration
-```
 
-#
+### Contact Information
 
-### PayPal
-
-- If you like my work then please feel free to donate. Every little bit helps! jsa55u@icloud.com | Paypal.me/Sass86oh
+* If you like my work then please feel free to donate. Every little bit helps! jsa55u@icloud.com | Paypal.me/Sass86oh
 
 #
 
 ### iMessage (Contact me whenever for help)
 
-- Jsass20@gmail.com (or Jsassu20@me.com)
+* Jsass20@gmail.com (or Jsassu20@me.com)
 
 #
 
 ## Credits
 
-RehabMan:
+	
+* **JcSnider**
 
-- For a number of different parts of this configuration which have made this build possible including his USBInjectAll.kext configuration, SSDT-DEH01 for disabling the EH01 device and allowing all USB traffic on the XHC device, VoodooPS2Controller.kext which provides a perfect configuration for TouchPad functionality along with SSDT-VPS2 which is based on his SSDT-PS2K Hot Patched file, SSDT-UIAC for providing a template to configure proper USB injection, and a number of other SSDT Hot Patches present in the dsl folder which can be used to configure a number of different situations. RehabMan is an absolute genius when it comes to Hackintosh configurations in the community and I owe the knowledge I've managed to gain over the last year to his tireless efforts and guides in the community.
+ For providing me with an excellent build in the for of his Lenovo ThinkPad X1 Carbon Generation 3 Build which has been the basis of this Hot Patched configuration. A number of the Hot Patched files present in this build come directly from his X1 Carbon configuration and it has been the main reason why I've been able to adapt a build for us T450 users so please thank him for his outstanding work!
 
-JcSnider:
 
-- For providing me with an excellent build in the for of his Lenovo ThinkPad X1 Carbon Generation 3 Build which has been the basis of this Hot Patched configuration. A number of the Hot Patched files present in this build come directly from his X1 Carbon configuration and it has been the main reason why I've been able to adapt a build for us T450 users so please thank him for his outstanding work!
+* **AcidAnthera**
 
-AcidAnthera:
-
-- For Lilu.kext and all of the included Lilu Plugins which have made countless configurations possible among a plethora of Hackintosh machines! AcidAnther is a genius coder and developer and without his hard work and effort we would not be able to create the sheer number of hackintosh configurations with universal kexts like we have the ability to do now thanks to his/her development.
+ For Lilu.kext and all of the included Lilu Plugins which have made countless configurations possible among a plethora of Hackintosh machines! AcidAnther is a genius coder and developer and without his hard work and effort we would not be able to create the sheer number of hackintosh configurations with universal kexts like we have the ability to do now thanks to his/her development.
 
 Snikii:
 
