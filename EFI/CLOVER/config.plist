@@ -573,6 +573,12 @@
 			<key>SuspendOverride</key>
 			<true/>
 		</dict>
+		<key>DisabledAML</key>
+		<array>
+			<string>SSDT.aml</string>
+			<string>SSDT-XCPM.aml</string>
+			<string>SSDT-PluginType1.aml</string>
+		</array>
 		<key>DropTables</key>
 		<array>
 			<dict>
@@ -1253,6 +1259,8 @@
 		<dict>
 			<key>Channels</key>
 			<integer>0</integer>
+			<key>SlotCount</key>
+			<integer>2</integer>
 		</dict>
 		<key>Mobile</key>
 		<true/>
@@ -1268,7 +1276,7 @@
 		<key>InjectKexts</key>
 		<string>Detect</string>
 		<key>InjectSystemID</key>
-		<false/>
+		<true/>
 	</dict>
 </dict>
 </plist>
