@@ -751,7 +751,7 @@
 				<key>device_type</key>
 				<string>Audio Device</string>
 				<key>layout-id</key>
-				<integer>55</integer>
+				<integer>32</integer>
 				<key>model</key>
 				<string>Realtek High Definition Audio Controller (Intel Broadwell-U Wildcat Point-LP Audio)</string>
 				<key>name</key>
@@ -945,7 +945,7 @@
 				<key>device_type</key>
 				<string>Audio Device</string>
 				<key>layout-id</key>
-				<integer>28</integer>
+				<integer>32</integer>
 				<key>model</key>
 				<string>Intel Broadwell-U HDMI Audio Controller</string>
 				<key>name</key>
