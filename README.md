@@ -214,7 +214,7 @@ I've included a folder that contains the files necessary for implementing my pre
 
 ## Miscellaneous Information:
 
-- Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video men as hit as you can, disable fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning. Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
+- Make sure your bio settings are in order, disable CompuTrace all security chips network booting turn your video mem as hit as you can, disable fingerprint sensor because you won’t need it, to play around with a few other settings to get a successful boot if it doesn't work the beginning. Also make sure you enable CSM for UEFI booting because that's what you'll be using this is not a Legacy install.
 
 - Once you get the USB loaded for install, prepare the drive with disk utility and format it as APFS and then install to that drive. About halfway through the install the computer is going to restart it may even restart twice, that’s normal the install did not fail are you need to do is instead of selecting an install Mac OS from install Mac OS you want to select install Mac OS from “whatever you chose the name your drive when you formatted it”. If it restarts again do the same thing allow to continue.
 
