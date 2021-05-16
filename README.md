@@ -84,6 +84,8 @@ The Hackintosh Community:
   
 For full functionality, you will need to swap out the stock Intel WiFi & BT card with a natively supported AirPort Card. The wireless network card is the only hardware change needed for complete functionality (everything else functions in Mac). The original Intel WiFi & Bluetooth 4.1 Card is not supported in macOS (Bluetooth works) so if you want WiFi you have to replace the internal NGFF card with one that's supported in macOS Catalina. Get the Broadcom BCM94360NG NGFF card off of Amazon or Ebay. Its about 50 bucks and its supported OOB with no conmfiguration needed. Its also supported in windows. Has the id 14e4:43a0 which Mac supports natively along with proper bluetooth (might need to patch your USB ports if its not recognized after you install it. No adapters needed. 
 
+https://www.amazon.com/Hackintosh-M-2-NGFF-BCM94360NG-Continuity/dp/B083YXS7VF
+
     
 
 ## BIOS Configuration Settings:
